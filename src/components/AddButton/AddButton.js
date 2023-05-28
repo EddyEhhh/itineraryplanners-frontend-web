@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import styles from './AddButton.scss';
 
 const AddButton = props => (
-	<button>
-		Button
-	</button>
+	<div className="p-10">
+		<button className="w-20 h-20 rounded-full bg-neutral-200 hover:bg-slate-500 text-neutral-800">
+			+
+		</button>
+	</div>
 );
 
 // todo: Unless you need to use lifecycle methods or local state,
