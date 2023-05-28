@@ -4,7 +4,7 @@ import styles from './AddButton.scss';
 
 const AddButton = props => (
 	<div className="p-10">
-		<button className="w-20 h-20 rounded-full bg-neutral-200 hover:bg-slate-500 text-neutral-800">
+		<button className="w-10 h-10 rounded-full bg-neutral-200 text-neutral-800">
 			+
 		</button>
 	</div>

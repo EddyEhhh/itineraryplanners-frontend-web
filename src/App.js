@@ -1,5 +1,6 @@
 import './App.css'
 import React from 'react'
+import AddButton from "./components/AddButton";
 
 function App() {
   return (
@@ -38,7 +39,8 @@ function App() {
           </span>
           </div>
         </div>
+        <AddButton></AddButton>
       </div>
-  )
+)
 }
 export default App
