@@ -39,7 +39,7 @@ function App() {
           </span>
           </div>
         </div>
-          <CircleButton colour='bg-red' text = 'hello'/>
+          <CircleButton colour='bg-red-500' width ='w-20' height='h-20' text='hi' link ='' />
         </div>
 )
 }

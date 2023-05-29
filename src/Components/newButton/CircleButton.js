@@ -1,6 +1,10 @@
 export default function CircleButton(props) {
     return (
-        <button className ={props.color}> {props.text}</button>
+        //flex justify-center items-center w-10 h-10 rounded-full bg-neutral-200 text-neutral-800
+        //<div className={`existing-class ${className}`}>
+        <button className = {`flex justify-center items-center rounded-full ${props.colour} text-neutral-800  ${props.height} ${props.width}`}>
+            {props.link}
+        </button>
     );
 };
 
