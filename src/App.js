@@ -1,7 +1,7 @@
 import './App.css'
 import React from 'react'
 import AddButton from "./Components/AddButton";
-
+import CircleButton from "./Components/newButton/CircleButton";
 function App() {
   return (
       <div
@@ -39,8 +39,8 @@ function App() {
           </span>
           </div>
         </div>
-        <AddButton></AddButton>
-      </div>
+          <CircleButton colour='bg-red' text = 'hello'/>
+        </div>
 )
 }
 export default App
