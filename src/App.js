@@ -2,6 +2,7 @@ import './App.css'
 import React from 'react'
 import AddButton from "./components/add-button";
 import CircleButton from "./components/new-button/CircleButton";
+import { ReactComponent as CalendarIcon } from "./icons/calendar.svg";
 function App() {
   return (
       <div
@@ -40,6 +41,7 @@ function App() {
           </div>
         </div>
           <CircleButton colour='bg-red-500' width ='w-20' height='h-20' text='hello'/>
+          <CalendarIcon></CalendarIcon>
         </div>
 )
 }
