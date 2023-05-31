@@ -1,7 +1,7 @@
 import './App.css'
 import React from 'react'
-import AddButton from "./Components/AddButton";
-import CircleButton from "./Components/newButton/CircleButton";
+import AddButton from "./components/add-button";
+import CircleButton from "./components/new-button/CircleButton";
 function App() {
   return (
       <div
