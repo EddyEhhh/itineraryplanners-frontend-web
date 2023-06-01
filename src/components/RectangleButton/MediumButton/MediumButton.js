@@ -8,16 +8,28 @@ import template from "./MediumButton.jsx";
     </div>
 */
 function MediumButton(props) {
-  return (
-    <div className>
-        <button className=
-            "w-28 h-1 flex items-center break-keep justify-center rounded-full bg-transparent font-semibold text-red-500 text-base
-            hover:transition-all ease-in duration-300 hover:bg-red-500 hover:text-white hover:w-44 hover:h-10
-            "> 
-        {props.text} 
-        </button>
-    </div>     
-);
+    if (props.hover == "true") {
+        return (
+            <div>
+                <button className="
+                    w-28 h-1 flex items-center justify-center rounded-full bg-transparent font-semibold text-red-500 text-base
+                    hover:transition-all ease-in duration-200 hover:bg-red-500 hover:text-white hover:w-36 hover:h-8
+                ">
+                    {props.text}
+                </button>
+            </div>
+
+        );
+    }
+    return (
+        <div>
+            <button className="
+                w-36 h-8 flex items-center justify-center rounded-full bg-red-500 font-semibold text-white text-base
+            ">
+                {props.text}
+            </button>
+        </div>
+    );
 }
 
 export default MediumButton;
