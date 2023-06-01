@@ -1,8 +1,9 @@
 import './App.css'
 import React from 'react'
-import AddButton from "./components/add-button";
-import CircleButton from "./components/new-button/CircleButton";
+
 import { ReactComponent as CalendarIcon } from "./icons/calendar.svg";
+import SmallCircleButton from "./components/CircleButton/SmallCircleButton";
+import LargeButton from "./components/RectangleButton/LargeButton";
 function App() {
   return (
       <div
@@ -40,9 +41,12 @@ function App() {
           </span>
           </div>
         </div>
-          <CircleButton colour='bg-red-500' width ='w-20' height='h-20' text='hello'/>
           <CalendarIcon></CalendarIcon>
+          <SmallCircleButton></SmallCircleButton>
+          <LargeButton text = 'Large Button'></LargeButton>
         </div>
+
+
 )
 }
 export default App
