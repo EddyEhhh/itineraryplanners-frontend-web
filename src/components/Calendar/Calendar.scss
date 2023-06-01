@@ -1,0 +1,20 @@
+.pagination {
+    width: 100%;
+}
+
+.pagination .col-1 {
+    text-align: left;
+}
+
+.pagination .col-2 {
+    width: 1px;
+}
+
+.pagination .col-3 {
+    text-align: right;
+}
+
+.pagination span {
+    display: inline-block;
+    white-space: nowrap;
+}
