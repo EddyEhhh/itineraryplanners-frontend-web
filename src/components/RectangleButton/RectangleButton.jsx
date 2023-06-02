@@ -1,10 +1,10 @@
-import "./LargeButton.css";
+import "./RectangleButton.css";
 import React from "react";
 
 function template() {
   return (
-    <div className="large-button">
-      <h1>LargeButton</h1>
+    <div className="rectangle-button">
+      <h1>RectangleButton</h1>
     </div>
   );
 };

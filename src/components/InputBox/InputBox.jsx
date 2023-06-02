@@ -1,10 +1,10 @@
-import "./XLargeButton.css";
+import "./InputBox.css";
 import React from "react";
 
 function template() {
   return (
-    <div className="xlarge-button">
-      <h1>XLargeButton</h1>
+    <div className="input-box">
+      <h1>InputBox</h1>
     </div>
   );
 };
