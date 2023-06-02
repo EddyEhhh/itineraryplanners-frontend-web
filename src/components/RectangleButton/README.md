@@ -4,11 +4,11 @@
 Sizes are fixed for each button, cannot be changed
 
 ## Syntax
-### <**ButtonName** text = "insert text" hover = "true/false"\>
+#### <**ButtonName** text = "insert text" hover = "true/false"\>
 ````
-Text: Insert any text\
+Text: Insert any text
 Hover: Can be set to true or left blank depending if u want **hover animations**\
-Colour: Yet to be formatted
+Colour: Do not use any colours outside of palette.
 ````
 
 ## Div format

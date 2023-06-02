@@ -11,7 +11,7 @@ function App() {
         <Calendar></Calendar>
 
         <div className=" h-8 w-full flex justify-center items-center">
-          <SmallButton text = "Login"  hover= "true"/>
+          <SmallButton text = "Login"  hover= "true" colour = "primary-green"/>
         </div>
 
         <div className="h-10 w-full flex justify-center items-center">
