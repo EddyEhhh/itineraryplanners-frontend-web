@@ -13,9 +13,9 @@ import Calendar from './components/Calendar/Calendar';
 function App() {
   return (
     <div>
-          <Calendar></Calendar>
+        <Calendar></Calendar>
 
-    
+        <CalendarIcon></CalendarIcon>
         <div className="h-8 w-full flex justify-center items-center">
           <SmallButton text = "Login" hover = "true" />
         </div>
@@ -31,8 +31,10 @@ function App() {
         <div className="h-14 w-full flex justify-center items-center">
           <XLargeButton text = "Delete account" hover = "true" />
         </div>
-        </div>
 
+
+
+    </div>
 
 )
 }

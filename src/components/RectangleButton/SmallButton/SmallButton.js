@@ -3,7 +3,7 @@ import template from "./SmallButton.jsx";
 function SmallButton(props) {
     if (props.hover == "true") {
         return (
-            <div className>
+            <div>
                 <button className="
                     w-1 h-1 flex items-center justify-center rounded-full bg-transparent font-semibold text-red-500 text-sm
                     hover:transition-all ease-in duration-300 hover:bg-red-500 hover:text-white hover:w-32 hover:h-8
@@ -15,7 +15,7 @@ function SmallButton(props) {
     }
 
     return (
-        <div className>
+        <div>
             <button className="
                 w-24 h-8 flex items-center justify-center rounded-full bg-red-500 font-semibold text-white text-sm
             ">
