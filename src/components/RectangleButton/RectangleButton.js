@@ -1,10 +1,9 @@
 import React from "react";
-import template from "./RectangleButton.jsx";
 
 //w-32 h-8
 function SmallButton(props) {
     let colour = `${props.colour}`;
-  if (props.hover == "true") {
+  if (props.hover === "true") {
      return (
          <div className>
              <button className= {`
@@ -30,7 +29,7 @@ function SmallButton(props) {
 
 //w-40   h-8
 function MediumButton(props) {
-  if (props.hover == "true") {
+  if (props.hover === "true") {
       return (
           <div>
               <button className="
@@ -56,7 +55,7 @@ function MediumButton(props) {
 
 //w-64 h-10
 function LargeButton(props) {
-  if (props.hover == "true") {
+  if (props.hover === "true") {
     return (
         <div className>
             <button className="
@@ -81,7 +80,7 @@ return (
 
 //w-72 h-12
 function XLargeButton(props) {
-  if (props.hover == "true") {
+  if (props.hover === "true") {
     return (
         <button className="
             w-32 h-8 flex items-center justify-center rounded-full bg-transparent font-semibold text-red-500 text-lg

@@ -8,8 +8,11 @@ import InputBox from "./components/InputBox";
 function App() {
   return (
     <div>
+        <div>
         <Calendar></Calendar>
+        </div>
 
+        <div>
         <div className=" h-8 w-full flex justify-center items-center">
           <SmallButton text = "Login"  hover= "true" colour = "primary-green"/>
         </div>
@@ -30,7 +33,7 @@ function App() {
             <InputBox title = "Email Address" placeholder = "Enter password" type = "email" width = "72"
                       warning = "warning message"/>
         </div>
-
+        </div>
 
     </div>
 
