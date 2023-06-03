@@ -4,7 +4,9 @@ import HeaderWrapper from "./components/HeaderWrapper/HeaderWrapper";
 
 function App() {
   return (
-    <HeaderWrapper></HeaderWrapper>
-  )
+    <header>
+      <HeaderWrapper></HeaderWrapper>
+    </header>
+  );
 }
 export default App;

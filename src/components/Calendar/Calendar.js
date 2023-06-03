@@ -13,38 +13,40 @@ export default function Calendar() {
   return (
     <div className="w-96 h-96">
       <div>
-        <table class="pagination">
-          <tr>
-            <td class="col-1">
-              <span className="cursor-pointer">
-                <h1>
-                  <GrFormPrevious
+        <table className="pagination">
+          <tbody>
+            <tr>
+              <td className="col-1">
+                <span className="cursor-pointer">
+                  <h1>
+                    <GrFormPrevious
+                      size={25}
+                      onClick={() => {
+                        setToday(today.month([today.month() - 1]));
+                      }}
+                    />
+                  </h1>
+                </span>
+              </td>
+              <td className="col-2">
+                <span>
+                  <h1>
+                    {months[today.month()]} {today.year()}{" "}
+                  </h1>
+                </span>
+              </td>
+              <td className="col-3">
+                <span className="cursor-pointer">
+                  <GrFormNext
                     size={25}
                     onClick={() => {
-                      setToday(today.month([today.month() - 1]));
+                      setToday(today.month([today.month() + 1]));
                     }}
                   />
-                </h1>
-              </span>
-            </td>
-            <td class="col-2">
-              <span>
-                <h1>
-                  {months[today.month()]} {today.year()}{" "}
-                </h1>
-              </span>
-            </td>
-            <td class="col-3">
-              <span className="cursor-pointer">
-                <GrFormNext
-                  size={25}
-                  onClick={() => {
-                    setToday(today.month([today.month() + 1]));
-                  }}
-                />
-              </span>
-            </td>
-          </tr>
+                </span>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <div className="w-full grid grid-cols-7">
@@ -59,17 +61,17 @@ export default function Calendar() {
           );
         })}
       </div>
-      <div className="w-full grid grid-cols-7">
+      <div className="grid grid-cols-7">
         {generateDate(today.month(), today.year()).map(
           ({ date, currentMonth, today }, index) => {
             return (
               <div
                 key={index}
-                className="h-14 grid place-content-center text-sm"
+                className="h-12 grid place-content-center text-sm"
               >
                 <h1
                   style={dateColour(currentMonth, today)}
-                  className="h-10 w-10 grid place-content-center rounded-full 
+                  className="h-8 w-8 grid place-content-center rounded-full 
 				hover:bg-primary-green hover:text-white transition-all cursor-pointer"
                   onClick={() => {
                     setSelectDate(date);
