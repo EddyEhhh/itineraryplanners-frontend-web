@@ -19,6 +19,7 @@ function SmallButton(props) {
      <div className>
          <button className={`
              w-24 h-8 flex items-center justify-center rounded-full bg-red-500 font-semibold text-white text-sm
+             ${props.disabled == "true" ? 'opacity-50' : ''}
          `}>
              {props.text}
          </button>
@@ -44,9 +45,10 @@ function MediumButton(props) {
   }
   return (
       <div>
-          <button className="
+          <button className={`
               w-40 h-8 flex items-center justify-center rounded-full bg-red-500 font-semibold text-white text-base
-          ">
+               ${props.disabled == "true" ? 'opacity-50' : ''}
+               `}>
               {props.text}
           </button>
       </div>
@@ -69,9 +71,10 @@ function LargeButton(props) {
 }
 return (
     <div className>
-        <button className="
+        <button className={`
             w-64 h-10 flex items-center justify-center rounded-full bg-red-500 font-semibold text-white text-lg
-        ">
+            ${props.disabled == "true" ? 'opacity-50' : ''}
+        `}>
         {props.text}
         </button>
     </div>
@@ -91,9 +94,10 @@ function XLargeButton(props) {
     );
   }
     return (
-        <button className="
+        <button className={`
             w-72 h-12 flex items-center justify-center rounded-full bg-red-500 font-semibold text-white text-lg
-        ">
+            ${props.disabled == "true" ? 'opacity-50' : ''}
+            `}>
         {props.text}
         </button>
     );

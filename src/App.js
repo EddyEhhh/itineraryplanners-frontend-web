@@ -14,7 +14,7 @@ function App() {
 
         <div>
         <div className=" h-8 w-full flex justify-center items-center">
-          <SmallButton text = "Login"  hover= "true" colour = "primary-green"/>
+          <SmallButton text = "Login"  hover= "" colour = "primary-green" disabled = "true"/>
         </div>
 
         <div className="h-10 w-full flex justify-center items-center">
