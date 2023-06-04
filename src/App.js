@@ -10,16 +10,9 @@ import Calendar from "./components/Calendar";
 
 function App() {
   return (
-     <BrowserRouter>
-         <Routes>
-             <Route path = "/" element = {<HeaderWrapper/>}>
-                 <Route path = "/home" element = {<Homepage/>}></Route>
-                 <Route path = "/my-trips" element = {<MyTrips/>}></Route>
-                 <Route path = "/calendar" element = {<Calendar/>}></Route>
-             </Route>
-         </Routes>
-
-     </BrowserRouter>
-  );
+    <div>
+      <HeaderWrapper></HeaderWrapper>
+    </div>
+    );
 }
 export default App;
