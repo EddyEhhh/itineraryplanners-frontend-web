@@ -89,63 +89,40 @@ function Header() {
 function HighlightHome(props) {
   const location = useLocation();
   const navigate = useNavigate();
-  if (location.pathname === "/home") {
     return (
       <div>
-        <button className="underline-button" onClick={() => navigate("/home")}>
-          Home
-        </button>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <button className="no-underline-button" onClick={() => navigate("/home")}>
-          Home
-        </button>
+          <button className={` ${location.pathname === "/home" ? 'underline-button' : 'no-underline-button'} `}
+                  style={{ color: "primary-orange" }}
+                  onClick={() => navigate("/home")}
+          > Home
+          </button>
       </div>
     );
   }
-}
+
 
 function HighlightMyTrips() {
   const location = useLocation();
   const navigate = useNavigate();
-  if (location.pathname === "/my-trips") {
     return (
       <div>
-        <button
-          className="underline-button"
-          style={{ color: "primary-orange" }}
-          onClick={() => navigate("/my-trips")}
-        >
-          My Trips
-        </button>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <button
-          className="no-underline-button"
-          style={{ color: "primary-orange" }}
-          onClick={() => navigate("/my-trips")}
+        <button className={` ${location.pathname === "/my-trips" ? 'underline-button' : 'no-underline-button'} `}
+                style={{ color: "primary-orange" }}
+                onClick={() => navigate("/my-trips")}
         >
           My Trips
         </button>
       </div>
     );
   }
-}
 
 function HighlightCalendar() {
   const location = useLocation();
   const navigate = useNavigate();
-  if (location.pathname === "/calendar") {
     return (
       <div>
         <button
-          className="underline-button"
+          className={` ${location.pathname === "/calendar" ? 'underline-button' : 'no-underline-button'} `}
           style={{ color: "primary-orange" }}
           onClick={() => navigate("/calendar")}
         >
@@ -153,19 +130,6 @@ function HighlightCalendar() {
         </button>
       </div>
     );
-  } else {
-    return (
-      <div>
-        <button
-          className="no-underline-button"
-          style={{ color: "primary-orange" }}
-          onClick={() => navigate("/calendar")}
-        >
-          Calendar
-        </button>
-      </div>
-    );
-  }
 }
 
 export default Header;

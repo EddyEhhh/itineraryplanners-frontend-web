@@ -1,18 +1,29 @@
 import "./App.css";
 import React from "react";
-import HeaderWrapper from "./components/HeaderWrapper/HeaderWrapper";
-import Header from "./components/Header/Header"
-import {SmallButton} from "./components/RectangleButton/RectangleButton";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import Homepage from "./pages/home/Homepage";
 import MyTrips from "./pages/my-trips/MyTrips";
-import Calendar from "./components/Calendar";
-
+import CalendarPage from "./pages/calendar/CalendarPage";
+import Layout from "./components/Layout/Layout";
+import Intro from "./pages/Intro";
 function App() {
   return (
-    <div>
-      <HeaderWrapper></HeaderWrapper>
-    </div>
-    );
+    <BrowserRouter>
+      <Routes>
+        <Route path = "/" element = {<Intro/>}>
+        </Route>
+          <Route path = "/" element = {<Layout/>}>
+            <Route path="/home" element={<Homepage/>}></Route>
+            <Route path="/my-trips" element={<MyTrips/>}></Route>
+            <Route
+                path="/calendar"
+                element={<CalendarPage/>}
+            ></Route>
+          </Route>
+      </Routes>
+    </BrowserRouter>
+
+  );
 }
 export default App;
+// <Route path="/" element={<Navigate to="/home"></Navigate>}></Route>
