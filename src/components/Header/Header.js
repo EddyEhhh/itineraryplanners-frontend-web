@@ -4,7 +4,6 @@ import { XMarkIcon } from "@heroicons/react/20/solid";
 import { useNavigate, useLocation } from "react-router-dom";
 
 function Header() {
-  const navigate = useNavigate();
   return (
     <div className="MAIN HEADER w-full h-12 flex items-center justify-between shadow pl-10 pr-10 shadow-base font-semibold text-sm ">
       <div className="left header flex items-center justify-around h-12 w-72">

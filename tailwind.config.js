@@ -8,6 +8,7 @@ module.exports = {
         'primary-orange': '#FF9500',
         'light-gray': '#B2B2B2',
         'hover-gray': '#424242',
+        'background-gray': '#FAFAFA',
       },
     },
   },
