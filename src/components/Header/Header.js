@@ -6,20 +6,20 @@ import { useNavigate, useLocation } from "react-router-dom";
 function Header() {
   return (
     <div className="MAIN HEADER w-full h-12 flex items-center justify-between shadow pl-10 pr-10 shadow-base font-semibold text-sm ">
-      <div className="left header flex items-center justify-around h-12 w-72">
+      <div className="left header flex items-center justify-around h-12 w-72 outline">
         <button className="mr-4">
           <XMarkIcon className="w-6"></XMarkIcon>
         </button>
 
-        <div className="Home-Box h-11 flex items-center hover:text-[#424242]">
+        <div className="Home-Box h-11 flex items-center">
           <HighlightHome></HighlightHome>
         </div>
 
-        <div className="Home-Box h-11 flex items-center hover:text-[#424242]">
+        <div className="Home-Box h-11 flex items-center">
           <HighlightMyTrips></HighlightMyTrips>
         </div>
 
-        <div className="Home-Box h-11 flex items-center hover:text-[#424242]">
+        <div className="Home-Box h-11 flex items-center">
           <HighlightCalendar></HighlightCalendar>
         </div>
       </div>
@@ -90,7 +90,8 @@ function HighlightHome(props) {
   const navigate = useNavigate();
     return (
       <div>
-          <button className={` ${location.pathname === "/home" ? 'underline-button' : 'no-underline-button'} `}
+          <button className={`${location.pathname === "/home" ? 'underline-button' : 'no-underline-button'}
+            `}
                   style={{ color: "primary-orange" }}
                   onClick={() => navigate("/home")}
           > Home
@@ -121,7 +122,8 @@ function HighlightCalendar() {
     return (
       <div>
         <button
-          className={` ${location.pathname === "/calendar" ? 'underline-button' : 'no-underline-button'} `}
+          className={` ${location.pathname === "/calendar" ? 'underline-button' : 'no-underline-button'} 
+          `}
           style={{ color: "primary-orange" }}
           onClick={() => navigate("/calendar")}
         >
