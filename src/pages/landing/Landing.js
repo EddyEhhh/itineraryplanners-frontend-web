@@ -1,7 +1,6 @@
 
 import {useNavigate} from "react-router-dom";
 import PasswordReset from "../../components/PasswordReset/PasswordReset";
-import { useState } from "react";
 const Landing = () => {
     const navigate = useNavigate();
     return (
@@ -12,8 +11,5 @@ const Landing = () => {
     );
 }
 
-function openResetPasswordPopup() {
-
-}
 
 export default Landing;

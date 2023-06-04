@@ -1,13 +1,15 @@
 import React    from "react";
-import template from "./SmallCircleButton.jsx";
 import {XMarkIcon} from '@heroicons/react/20/solid';
+import styles from "./SmallCircleButton.scss";
 
-function SmallXCircleButton(prop) {
+
+function SmallCircleButton(props) {
   // let name = prop.icon;
   // name = document.createElement(`${prop.icon}`);
   return (
     <div>
-      <button className = "flex justify-center items-center w-8 h-8 rounded-full bg-[#F3F4F5]">
+      <button className = "flex justify-center items-center w-8 h-8 rounded-full bg-[#F3F4F5]" {...props.className}
+      data-modal-hide={props.dataModalHide}>
         <XMarkIcon className="h-4 w-4 text-[#576673]"></XMarkIcon>
       </button>
     </div>
@@ -15,4 +17,4 @@ function SmallXCircleButton(prop) {
   );
 }
 //<XMarkIcon className = "h-5 w-5 text-[#576673] font-semibold"></XMarkIcon>
-export default SmallXCircleButton;
+export default SmallCircleButton;
