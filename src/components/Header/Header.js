@@ -6,8 +6,9 @@ import { useNavigate, useLocation } from "react-router-dom";
 function Header() {
   const navigate = useNavigate();
   return (
-    <div className="MAIN HEADER w-full h-12 flex items-center justify-between shadow pl-10 pr-10 shadow-base font-semibold text-sm ">
-      <div className="left header flex items-center justify-around h-12 w-72">
+    <div className="MAIN HEADER w-full h-12 flex-row items-center justify-between shadow pl-10 pr-10 shadow-base font-semibold text-sm">
+
+      <div className="Left-header flex items-center justify-around h-12 w-72">
         <button className="mr-4">
           <XMarkIcon className="w-6"></XMarkIcon>
         </button>
@@ -16,11 +17,11 @@ function Header() {
           <HighlightHome></HighlightHome>
         </div>
 
-        <div className="Home-Box h-11 flex items-center hover:text-[#424242]">
+        <div className="Trips-box h-11 flex items-center hover:text-[#424242]">
           <HighlightMyTrips></HighlightMyTrips>
         </div>
 
-        <div className="Home-Box h-11 flex items-center hover:text-[#424242]">
+        <div className="Calendar-bpx h-11 flex items-center hover:text-[#424242]">
           <HighlightCalendar></HighlightCalendar>
         </div>
       </div>
@@ -92,7 +93,7 @@ function HighlightHome(props) {
   if (location.pathname === "/home") {
     return (
       <div>
-        <button className="underline-button" onClick={() => navigate("/home")}>
+        <button className="underline-button bg-sky-50" onClick={() => navigate("/home")}>
           Home
         </button>
       </div>
@@ -100,7 +101,7 @@ function HighlightHome(props) {
   } else {
     return (
       <div>
-        <button className="no-underline-button" onClick={() => navigate("/home")}>
+        <button className="no-underline-button bg-sky-50" onClick={() => navigate("/home")}>
           Home
         </button>
       </div>
