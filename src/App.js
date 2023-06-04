@@ -5,12 +5,12 @@ import Homepage from "./pages/home/Homepage";
 import MyTrips from "./pages/my-trips/MyTrips";
 import CalendarPage from "./pages/calendar/CalendarPage";
 import Layout from "./components/Layout/Layout";
-import Intro from "./pages/Intro";
+import Landing from "./pages/landing/Landing.js";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path = "/" element = {<Intro/>}>
+        <Route path = "/" element = {<Landing/>}>
         </Route>
           <Route path = "/" element = {<Layout/>}>
             <Route path="/home" element={<Homepage/>}></Route>
