@@ -53,8 +53,9 @@ export default function Calendar() {
         {days.map((day, index) => {
           return (
             <h1
+              id="days"
               key={index}
-              className="h-12 border-b-2 border-black grid place-content-center text-light-gray text-sm"
+              className="h-12 border-b-2 border-black grid place-content-center text-light-gray font-inter"
             >
               {day}
             </h1>
@@ -66,13 +67,15 @@ export default function Calendar() {
           ({ date, currentMonth, today }, index) => {
             return (
               <div
+                id="month"
                 key={index}
-                className="h-12 grid place-content-center text-sm"
+                className="h-12 grid place-content-center font-inter"
               >
                 <h1
+                  id="dates-number"
                   style={dateColour(currentMonth, today)}
                   className="h-8 w-8 grid place-content-center rounded-full 
-				hover:bg-primary-green hover:text-white transition-all cursor-pointer"
+				hover:bg-primary-green hover:text-white transition-all cursor-pointer font-inter"
                   onClick={() => {
                     setSelectDate(date);
                   }}
