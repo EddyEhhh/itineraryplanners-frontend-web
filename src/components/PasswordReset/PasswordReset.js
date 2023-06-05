@@ -15,16 +15,22 @@ function PasswordReset() {
       </button>
 
       <div id="reset-password-modal" className="hidden relative container">
-        <div>
-          <SmallCircleButton 
-          className='right-0 top-0 absolute'
-          dataModalHide="reset-password-modal"></SmallCircleButton>
+        <div className="corner-element">
+          <SmallCircleButton dataModalHide="reset-password-modal" />
         </div>
-        <div>
-          <InputBox placeholder="Email"></InputBox>
-          <button
-          id='reset-password-button'
-          >Reset password</button>
+        <div className="space-y-10">
+          <h1 className="font-inter">Password reset</h1>
+          <div className="top-[103px]">
+            <InputBox
+              width="w-[382px]"
+              placeholder="Email"
+              type="email"
+              warning="Please enter a valid email address"
+            />
+          </div>
+          <div>
+            <button id="reset-password-button">Reset password</button>
+          </div>
         </div>
       </div>
     </div>

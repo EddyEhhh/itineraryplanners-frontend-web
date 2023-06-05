@@ -8,7 +8,7 @@ function SmallCircleButton(props) {
   // name = document.createElement(`${prop.icon}`);
   return (
     <div>
-      <button className = "flex justify-center items-center w-8 h-8 rounded-full bg-[#F3F4F5]" {...props.className}
+      <button className = "flex justify-center items-center w-8 h-8 rounded-full bg-[#F3F4F5]"
       data-modal-hide={props.dataModalHide}>
         <XMarkIcon className="h-4 w-4 text-[#576673]"></XMarkIcon>
       </button>
