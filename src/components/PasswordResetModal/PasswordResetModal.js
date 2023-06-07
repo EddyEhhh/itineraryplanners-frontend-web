@@ -1,8 +1,7 @@
 import React from "react";
-import styles from "./PasswordReset.scss";
+import styles from "./PasswordResetModal.scss";
 import SmallCircleButton from "../CircleButton/SmallCircleButton/SmallCircleButton";
 import InputBox from "../InputBox";
-import {MediumButton, SmallButton} from "../RectangleButton/RectangleButton";
 //
 // <button
 //     data-modal-target="reset-password-modal"
@@ -11,7 +10,7 @@ import {MediumButton, SmallButton} from "../RectangleButton/RectangleButton";
 // >
 //     Toggle Reset Password Modal
 // </button>
-function PasswordReset(props) {
+function PasswordResetModal(props) {
   return (
     <div>
         <button
@@ -47,4 +46,4 @@ function PasswordReset(props) {
   );
 }
 
-export default PasswordReset;
+export default PasswordResetModal;

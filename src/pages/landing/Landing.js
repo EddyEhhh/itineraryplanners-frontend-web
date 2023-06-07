@@ -1,6 +1,6 @@
 
 import {useNavigate} from "react-router-dom";
-import PasswordReset from "../../components/PasswordReset/PasswordReset";
+import PasswordReset from "../../components/PasswordResetModal/PasswordResetModal";
 import {MediumButton, SmallButton, XLargeButton} from "../../components/RectangleButton/RectangleButton";
 import kr from './kr.jpeg';
 

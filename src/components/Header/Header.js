@@ -48,9 +48,9 @@ function Header() {
           type="text"
           placeholder="Plan your trip"
           className={`
-                 text-sm h-9 rounded-full shadow shadow-outline px-5 w-60
+                 text-sm h-9 rounded-full shadow shadow-outline px-5 w-60 border-background-gray
                 placeholder-slate-500 placeholder-opacity-75 placeholder:text-center
-                focus:outline-none focus:ring-2 focus:border-primary-green
+                focus:ring-1 focus:border-primary-green
                 `}
         ></input>
       </div>
