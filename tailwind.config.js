@@ -30,6 +30,7 @@ module.exports = {
         "background-gray": "#FAFAFA",
         "blueish-gray": "#F3F4F5",
         "text-gray": "#363F47",
+        "danger-red": "#FF7171",
       },
     },
   },

@@ -19,25 +19,25 @@ Disabled: Adds state to 50% opacity (note that hover has to be false)
 ### Small
 ```
 <div className="h-8 w-full flex justify-center items-center">
-    <SmallButton text = "" hover = "" />
+    <SmallButton text = "" hover = "" colour = "" disabled = "" route = ""/>
 </div>
 ```
 ### Medium
 ```
 <div className="h-10 w-full flex justify-center items-center">
-    <MediumButton text = "" hover = "" />
+    <MediumButton  text = "" hover = "" colour = "" disabled = "" route = ""/>
 </div>
 ```
 ### Large
 ```
 <div className="h-12 w-full flex justify-center items-center">
-    <LargeButton text = "" hover = "" />
+    <LargeButton text = "" hover = "" colour = "" disabled = "" route = "" />
 </div>
 ```
 ### Xlarge
 ```
 <div className="h-14 w-full flex justify-center items-center">
-    <XLargeButton text = "" hover = "" />
+    <XLargeButton text = "" hover = "" colour = "" disabled = "" route = "" />
 </div>
 ```
 
