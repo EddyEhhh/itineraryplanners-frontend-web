@@ -1,4 +1,4 @@
-import {useNavigate} from "react-router-dom";
+import  {useNavigate} from "react-router-dom";
 import {MediumButton, SmallButton, XLargeButton} from "../../components/RectangleButton/RectangleButton";
 import kr from './kr.jpeg';
 import PasswordResetModal from "../../components/PasswordResetModal/PasswordResetModal";

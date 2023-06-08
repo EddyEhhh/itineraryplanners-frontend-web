@@ -5,7 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 function Header() {
   return (
-    <div className="MAIN HEADER w-full h-12 flex items-center justify-between shadow pl-10 pr-10 shadow-base font-semibold text-sm ">
+    <div className="MAIN HEADER w-full h-12 flex items-center justify-between shadow pl-10 pr-10 font-semibold text-sm z-0">
       <div className="left header flex items-center justify-around h-12 w-72">
         <button className="mr-4">
           <XMarkIcon className="w-6"></XMarkIcon>

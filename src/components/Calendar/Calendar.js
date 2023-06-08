@@ -4,14 +4,17 @@ import styles from "./Calendar.scss";
 import dayjs from "dayjs";
 import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 
-export default function Calendar() {
+export default function Calendar(props) {
   const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
   const currentDate = dayjs();
   const [today, setToday] = useState(currentDate);
   const [selectDate, setSelectDate] = useState(currentDate);
-
+  const width = `w-[${props.width}px]`;
+  const height = `w-[${props.height}px]`;
+  //w-[px]
   return (
-    <div className="w-96 h-96">
+
+    <div className={`w-[500px] h-[500px] pt-16 `}>
       <div>
         <table className="pagination">
           <tbody>
