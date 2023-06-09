@@ -29,7 +29,7 @@ const Landing = () => {
 
                     <div className="flex items-center h-12 mt-8 w-contain">
                         <XLargeButton
-                            text = "Start Planning" hover = "" colour = "primary-green" disabled = "" route = "home" textColour="white"
+                            text = "Start Planning" hover = "" colour = "primary-green" disabled = "" route = "home"  textColour="white"
                         />
                     </div>
 

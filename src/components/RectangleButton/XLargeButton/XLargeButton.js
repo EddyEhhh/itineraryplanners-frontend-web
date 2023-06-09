@@ -11,7 +11,6 @@ function XLargeButton(props) {
                 ${props.hover === "true" ? `w-32 h-8  bg-transparent text-red-500
                 hover:transition-all ease-in duration-200 hover:${colour} hover:text-white hover:w-72 hover:h-12` 
                 : `text-${props.textColour} w-72 h-12 bg-${colour} ${props.disabled === "true" ? `opacity-50` : ``}
-                
                 `}
             `}
             onClick={() => navigate(`${props.route}`)}>

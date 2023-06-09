@@ -3,6 +3,7 @@ import MediumCircleButton from "../CircleButton/MediumCircleButton/MediumCircleB
 import InputBox from "../InputBox";
 import styles from "./LogInModal.scss";
 import XLargeButton from "../RectangleButton/XLargeButton/XLargeButton";
+import MediumButton from "../RectangleButton/MediumButton/MediumButton";
 
 function LogInModal() {
   return (
@@ -21,11 +22,49 @@ function LogInModal() {
             <XLargeButton
               text="Log in with Google"
               textColour="black"
-              borderColour="background-gray"
               hover=""
               colour="white"
               disabled=""
             />
+            <p id="divider">
+              <span>or</span>
+            </p>
+            <InputBox
+              placeholder="Email"
+              type="email"
+              width="w-[382.35px]"
+              warning="Please enter your email address"
+            ></InputBox>
+            <InputBox
+              placeholder="Password"
+              type="password"
+              width="w-[382.35px]"
+              warning="Please enter your password"
+            ></InputBox>
+            <MediumButton
+              text="Forgot Password?"
+              textColour="black"
+              hover=""
+              colour="white"
+              disabled=""
+            ></MediumButton>
+            <XLargeButton
+              text="Log in"
+              textColour="white"
+              colour="primary-green"
+              hover=""
+              disabled=""
+            ></XLargeButton>
+            <div id="join-us">
+              <p>Not a member?</p>
+              <MediumButton
+                text="Join us"
+                textColour="text-gray"
+                hover=""
+                colour="white"
+                disabled=""
+              ></MediumButton>
+            </div>
           </div>
         </div>
       </div>

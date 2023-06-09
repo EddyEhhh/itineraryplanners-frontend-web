@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function SmallButton(props) {
     let colour = `${props.colour}`;
