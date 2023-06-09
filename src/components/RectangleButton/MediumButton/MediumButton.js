@@ -5,7 +5,9 @@ import {useNavigate} from "react-router-dom";
 function MediumButton(props) {
     const navigate = useNavigate();
     let colour = `${props.colour}`;
-      return (
+    let border = `${props.border}`;
+
+    return (
           <div>
               <button className=
                   {` flex items-center justify-center rounded-full font-semibold text-base
