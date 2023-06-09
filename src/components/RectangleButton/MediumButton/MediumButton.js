@@ -11,7 +11,9 @@ function MediumButton(props) {
                   {` flex items-center justify-center rounded-full font-semibold text-base
                       ${props.hover === "true" ? `w-28 h-1 bg-transparent text-${props.textColour}
                       hover:transition-all ease-in duration-200 hover:bg-${colour} hover:text-white hover:w-40 hover:h-10` 
-                      : `w-40 h-10 text-white bg-${colour} ${props.disabled === "true" ? `opacity-50` : ''}
+                      : `w-40 h-10 text-white 
+                      ${props.border === "" ? `bg-${colour}`:`bg-transparent outline outline-${props.border} text-black`}
+                      ${props.disabled === "true" ? `opacity-50` : ''}
                       `}
                   `}
               onClick={() => navigate(`${props.route}`) }>

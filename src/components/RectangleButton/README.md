@@ -11,6 +11,7 @@ Hover: Can be set to true or left blank depending if u want **hover animations**
 ButtonColour: button colours can only be changed when hover = true. Do not use any colours outside of palette.
 TextColour: text colour can only be changed when hover = false
 Disabled: Adds state to 50% opacity (note that hover has to be false)
+Border: Adds border outline
 ````
 
 ## Div format
@@ -20,25 +21,25 @@ Disabled: Adds state to 50% opacity (note that hover has to be false)
 ### Small
 ```
 <div className="h-8 w-full flex justify-center items-center">
-    <SmallButton text = "" hover = "" colour = "" disabled = "" route = "" textColour = ""/>
+    <SmallButton text = "" hover = "" colour = "" disabled = "" route = "" textColour = "" border = ""/>
 </div>
 ```
 ### Medium
 ```
 <div className="h-10 w-full flex justify-center items-center">
-    <MediumButton  text = "" hover = "" colour = "" disabled = "" route = "" textColour = ""/>
+    <MediumButton  text = "" hover = "" colour = "" disabled = "" route = "" textColour = "" border = ""/>
 </div>
 ```
 ### Large
 ```
 <div className="h-12 w-full flex justify-center items-center">
-    <LargeButton text = "" hover = "" colour = "" disabled = "" route = "" textColour = ""/>
+    <LargeButton text = "" hover = "" colour = "" disabled = "" route = "" textColour = "" border = ""/>
 </div>
 ```
 ### Xlarge
 ```
 <div className="h-14 w-full flex justify-center items-center">
-    <XLargeButton text = "" hover = "" colour = "" disabled = "" route = "" textColour = ""/>
+    <XLargeButton text = "" hover = "" colour = "" disabled = "" route = "" textColour = "" border = ""/>
 </div>
 ```
 
