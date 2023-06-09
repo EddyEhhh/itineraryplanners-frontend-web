@@ -21,9 +21,11 @@ function RegisterModal() {
           </div>
           <div id="register-modal-container" className="container">
             <div className="space-y-10">
-              <h1 id="register-header" className="font-inter">
-                Join us to make the most out of your planning.
-              </h1>
+              <div id="register-header-wrapper">
+                <h1 id="register-header" className="font-inter">
+                  Join us to make the most <br></br> out of your planning.
+                </h1>
+              </div>
               <XLargeButton
                 text="Sign up with Google"
                 textColour="black"
@@ -49,27 +51,30 @@ function RegisterModal() {
                   width="w-[181px]"
                 ></InputBox>
               </div>
-              <InputBox
-                title="Email Address"
-                placeholder="Email"
-                type="email"
-                width="w-[382.35px]"
-                warning="Please enter your email address"
-              ></InputBox>
-              <InputBox
-                title="Create a password"
-                placeholder="Password"
-                type="password"
-                width="w-[382.35px]"
-                warning="Please enter your password"
-              ></InputBox>
+              <div>
+                <InputBox
+                  title="Email Address"
+                  placeholder="Email"
+                  type="email"
+                  width="w-[382.35px]"
+                  warning="Please enter your email address"
+                ></InputBox>
+                <InputBox
+                  title="Create a password"
+                  placeholder="Password"
+                  type="password"
+                  width="w-[382.35px]"
+                  warning="Please enter your password"
+                ></InputBox>
+              </div>
             </div>
             <XLargeButton
-              text="Log in"
+              text="Join"
               textColour="white"
               colour="primary-green"
               hover=""
               disabled=""
+              border=""
             ></XLargeButton>
             <div id="join-us">
               <p>Already a member?&nbsp;</p>

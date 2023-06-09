@@ -46,9 +46,9 @@ function LogInModal() {
           <MediumButton
             text="Forgot Password?"
             textColour="black"
-            hover=""
-            colour="white"
+            hover="false"
             disabled=""
+            border=""
           ></MediumButton>
           <XLargeButton
             text="Log in"
@@ -56,6 +56,7 @@ function LogInModal() {
             colour="primary-green"
             hover=""
             disabled=""
+            border=""
           ></XLargeButton>
           <div id="join-us">
             <p>Not a member?&nbsp;</p>
