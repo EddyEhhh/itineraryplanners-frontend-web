@@ -1,7 +1,8 @@
 import kr from './kr.jpeg';
 import PasswordResetModal from "../../components/PasswordResetModal/PasswordResetModal";
 import LogInModal from "../../components/LogInModal/LogInModal";
-import XLargeButton from "../../components/RectangleButton/XLargeButton/XLargeButton"
+import XLargeButton from "../../components/RectangleButton/XLargeButton/XLargeButton";
+import RegisterModal from "../../components/RegisterModal/RegisterModal"
 
 const Landing = () => {
     return (
@@ -34,6 +35,7 @@ const Landing = () => {
                     </div>
 
                     <LogInModal></LogInModal>
+                    <RegisterModal></RegisterModal>
                     <PasswordResetModal text = "hello"></PasswordResetModal>
                 </div>
 

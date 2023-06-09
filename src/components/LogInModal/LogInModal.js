@@ -19,14 +19,16 @@ function LogInModal() {
           </div>
           <div id="modal-container" className="container">
             <div className="space-y-10">
-            <h1 id="welcome-header" className="font-inter">Welcome</h1>
-            <XLargeButton
-              text="Log in with Google"
-              textColour="black"
-              hover=""
-              colour="white"
-              disabled=""
-            /></div>
+              <h1 id="welcome-header" className="font-inter">
+                Welcome
+              </h1>
+              <XLargeButton
+                text="Log in with Google"
+                textColour="black"
+                hover="false"
+                disabled=""
+              />
+            </div>
             <p id="divider">
               <span>or</span>
             </p>
