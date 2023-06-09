@@ -2,14 +2,7 @@ import React from "react";
 import styles from "./PasswordResetModal.scss";
 import SmallCircleButton from "../CircleButton/SmallCircleButton/SmallCircleButton";
 import InputBox from "../InputBox";
-//
-// <button
-//     data-modal-target="reset-password-modal"
-//     data-modal-toggle="reset-password-modal"
-//     className="bg-primary-green py-2 px-4 rounded-full"
-// >
-//     Toggle Reset Password Modal
-// </button>
+
 function PasswordResetModal(props) {
   return (
     <div>

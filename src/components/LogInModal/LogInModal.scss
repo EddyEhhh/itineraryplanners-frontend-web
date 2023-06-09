@@ -1,0 +1,24 @@
+#log-in-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1.25rem;
+    width: 32.75rem;
+    height: 46rem;
+    background-color: white;
+    border-radius: 25px;
+    z-index: 50;
+  }
+  
+.corner-element {
+    position: absolute;
+    top: 17px;
+    right: 17px;
+}
+
+
+#modal-container {
+  display: flex;
+  flex-direction: column;
+}

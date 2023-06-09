@@ -1,8 +1,7 @@
-import  {useNavigate} from "react-router-dom";
-import {MediumButton, SmallButton, XLargeButton} from "../../components/RectangleButton/RectangleButton";
 import kr from './kr.jpeg';
 import PasswordResetModal from "../../components/PasswordResetModal/PasswordResetModal";
 import LogInModal from "../../components/LogInModal/LogInModal";
+import XLargeButton from "../../components/RectangleButton/XLargeButton/XLargeButton"
 
 const Landing = () => {
     return (
@@ -30,11 +29,11 @@ const Landing = () => {
 
                     <div className="flex items-center h-12 mt-8 w-contain">
                         <XLargeButton
-                            text = "Start Planning" hover = "" colour = "primary-green" disabled = "" route = "home"
+                            text = "Start Planning" hover = "" colour = "primary-green" disabled = "" route = "home" textColour="white"
                         />
                     </div>
 
-                    <LogInModal className = "absolute"></LogInModal>
+                    <LogInModal></LogInModal>
                     <PasswordResetModal text = "hello"></PasswordResetModal>
                 </div>
 

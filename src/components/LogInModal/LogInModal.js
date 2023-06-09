@@ -1,34 +1,36 @@
 import React from "react";
-import SmallCircleButton from "../CircleButton/SmallCircleButton/SmallCircleButton";
+import MediumCircleButton from "../CircleButton/MediumCircleButton/MediumCircleButton";
 import InputBox from "../InputBox";
+import styles from "./LogInModal.scss";
+import XLargeButton from "../RectangleButton/XLargeButton/XLargeButton";
 
+function LogInModal() {
+  return (
+    <div>
+      <button data-modal-toggle="log-in-modal" data-modal-show="log-in-modal">
+        Log In Modal (WIP)
+      </button>
 
-function LogInModal (){
-    return (
+      <div id="log-in-modal" className="hidden relative container">
         <div>
-            <button
-                data-modal-toggle="modalID"
-                data-modal-show="modalID"
-            >
-                Click me
-            </button>
-
-            <div id = "modalID" className="aria-hidden:true fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                <div>
-                    <div className="header">
-                        <h1> Log in </h1>
-                        <SmallCircleButton dataModalHide="reset-password-modal" />
-                    </div>
-
-                    <div className="body flex">
-
-                    </div>
-                </div>
-            </div>
+          <div className="corner-element">
+            <MediumCircleButton dataModalHide="log-in-modal" />
+          </div>
+          <div id="modal-container" className="container">
+            <h1 className="font-inter">Welcome</h1>
+            <XLargeButton
+              text="Log in with Google"
+              textColour="black"
+              borderColour="background-gray"
+              hover=""
+              colour="white"
+              disabled=""
+            />
+          </div>
         </div>
-
-        );
-
+      </div>
+    </div>
+  );
 }
 
 export default LogInModal;

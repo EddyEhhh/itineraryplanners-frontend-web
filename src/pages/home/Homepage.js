@@ -1,7 +1,7 @@
 import React, {useRef} from "react";
 import Calendar from "../../components/Calendar";
 import kr from "../landing/kr.jpeg";
-import {SmallButton, MediumButton, LargeButton, XLargeButton} from "../../components/RectangleButton/RectangleButton";
+import MediumButton from "../../components/RectangleButton/MediumButton/MediumButton";
 import TripBox from "../../components/TripBox/TripBox";
 
 
