@@ -16,7 +16,7 @@ export function Homepage() {
                 <div className="bg-white shadow-md ml-5 rounded-2xl w-full h-[450px] ">
                     {/* header */}
                     <div className= "overflow-hidden h-48 rounded-t-2xl relative font-bold">
-                        <div className= "absolute bg-white m-5 drop-shadow-5xl w-1/4 rounded-2xl h-14 flex justify-center items-center text-lg">
+                        <div className= "absolute bg-white m-5 drop-shadow-5xl w-fit p-3 rounded-2xl h-14 flex justify-center items-center text-lg">
                             Trip to South Korea
                         </div>
                         <img  className= "object-contain rounded-t-2xl " src = {kr}/>
@@ -68,7 +68,7 @@ export function Homepage() {
                 </div>
 
 
-                <div className="flex mt-5 overflow-x-clip  overflow-hidden">
+                <div className="flex mt-5 overflow-x-clip  overflow-x-scroll overflow-hidden">
                     <div className="flex ">
                         <TripBox></TripBox>
                         <TripBox></TripBox>

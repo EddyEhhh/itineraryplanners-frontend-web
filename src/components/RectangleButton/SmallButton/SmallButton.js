@@ -8,9 +8,9 @@ function SmallButton(props) {
          <div className>
              <button className=
                  {` flex items-center justify-center rounded-full text-sm 
-                    ${props.hover === "true" ? 'w-1 h-1 bg-transparent font-semibold text-red-500 ' +
+                    ${props.hover === "true" ? `w-1 h-1 bg-transparent font-semibold text-${props.textColour} ` +
                      `hover:transition-all ease-in duration-300 hover:bg-${colour} hover:text-white hover:w-32 hover:h-8`
-                     : `w-32 h-8 bg-red-500 text-${props.text-colour} ${props.disabled === "true" ? 'opacity-50' : ''} 
+                     : `w-32 h-8 bg-${colour} text-white ${props.disabled === "true" ? 'opacity-50' : ''} 
                     `} 
                 `}
                 onClick={ () => navigate(`${props.route}`) } >
