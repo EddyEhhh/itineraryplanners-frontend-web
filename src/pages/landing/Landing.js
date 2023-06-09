@@ -31,12 +31,14 @@ const Landing = () => {
                     <div className="flex items-center h-12 mt-8 w-contain">
                         <XLargeButton
                             text = "Start Planning" hover = "" colour = "primary-green" disabled = "" route = "home"  textColour="white"
+                            border = "red-500"
                         />
                     </div>
 
                     <LogInModal></LogInModal>
                     <RegisterModal></RegisterModal>
                     <PasswordResetModal text = "hello"></PasswordResetModal>
+
                 </div>
 
             </div>
