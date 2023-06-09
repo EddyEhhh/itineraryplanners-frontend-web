@@ -5,7 +5,7 @@
     transform: translate(-50%, -50%);
     padding: 1.25rem;
     width: 524px;
-    height: 600px;
+    height: 750px;
     background-color: white;
     border-radius: 25px;
     z-index: 50;
@@ -18,7 +18,7 @@
 }
 
 
-#modal-container {
+#register-modal-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,19 +39,11 @@ p span {
   padding:0 10px;
 }
 
-#join-us {
-  display: flex;
-  flex-direction: row;
-  p {
-    padding-top: 10px;
-  }
-  button {
-    padding-top: 10px;
-    font-weight: bold;
-  }
+#register-header {
+  top: 20px;
 }
 
-#welcome-header {
-  top: 20px;
-  
+#name-fields {
+    display: flex;
+    flex-direction: row;
 }
