@@ -9,7 +9,7 @@ function LogInModal() {
   return (
     <div>
       <button data-modal-toggle="log-in-modal" data-modal-show="log-in-modal">
-        Log In Modal (WIP)
+        Log In Modal
       </button>
 
       <div id="log-in-modal" className="hidden relative container">
@@ -18,14 +18,15 @@ function LogInModal() {
             <MediumCircleButton dataModalHide="log-in-modal" />
           </div>
           <div id="modal-container" className="container">
-            <h1 className="font-inter">Welcome</h1>
+            <div className="space-y-10">
+            <h1 id="welcome-header" className="font-inter">Welcome</h1>
             <XLargeButton
               text="Log in with Google"
               textColour="black"
               hover=""
               colour="white"
               disabled=""
-            />
+            /></div>
             <p id="divider">
               <span>or</span>
             </p>
@@ -56,14 +57,8 @@ function LogInModal() {
               disabled=""
             ></XLargeButton>
             <div id="join-us">
-              <p>Not a member?</p>
-              <MediumButton
-                text="Join us"
-                textColour="text-gray"
-                hover=""
-                colour="white"
-                disabled=""
-              ></MediumButton>
+              <p>Not a member?&nbsp;</p>
+              <button>Join us</button>
             </div>
           </div>
         </div>

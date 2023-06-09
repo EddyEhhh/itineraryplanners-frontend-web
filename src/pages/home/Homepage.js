@@ -63,7 +63,7 @@ export function Homepage() {
                     </div>
 
                     <div className="h-12 flex justify-center items-center">
-                        <MediumButton  text = "Create new trip" hover = "" colour = "primary-green" disabled = "" route = ""/>
+                        <MediumButton  text = "Create new trip" textColour="white" hover = "" colour = "primary-green" disabled = "" route = ""/>
                     </div>
                 </div>
 
