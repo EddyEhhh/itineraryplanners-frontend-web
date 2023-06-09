@@ -5,6 +5,8 @@ import {useNavigate} from "react-router-dom";
 function LargeButton(props) {
     const navigate = useNavigate();
     let colour = `${props.colour}`;
+    let border = `${props.border}`;
+
     return (
         <div className>
             <button className=
@@ -12,7 +14,7 @@ function LargeButton(props) {
                     ${props.hover === "true" ? `w-32 h-10 bg-transparent text-${props.textColour}
                     hover:transition-all ease-in duration-200 hover:bg-${colour} hover:text-white hover:w-64 hover:h-10` 
                     : `text-white w-64 h-10 
-                     ${props.border === "" ? `bg-${colour}`:`bg-transparent outline outline-${props.border} text-black`}
+                     ${props === "" ? `bg-${colour}`:`bg-transparent outline outline-${border} text-black`}
                      ${props.disabled === "true" ? `opacity-50` : ``}
                     `}
                 `}

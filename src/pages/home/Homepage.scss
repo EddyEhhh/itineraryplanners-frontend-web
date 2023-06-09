@@ -1,12 +1,4 @@
-Calendar {
-    display: grid;
-}
 
-.grid-container {
-    display: grid;
-    grid-template-columns: 80px auto auto 80px;
-}
-
-.grid-item {
-    border: 2px solid red;
+.scrollbar-hide::-webkit-scrollbar{
+    display: none;
 }

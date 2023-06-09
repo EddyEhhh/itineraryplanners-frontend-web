@@ -3,7 +3,7 @@ import Calendar from "../../components/Calendar";
 import kr from "../landing/kr.jpeg";
 import MediumButton from "../../components/RectangleButton/MediumButton/MediumButton";
 import TripBox from "../../components/TripBox/TripBox";
-
+import styles from "./Homepage.scss";
 
 export function Homepage() {
   return (
@@ -68,7 +68,7 @@ export function Homepage() {
                 </div>
 
 
-                <div className="flex mt-5 overflow-x-clip  overflow-x-scroll overflow-hidden">
+                <div className="flex mt-5 overflow-x-clip  overflow-x-scroll overflow-hidden scrollbar-hide">
                     <div className="flex ">
                         <TripBox></TripBox>
                         <TripBox></TripBox>
@@ -80,11 +80,7 @@ export function Homepage() {
                         <TripBox></TripBox>
                         <TripBox></TripBox>
                         <TripBox></TripBox>
-
                     </div>
-
-
-
                 </div>
 
             </div>
