@@ -28,6 +28,7 @@ function RegisterModal() {
               textColour="black"
               hover="false"
               disabled=""
+              border="background-gray"
             />
             <p id="divider">
               <span>or</span>
