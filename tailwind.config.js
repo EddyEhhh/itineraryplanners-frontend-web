@@ -23,7 +23,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        "primary-green": "#78E0D6",
+        "primary-green": "#21CAB9",
         "primary-white": "#FAFAFA",
         "primary-orange": "#FF9500",
         "light-gray": "#B2B2B2",
@@ -32,6 +32,7 @@ module.exports = {
         "blueish-gray": "#F3F4F5",
         "text-gray": "#363F47",
         "danger-red": "#FF7171",
+        "white": "#FFFFFF",
       },
     },
   },

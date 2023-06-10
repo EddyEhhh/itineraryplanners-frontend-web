@@ -1,34 +1,71 @@
 import React from "react";
-import SmallCircleButton from "../CircleButton/SmallCircleButton/SmallCircleButton";
+import MediumCircleButton from "../CircleButton/MediumCircleButton/MediumCircleButton";
 import InputBox from "../InputBox";
+import styles from "./LogInModal.scss";
+import XLargeButton from "../RectangleButton/XLargeButton/XLargeButton";
+import MediumButton from "../RectangleButton/MediumButton/MediumButton";
 
+function LogInModal() {
+  return (
+    <div>
+      <button data-modal-toggle="log-in-modal" data-modal-show="log-in-modal">
+        Log In Modal
+      </button>
 
-function LogInModal (){
-    return (
-        <div>
-            <button
-                data-modal-toggle="modalID"
-                data-modal-show="modalID"
-            >
-                Click me
-            </button>
-
-            <div id = "modalID" className="aria-hidden:true fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                <div>
-                    <div className="header">
-                        <h1> Log in </h1>
-                        <SmallCircleButton dataModalHide="reset-password-modal" />
-                    </div>
-
-                    <div className="body flex">
-
-                    </div>
-                </div>
-            </div>
+      <div id="log-in-modal" className="hidden relative container">
+        <div className="corner-element">
+          <MediumCircleButton dataModalHide="log-in-modal" />
         </div>
-
-        );
-
+        <div id="login-modal-container" className="container">
+          <div className="space-y-10">
+            <h1 id="welcome-header" className="font-inter">
+              Welcome
+            </h1>
+            <XLargeButton
+              text="Log in with Google"
+              textColour="black"
+              hover="false"
+              disabled=""
+            />
+          </div>
+          <p id="divider">
+            <span>or</span>
+          </p>
+          <InputBox
+            placeholder="Email"
+            type="email"
+            width="w-[382.35px]"
+            warning="Please enter your email address"
+          ></InputBox>
+          <InputBox
+            placeholder="Password"
+            type="password"
+            width="w-[382.35px]"
+            warning="Please enter your password"
+          ></InputBox>
+          <MediumButton
+            text="Forgot Password?"
+            textColour="black"
+            hover="false"
+            disabled=""
+            border=""
+          ></MediumButton>
+          <XLargeButton
+            text="Log in"
+            textColour="white"
+            colour="primary-green"
+            hover=""
+            disabled=""
+            border=""
+          ></XLargeButton>
+          <div id="join-us">
+            <p>Not a member?&nbsp;</p>
+            <button>Join us</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default LogInModal;

@@ -1,0 +1,31 @@
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Position the arrows */
+  #trip-shortcuts {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+
+
+    #left-arrow,
+    #right-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 50;
+    }
+  
+    #left-arrow {
+      left: 5px;
+      top: calc(50% - 24px);
+    }
+  
+    #right-arrow {
+      right: 5px;
+      top: calc(50% - 24px);
+    }
+  }
+  
