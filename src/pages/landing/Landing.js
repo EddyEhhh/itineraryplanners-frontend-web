@@ -3,6 +3,7 @@ import PasswordResetModal from "../../components/PasswordResetModal/PasswordRese
 import LogInModal from "../../components/LogInModal/LogInModal";
 import XLargeButton from "../../components/RectangleButton/XLargeButton/XLargeButton";
 import RegisterModal from "../../components/RegisterModal/RegisterModal"
+import NewTripModal from '../../components/NewTripModal/NewTripModal';
 
 const Landing = () => {
     return (
@@ -37,6 +38,7 @@ const Landing = () => {
 
                     <LogInModal></LogInModal>
                     <RegisterModal></RegisterModal>
+                    <NewTripModal></NewTripModal>
                     <PasswordResetModal text = "hello"></PasswordResetModal>
 
                 </div>

@@ -16,7 +16,7 @@ function LogInModal() {
         <div className="corner-element">
           <MediumCircleButton dataModalHide="log-in-modal" />
         </div>
-        <div id="login-modal-container" className="container">
+        <div id="login-modal-container">
           <div className="space-y-10">
             <h1 id="welcome-header" className="font-inter">
               Welcome

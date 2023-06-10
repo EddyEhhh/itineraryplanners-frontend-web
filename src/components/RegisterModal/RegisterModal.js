@@ -19,7 +19,7 @@ function RegisterModal() {
           <div className="corner-element">
             <MediumCircleButton dataModalHide="register-modal" />
           </div>
-          <div id="register-modal-container" className="container">
+          <div id="register-modal-container">
             <h1 id="register-header" className="font-inter">
               Join us to make the most <br></br> out of your planning.
             </h1>
