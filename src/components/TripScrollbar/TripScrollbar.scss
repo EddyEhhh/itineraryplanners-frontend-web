@@ -4,28 +4,28 @@
   
   /* Position the arrows */
   #trip-shortcuts {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: relative;
-
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     position: relative;
+     justify-content: center;
+     margin-top: 20px;
 
     #left-arrow,
     #right-arrow {
         position: absolute;
         top: 50%;
-        transform: translateY(-50%);
+        transform: translateY(-59%);
         z-index: 50;
     }
-  
+
     #left-arrow {
-      left: 5px;
-      top: calc(50% - 24px);
+      left: 1px;
     }
-  
+
     #right-arrow {
-      right: 5px;
-      top: calc(50% - 24px);
+      right: 1px;
     }
   }
-  
+
+

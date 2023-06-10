@@ -64,6 +64,8 @@ export function Homepage() {
             />
           </div>
         </div>
+
+
         <TripScrollbar></TripScrollbar>
       </div>
     </div>

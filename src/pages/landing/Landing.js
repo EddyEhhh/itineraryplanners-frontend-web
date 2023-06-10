@@ -7,7 +7,7 @@ import RegisterModal from "../../components/RegisterModal/RegisterModal"
 const Landing = () => {
     return (
         <div>
-            <div className = "Layout h-10 relative overflow-hidden h-[950px] ">
+            <div className = "Layout h-10 relative overflow-hidden h-screen ">
                 <img className="w-full absolute"  src ={kr} alt = ""></img>
 
                 <div className=" origin-center absolute rotate-[65deg] bg-white h-[1000px] w-[1900px] -ml-[700px] mt-[300px] ">
