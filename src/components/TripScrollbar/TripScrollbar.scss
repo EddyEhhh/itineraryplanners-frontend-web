@@ -1,0 +1,34 @@
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  // #left-arrow,
+  // #right-arrow {
+  //   position: absolute;
+  //   width: 40px;
+  //   height: 40px;
+  //   top: 50%;
+  //   transform: translateY(-50%);
+  //   background-color: transparent;
+  //   border: none;
+  //   outline: none;
+  // }
+  
+  /* Position the arrows */
+  #trip-shortcuts {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  
+    #left-arrow {
+      left: 5px;
+      align-self: center;
+    }
+  
+    #right-arrow {
+      right: 5px;
+      align-self: center;
+  
+    }
+  }
+  
