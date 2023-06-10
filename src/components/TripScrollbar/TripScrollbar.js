@@ -8,13 +8,12 @@ function TripScrollbar() {
   const scrollWrapperRef = useRef(null);
   const [showLeftButton, setShowLeftButton] = useState(false);
   const [showRightButton, setShowRightButton] = useState(false);
+  const [showButtons, setShowButtons] = useState(false);
 
   useEffect(() => {
 
     const checkOverflow = () => {
       const scrollWrapper = scrollWrapperRef.current;
-      // console.log(scrollWrapper.scrollWidth);
-     // console.log(scrollWrapper.clientWidth);
       setShowLeftButton(scrollWrapper.scrollLeft > 0);
       setShowRightButton(scrollWrapper.scrollWidth > scrollWrapper.clientWidth + scrollWrapper.scrollLeft + 1);
     };
@@ -24,14 +23,13 @@ function TripScrollbar() {
       checkOverflow();
     };
     //whenever we click the scroll button, we check if there is overflow again
-    scrollWrapperRef.current.addEventListener("scroll", handleScroll);
+    const scrollInstance = scrollWrapperRef.current;
+    scrollInstance.addEventListener("scroll", handleScroll);
 
     return () => {
-      scrollWrapperRef.current.removeEventListener("scroll", handleScroll);
+      scrollInstance.removeEventListener("scroll", handleScroll);
     };
   });
-
-
 
   const scrollLeft = () => {
     scrollWrapperRef.current.scrollBy({
@@ -49,8 +47,8 @@ function TripScrollbar() {
 
 
   return (
-    <div id="trip-shortcuts">
-      {showLeftButton && (
+    <div id="trip-shortcuts" onMouseEnter={() => setShowButtons(true)} onMouseLeave={() => setShowButtons(false)}>
+      {showLeftButton && showButtons && (
           <button
               id="left-arrow"
               onClick={scrollLeft}
@@ -86,7 +84,7 @@ function TripScrollbar() {
         </div>
       </div>
 
-      {showRightButton && (
+      {showRightButton && showButtons && (
           <button
               id="right-arrow"
               onClick={scrollRight}
