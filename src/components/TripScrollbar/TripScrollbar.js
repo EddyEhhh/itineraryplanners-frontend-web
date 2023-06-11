@@ -33,14 +33,14 @@ function TripScrollbar() {
 
   const scrollLeft = () => {
     scrollWrapperRef.current.scrollBy({
-      left: -1738,
+      left: -1732,
       behavior: "smooth",
     });
   };
 
   const scrollRight = () => {
     scrollWrapperRef.current.scrollBy({
-      left: 1738,
+      left: 1732,
       behavior: "smooth",
     });
   };
@@ -64,7 +64,7 @@ function TripScrollbar() {
         className="w-fit flex overflow-x-clip  overflow-x-scroll overflow-hidden scrollbar-hide"
 
       >
-        <div className="flex gap-7">
+        <div className="flex gap-[1.65rem]">
           <TripBox title = "Title" duration = "Duration" ></TripBox>
           <TripBox title = "Title" duration = "Duration" ></TripBox>
           <TripBox title = "Title" duration = "Duration" ></TripBox>
