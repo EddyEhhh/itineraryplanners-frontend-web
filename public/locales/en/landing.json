@@ -1,0 +1,15 @@
+{
+  "title": {
+    "part1": "Going",
+    "part2": "Somewhere?"
+  },
+  "Start_Planning": "Start planning",
+  "logIn":"Log in",
+  "signUp": "Sign up",
+  "password": "Password",
+  "email": "Email",
+  "description": {
+    "part1": "Make your next vacation enriching &",
+    "part2": "memorable with our paid itinerary planner."
+  }
+}

@@ -1,11 +1,13 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 //w-72 h-12
 function XLargeButton(props) {
     const navigate = useNavigate();
     let colour = `${props.colour}`;
     let border = `${props.border}`;
+    const { t, i18n } = useTranslation('landing');
     return (
         <button className=
             {`flex items-center justify-center rounded-full text-lg font-semibold 
@@ -17,7 +19,7 @@ function XLargeButton(props) {
                 `}
             `}
             onClick={() => navigate(`${props.route}`)}>
-        {props.text}
+            {t(`${props.text}`)}
         </button>
     );
 }
