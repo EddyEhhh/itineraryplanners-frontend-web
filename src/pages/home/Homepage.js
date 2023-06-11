@@ -1,11 +1,13 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Calendar from "../../components/Calendar";
 import kr from "../landing/kr.jpeg";
 import MediumButton from "../../components/RectangleButton/MediumButton/MediumButton";
 import styles from "./Homepage.scss";
 import TripScrollbar from "../../components/TripScrollbar/TripScrollbar";
+import NewTripModal from "../../components/NewTripModal/NewTripModal";
 
 export function Homepage() {
+
   return (
     <div>
       <div className="w-full h-[500px] flex items-center">
@@ -53,15 +55,19 @@ export function Homepage() {
           <div className="h-10 font-bold text-2xl ">Upcoming trips</div>
 
           <div className="h-12 flex justify-center items-center">
-            <MediumButton
-              text="Create new trip"
-              textColour="white"
-              hover=""
-              colour="primary-green"
-              disabled=""
-              route=""
-              border=""
-            />
+            {/* <div onClick={() => setNewTripModalVisible(true)}>
+              <MediumButton
+                text="Create new trip"
+                textColour="white"
+                hover=""
+                colour="primary-green"
+                disabled=""
+                route=""
+                border=""
+                modalName="new-trip-modal"
+              />
+            </div> */}
+            <NewTripModal></NewTripModal>
           </div>
         </div>
 

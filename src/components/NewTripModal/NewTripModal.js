@@ -3,21 +3,39 @@ import MediumCircleButton from "../CircleButton/MediumCircleButton/MediumCircleB
 import InputBox from "../InputBox";
 import InputBoxWithIcon from "../InputBoxWithIcons/InputBoxWithIcon";
 import XLargeButton from "../RectangleButton/XLargeButton/XLargeButton";
-import Datepicker from "tailwind-datepicker-react"
-import DateRangePicker from "../DateRangePicker/DateRangePicker";
+import { useEffect, useState } from "react";
+import MediumButton from "../RectangleButton/MediumButton/MediumButton";
 
 function NewTripModal() {
+  const [newTripModalIsVisible, setNewTripModalVisible] = useState(false);
+    useEffect(() => {
+
+    }, [newTripModalIsVisible])
+
   return (
     <div>
-      <button
-        data-modal-toggle="new-trip-modal"
-        data-modal-show="new-trip-modal"
+      <div>
+        <MediumButton
+          onButtonClick={() => setNewTripModalVisible(true)}
+          text="Create new trip"
+          textColour="white"
+          hover=""
+          colour="primary-green"
+          disabled=""
+          route=""
+          border=""
+          modalName="new-trip-modal"
+        />
+      </div>
+      <div
+        id="new-trip-modal"
+        className="hidden relative container"
       >
-        New Trip Modal
-      </button>
-      <div id="new-trip-modal" className="hidden relative container">
         <div className="corner-element">
-          <MediumCircleButton dataModalHide="new-trip-modal" />
+          <MediumCircleButton
+            dataModalHide="new-trip-modal"
+            onButtonClick={() => setNewTripModalVisible(false)}
+          />
         </div>
         <div id="new-trip-modal-container">
           <div className="space-y-5">
