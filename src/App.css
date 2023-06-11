@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body::-webkit-scrollbar{
+  display: none;
+}
 
 .App {
   text-align: center;
