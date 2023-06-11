@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { startTransition } from "react";
 
 //w-40   h-8
 function MediumButton(props) {
@@ -7,12 +8,22 @@ function MediumButton(props) {
   let colour = `${props.colour}`;
   let border = `${props.border}`;
 
+  const handleClick = () => {
+    if (props.route) {
+      startTransition(() => {
+        navigate(`${props.route}`);
+      });
+    } else if (props.showModal) {
+      startTransition(() => {
+        const { showModal } = props;
+        showModal();
+      });
+    }
+  };
+
   return (
     <div>
       <button
-        // data-modal-toggle={props.modalName}
-        data-modal-target={props.modalName}
-        data-modal-show={props.modalName}
         className={` flex items-center justify-center rounded-full font-semibold text-base
                       ${
                         props.hover === "true"
@@ -28,8 +39,10 @@ function MediumButton(props) {
                       `
                       }
                   `}
-        onClick={props.onButtonClick}
-        // {() => navigate(`${props.route}`)}
+        onClick={
+          handleClick
+          // () => navigate(`${props.route}`)
+        }
       >
         {props.text}
       </button>

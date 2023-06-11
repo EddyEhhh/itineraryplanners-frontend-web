@@ -5,7 +5,7 @@ import XLargeButton from "../../components/RectangleButton/XLargeButton/XLargeBu
 import RegisterModal from "../../components/RegisterModal/RegisterModal"
 import NewTripModal from '../../components/NewTripModal/NewTripModal';
 import {useTranslation, Trans} from 'react-i18next';
-import {Suspense, useEffect} from "react";
+import {Suspense, useEffect, useState} from "react";
 import {changeLanguage} from "i18next";
 
 // <button type = "submit" onClick={() => {
@@ -14,6 +14,14 @@ import {changeLanguage} from "i18next";
 const Landing = () => {
     const { t, i18n } = useTranslation('landing');
     const lng = navigator.language
+    const [showLogInModal, setLogInModal] = useState(false);
+    const handleOnLogInClose = () => setLogInModal(false);
+
+    const[showRegisterModal, setRegisterModal] = useState(false);
+    const handleOnRegisterClose = () => setRegisterModal(false);
+
+    const [showNewTripModal, setNewTripModal] = useState(false);
+    const handleOnNewTripClose = () => setNewTripModal(false);
 
     return (
     <Suspense fallback = "loading">
@@ -51,9 +59,14 @@ const Landing = () => {
                         />
                     </div>
 
-                    <LogInModal></LogInModal>
-                    <RegisterModal></RegisterModal>
-                    <NewTripModal></NewTripModal>
+                    <button onClick={() => setLogInModal(true)}>Log in modal</button>
+                    <LogInModal visible = {showLogInModal} onClose = {handleOnLogInClose}></LogInModal>
+
+                    <button onClick={() => setRegisterModal(true)}> Register modal </button>
+                    <RegisterModal visible = {showRegisterModal} onClose = {handleOnRegisterClose}></RegisterModal>
+
+                    <button onClick={() => setNewTripModal(true)}> New Trip Modal </button>
+                    <NewTripModal visible = {showNewTripModal} onClose = {handleOnNewTripClose}></NewTripModal>
 
                 </div>
 
