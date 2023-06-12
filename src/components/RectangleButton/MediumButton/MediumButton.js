@@ -39,7 +39,7 @@ function MediumButton(props) {
                       `
                       }
                   `}
-        onClick={
+        onClick={ 
           handleClick
           // () => navigate(`${props.route}`)
         }

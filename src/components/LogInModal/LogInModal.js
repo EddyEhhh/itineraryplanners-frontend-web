@@ -24,6 +24,7 @@ function LogInModal(props) {
                 textColour="black"
                 hover="false"
                 disabled=""
+                border="[#D3DBE6]"
               />
             </div>
             <p id="divider">

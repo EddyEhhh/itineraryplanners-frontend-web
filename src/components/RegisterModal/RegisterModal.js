@@ -24,7 +24,7 @@ function RegisterModal(props) {
                 textColour="black"
                 hover="false"
                 disabled=""
-                border="background-gray"
+                border="[#D3DBE6]"
               />
               <p id="divider">
                 <span>or</span>
