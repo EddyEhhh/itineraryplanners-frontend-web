@@ -16,8 +16,8 @@ function XLargeButton(props) {
             {`flex items-center justify-center rounded-full text-lg font-semibold 
                 ${props.hover === "true" ? `w-32 h-8  bg-transparent text-${props.textColour} 
                 hover:transition-all ease-in duration-200 hover:${colour} hover:text-white hover:w-72 hover:h-12` 
-                : `w-72 h-12 text-${props.textColour}
-                ${border === "" ? `bg-${colour}`:`bg-transparent border-2 border-${props.border} text-black`} 
+                : `w-72 h-12 text-white
+                ${border === "" ? `bg-${colour}`:`bg-transparent border-2 border-${border} text-black`} 
                 ${props.disabled === "true" ? `opacity-50` : ``}
                 `}
             `}

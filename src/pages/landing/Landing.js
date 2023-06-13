@@ -59,8 +59,10 @@ const Landing = () => {
                         />
                     </div>
 
-                    <button onClick={() => setLogInModal(true)}>Log in modal</button>
-                    <LogInModal visible = {showLogInModal} onClose = {handleOnLogInClose}></LogInModal>
+                    <button onClick={() => setLogInModal(true)}>
+                        Log in modal
+                    </button>
+
 
                     <button onClick={() => setRegisterModal(true)}> Register modal </button>
                     <RegisterModal visible = {showRegisterModal} onClose = {handleOnRegisterClose}></RegisterModal>
