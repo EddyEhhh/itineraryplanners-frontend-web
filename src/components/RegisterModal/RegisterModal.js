@@ -6,7 +6,6 @@ import XLargeButton from "../RectangleButton/XLargeButton/XLargeButton";
 import MediumButton from "../RectangleButton/MediumButton/MediumButton";
 
 function RegisterModal(props) {
-  if (!props.visible) return null;
   return (
     <div>
       <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center">

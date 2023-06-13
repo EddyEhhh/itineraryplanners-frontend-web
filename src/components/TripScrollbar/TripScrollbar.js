@@ -11,7 +11,6 @@ function TripScrollbar() {
   const [showButtons, setShowButtons] = useState(false);
 
   useEffect(() => {
-
     const checkOverflow = () => {
       const scrollWrapper = scrollWrapperRef.current;
       setShowLeftButton(scrollWrapper.scrollLeft > 0);

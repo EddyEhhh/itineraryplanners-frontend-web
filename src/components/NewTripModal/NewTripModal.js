@@ -7,11 +7,9 @@ import { useEffect, useState } from "react";
 import MediumButton from "../RectangleButton/MediumButton/MediumButton";
 
 function NewTripModal(props) {
-  if (!props.visible) return null;
-
   return (
     <div>
-      <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center">
+      <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center ">
           <div id="new-trip-modal">
             <div className="corner-element">
               <MediumCircleButton onButtonClick={props.onClose} />
