@@ -17,7 +17,7 @@ function XLargeButton(props) {
                 ${props.hover === "true" ? `w-32 h-8  bg-transparent text-${props.textColour} 
                 hover:transition-all ease-in duration-200 hover:${colour} hover:text-white hover:w-72 hover:h-12` 
                 : `w-72 h-12 text-white
-                ${border === "" ? `bg-${colour}`:`bg-transparent border-2 border-${border} text-black`} 
+                ${border === "" ? `bg-${colour}`: `bg-transparent border-[1.5px] border-${border} text-slate-900`} 
                 ${props.disabled === "true" ? `opacity-50` : ``}
                 `}
             `}
