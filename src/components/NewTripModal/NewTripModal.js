@@ -15,7 +15,7 @@ function NewTripModal(props) {
             <div className="corner-element">
               <MediumCircleButton onButtonClick={props.onClose} />
             </div>
-            <div id="new-trip-modal-container">
+            <div id="new-trip-modal-container">     q
               <div className="space-y-5">
                 <h1>New Trip</h1>
                 <InputBoxWithIcon

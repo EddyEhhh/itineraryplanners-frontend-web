@@ -72,17 +72,15 @@ const Homepage = () => {
                 handleClick = {newTripModalHandler}
               />
             </div>
-          <Suspense>
-            {showNewTripModal && <NewTripModal
-                onClose = {newTripModalHandler}
-            ></NewTripModal>}
-          </Suspense>
-
-
           </div>
-        </div>
 
+        </div>
         <TripScrollbar></TripScrollbar>
+        <Suspense>
+          {showNewTripModal && <NewTripModal
+              onClose = {newTripModalHandler}
+          ></NewTripModal>}
+        </Suspense>
       </div>
     </div>
   );
