@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, {Suspense, useRef, useState} from "react";
 import Calendar from "../../components/Calendar";
 import kr from "../landing/kr.jpeg";
 import MediumButton from "../../components/RectangleButton/MediumButton/MediumButton";
@@ -6,10 +6,13 @@ import styles from "./Homepage.scss";
 import TripScrollbar from "../../components/TripScrollbar/TripScrollbar";
 import NewTripModal from "../../components/NewTripModal/NewTripModal";
 
-export function Homepage() {
+
+const Homepage = () => {
   const [showNewTripModal, setNewTripModal] = useState(false);
-  const handleOnNewTripClose = () => setNewTripModal(false);
-  const handleOnNewTripOpen = () => setNewTripModal(true);
+
+  const newTripModalHandler = () => {
+    setNewTripModal(!showNewTripModal);
+  }
 
   return (
     <div>
@@ -66,15 +69,16 @@ export function Homepage() {
                 colour="primary-green"
                 disabled=""
                 border=""
-                showModal = {handleOnNewTripOpen}
+                handleClick = {newTripModalHandler}
               />
             </div>
-            <div id="new-trip-wrapper">
-              <NewTripModal
-                visible={showNewTripModal}
-                onClose={handleOnNewTripClose}
-              ></NewTripModal>
-            </div>
+          <Suspense>
+            {showNewTripModal && <NewTripModal
+                onClose = {newTripModalHandler}
+            ></NewTripModal>}
+          </Suspense>
+
+
           </div>
         </div>
 

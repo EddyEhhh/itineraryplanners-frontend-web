@@ -7,20 +7,6 @@ function MediumButton(props) {
   const navigate = useNavigate();
   let colour = `${props.colour}`;
   let border = `${props.border}`;
-
-  const handleClick = () => {
-    if (props.route) {
-      startTransition(() => {
-        navigate(`${props.route}`);
-      });
-    } else if (props.showModal) {
-      startTransition(() => {
-        const { showModal } = props;
-        showModal();
-      });
-    }
-  };
-
   return (
     <div>
       <button
@@ -40,7 +26,7 @@ function MediumButton(props) {
                       }
                   `}
         onClick={ 
-          handleClick
+          props.handleClick
           // () => navigate(`${props.route}`)
         }
       >
