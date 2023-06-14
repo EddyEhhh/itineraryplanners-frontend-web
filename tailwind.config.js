@@ -32,11 +32,11 @@ module.exports = {
         "blueish-gray": "#F3F4F5",
         "text-gray": "#363F47",
         "danger-red": "#FF7171",
-        "white": "#FFFFFF",
+        white: "#FFFFFF",
       },
     },
   },
-  plugins: [require("flowbite/plugin"), require("tailwindcss-font-inter")],
+  plugins: [require("tailwindcss-font-inter")],
 };
 
 // colors: {

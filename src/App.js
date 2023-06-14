@@ -6,7 +6,6 @@ import MyTrips from "./pages/my-trips/MyTrips";
 import CalendarPage from "./pages/calendar/CalendarPage";
 import Layout from "./components/Layout/Layout";
 import Landing from "./pages/landing/Landing.js";
-import 'flowbite';
 import './i18n';
 
 function App() {
