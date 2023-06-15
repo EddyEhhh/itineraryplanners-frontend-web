@@ -5,24 +5,21 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 function Header() {
   return (
-    <div className="MAIN HEADER w-full sticky z-50 top-0 bg-white h-12 flex items-center justify-between shadow pl-40 pr-40 font-semibold text-sm z-0">
-      <div className="left-header flex items-center justify-around h-12 w-fit gap-3">
-        <button className="mr-2">
-          <XMarkIcon className="w-6"></XMarkIcon>
-        </button>
+    <div className="MAIN HEADER w-full sticky z-50 top-0 bg-white h-12 flex items-center justify-between shadow pl-0 pr-0 sm:pl-40 sm:pr-40 font-semibold text-sm z-0">
+      <div className="left-header flex items-center justify-around h-12 w-fit gap-4 sm:visible invisible">
 
-        <div className="Home-Box h-11 flex items-center sm:visible invisible">
+        <div className="Home-Box h-11 flex items-center ">
           <HighlightHome></HighlightHome>
         </div>
 
-        <div className="Home-Box h-11 flex items-center sm:visible invisible">
+        <div className="Home-Box h-11 flex items-center">
           <HighlightMyTrips></HighlightMyTrips>
         </div>
 
 
       </div>
 
-      <div className="Center-Header flex items-center w-auto justify-end ">
+      <div className="Center-Header flex items-center w-auto outline justify-end ">
         <div className="Nav-Icon absolute mr-2">
           <button className="bg-primary-green rounded-full w-7 h-7 flex items-center justify-center">
             <svg
@@ -46,15 +43,16 @@ function Header() {
               type="text"
               placeholder="Plan your trip"
               className={`
-                text-sm h-9 rounded-full shadow shadow-outline px-5 w-60 border-background-gray
+                text-sm h-9 rounded-full shadow shadow-outline px-5 w-46 sm:w-60 border-background-gray
                 placeholder-slate-500 placeholder-opacity-75 placeholder:text-center
                 focus:ring-1 focus:border-primary-green
                 `}
           ></input>
+
       </div>
 
 
-      <div className="Right-Header flex items-center justify-between h-12 w-fit gap-5">
+      <div className="Right-Header flex items-center justify-between h-12 w-fit gap-5 sm:visible invisible">
           <button className="hover:text-hover-gray">EN</button>
           <button className="hover:text-hover-gray">
             <svg
