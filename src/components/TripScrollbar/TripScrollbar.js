@@ -61,7 +61,7 @@ const TripScrollbar = () =>   {
         class="scroll-images"
         ref={scrollWrapperRef}
         className="w-fit flex flex-row
-        lg:flex-row  lg:overflow-x-clip  lg:overflow-x-scroll outline
+        lg:flex-row  lg:overflow-x-clip  lg:overflow-x-scroll
         sm:flex-col sm:overflow-y-clip sm:overflow-y-scroll sm:h-[400px] overflow-hidden scrollbar-hide"
 
       >
