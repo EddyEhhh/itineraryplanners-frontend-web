@@ -19,7 +19,7 @@ function Header() {
 
       </div>
 
-      <div className="Center-Header flex items-center w-auto outline justify-end ">
+      <div className="Center-Header flex items-center w-auto justify-end ">
         <div className="Nav-Icon absolute mr-2">
           <button className="bg-primary-green rounded-full w-7 h-7 flex items-center justify-center">
             <svg
