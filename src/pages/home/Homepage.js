@@ -16,12 +16,13 @@ const Homepage = () => {
 
   return (
     <div>
-      <div className="w-full h-[500px] flex items-center">
+      <div className="w-full h-fit flex flex-col items-center
+                      lg:flex-row md:flex-col sm:flex-col">
         <div>
           <Calendar></Calendar>
         </div>
 
-        <div className="bg-white shadow-md ml-5 rounded-2xl w-full h-[450px] ">
+        <div className="bg-white shadow-md  rounded-2xl h-[450px] md:w-fit m-2 lg:ml-5">
           {/* header */}
           <div className="overflow-hidden h-48 rounded-t-2xl relative font-bold">
             <div className="absolute bg-white m-5 drop-shadow-5xl w-fit p-3 rounded-2xl h-14 flex justify-center items-center text-lg">
@@ -31,7 +32,7 @@ const Homepage = () => {
           </div>
 
           {/* body */}
-          <div className="pl-8 pr-8 pt-2">
+          <div className="pl-8 pr-8 pt-2 ">
             <div className="flex justify-between items-center h-10 font-bold ">
               <div className={"w-fit"}>Details</div>
               <div className={"w-fit"}>15 June ~ 18 June</div>
@@ -56,8 +57,8 @@ const Homepage = () => {
         </div>
       </div>
 
-      <div className=" h-72 flex-col">
-        <div className="flex justify-between items-center">
+      <div className="h-fit w-full flex flex-col sm:flex-col mt-5">
+        <div className="flex justify-between items-center flex-col lg:flex-row sm:flex-col">
           <div className="h-10 font-bold text-2xl ">Upcoming trips</div>
 
           <div className="h-12 flex justify-center items-center">

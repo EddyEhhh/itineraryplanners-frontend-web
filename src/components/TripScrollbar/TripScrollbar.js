@@ -3,7 +3,7 @@ import styles from "./TripScrollbar.scss";
 import TripBox from "../TripBox/TripBox";
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
 
-function TripScrollbar() {
+const TripScrollbar = () =>   {
 
   const scrollWrapperRef = useRef(null);
   const [showLeftButton, setShowLeftButton] = useState(false);
@@ -60,11 +60,11 @@ function TripScrollbar() {
         id = "trips-shortcuts"
         class="scroll-images"
         ref={scrollWrapperRef}
-        className="w-fit flex overflow-x-clip  overflow-x-scroll overflow-hidden scrollbar-hide"
+        className="w-fit flex flex-row lg:flex-row sm:flex-col overflow-x-clip  overflow-x-scroll overflow-hidden scrollbar-hide"
 
       >
-        <div className="flex gap-[2.1rem]">
-          <TripBox title = "Title" duration = "Duration" ></TripBox>
+        <div className="flex flex-col lg:flex-row sm:flex-col gap-[2.1rem]">
+          <TripBox title = "Title" duration = "Duration" width = "[406.5px]" ></TripBox>
           <TripBox title = "Title" duration = "Duration" ></TripBox>
           <TripBox title = "Title" duration = "Duration" ></TripBox>
           <TripBox title = "Title" duration = "Duration" ></TripBox>

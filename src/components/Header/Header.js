@@ -5,26 +5,24 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 function Header() {
   return (
-    <div className="MAIN HEADER w-full sticky z-50 top-0 bg-white h-12  flex items-center justify-between shadow pl-10 pr-10 font-semibold text-sm z-0">
-      <div className="left header flex items-center justify-around h-12 w-72">
-        <button className="mr-4">
+    <div className="MAIN HEADER w-full sticky z-50 top-0 bg-white h-12 flex items-center justify-between shadow pl-40 pr-40 font-semibold text-sm z-0">
+      <div className="left-header flex items-center justify-around h-12 w-fit gap-3">
+        <button className="mr-2">
           <XMarkIcon className="w-6"></XMarkIcon>
         </button>
 
-        <div className="Home-Box h-11 flex items-center">
+        <div className="Home-Box h-11 flex items-center sm:visible invisible">
           <HighlightHome></HighlightHome>
         </div>
 
-        <div className="Home-Box h-11 flex items-center">
+        <div className="Home-Box h-11 flex items-center sm:visible invisible">
           <HighlightMyTrips></HighlightMyTrips>
         </div>
 
-        <div className="Home-Box h-11 flex items-center">
-          <HighlightCalendar></HighlightCalendar>
-        </div>
+
       </div>
 
-      <div className="Center-Header flex items-center justify-end">
+      <div className="Center-Header flex items-center w-auto justify-end ">
         <div className="Nav-Icon absolute mr-2">
           <button className="bg-primary-green rounded-full w-7 h-7 flex items-center justify-center">
             <svg
@@ -44,21 +42,20 @@ function Header() {
           </button>
         </div>
 
-        <input
-          type="text"
-          placeholder="Plan your trip"
-          className={`
-                 text-sm h-9 rounded-full shadow shadow-outline px-5 w-60 border-background-gray
+          <input
+              type="text"
+              placeholder="Plan your trip"
+              className={`
+                text-sm h-9 rounded-full shadow shadow-outline px-5 w-60 border-background-gray
                 placeholder-slate-500 placeholder-opacity-75 placeholder:text-center
                 focus:ring-1 focus:border-primary-green
                 `}
-        ></input>
+          ></input>
       </div>
 
-      <div className="Right-Header flex items-center justify-between h-12 w-72">
-        <div className="Notif-Lang-Box flex items-center justify-between w-16 ml-40 h-12 pl-2">
-          <button className="hover:text-hover-gray">EN</button>
 
+      <div className="Right-Header flex items-center justify-between h-12 w-fit gap-5">
+          <button className="hover:text-hover-gray">EN</button>
           <button className="hover:text-hover-gray">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -75,12 +72,13 @@ function Header() {
               />
             </svg>
           </button>
-        </div>
 
         <button className="bg-gray-500 w-10 h-10 rounded-full hover:text-hover-gray">
           A
         </button>
       </div>
+
+
     </div>
   );
 }
@@ -110,27 +108,27 @@ function HighlightMyTrips() {
                 style={{ color: "primary-orange" }}
                 onClick={() => navigate("/my-trips")}
         >
-          My Trips
+          Trips
         </button>
       </div>
     );
   }
 
-function HighlightCalendar() {
-  const location = useLocation();
-  const navigate = useNavigate();
-    return (
-      <div>
-        <button
-          className={` ${location.pathname === "/calendar" ? 'underline-button' : 'no-underline-button'} 
-          `}
-          style={{ color: "primary-orange" }}
-          onClick={() => navigate("/calendar")}
-        >
-          Calendar
-        </button>
-      </div>
-    );
-}
+// function HighlightCalendar() {
+//   const location = useLocation();
+//   const navigate = useNavigate();
+//     return (
+//       <div>
+//         <button
+//           className={` ${location.pathname === "/calendar" ? 'underline-button' : 'no-underline-button'}
+//           `}
+//           style={{ color: "primary-orange" }}
+//           onClick={() => navigate("/calendar")}
+//         >
+//           Calendar
+//         </button>
+//       </div>
+//     );
+// }
 
 export default Header;
