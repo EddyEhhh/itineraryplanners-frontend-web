@@ -14,7 +14,7 @@ export default function Calendar(props) {
   //w-[px]
   return (
 
-    <div className={` w-[375px] h-[375px] mb-36 sm:mb-0 sm:w-[500px] sm:h-[500px] pt-16`}>
+    <div className={`sm:mb-0 w-[500px] h-[500px] pt-16`}>
       <div>
         <table className="pagination">
           <tbody>

@@ -5,7 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 function Header() {
   return (
-    <div className="MAIN HEADER w-full sticky z-50 top-0 bg-white h-12 flex items-center justify-between shadow pl-0 pr-0 sm:pl-40 sm:pr-40 font-semibold text-sm z-0">
+    <div className="MAIN HEADER z-50 sm:justify-between w-full sm:w-full pl-0 pr-0 sm:pl-40 sm:pr-40 sticky top-0 bg-white h-12 flex items-center justify-center shadow font-semibold text-sm">
       <div className="left-header flex items-center justify-around h-12 w-fit gap-4 sm:visible invisible">
 
         <div className="Home-Box h-11 flex items-center ">
@@ -42,8 +42,8 @@ function Header() {
           <input
               type="text"
               placeholder="Plan your trip"
-              className={`
-                text-sm h-9 rounded-full shadow shadow-outline px-5 w-46 sm:w-60 border-background-gray
+              className={` 
+                text-sm h-9 px-5 w-full sm:w-60 rounded-full shadow shadow-outline border-background-gray
                 placeholder-slate-500 placeholder-opacity-75 placeholder:text-center
                 focus:ring-1 focus:border-primary-green
                 `}

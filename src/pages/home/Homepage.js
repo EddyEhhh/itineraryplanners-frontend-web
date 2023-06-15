@@ -22,7 +22,7 @@ const Homepage = () => {
           <Calendar></Calendar>
         </div>
 
-        <div className="bg-white shadow-md rounded-2xl h-[450px] ml-10 mr-10 lg:mr-0 lg:ml-5">
+        <div className="bg-white shadow-md rounded-2xl w-[500px] h-[450px] lg:w-fit lg:mr-0 lg:ml-3">
           {/* header */}
           <div className="overflow-hidden h-48 rounded-t-2xl relative font-bold">
             <div className="absolute bg-white m-5 drop-shadow-5xl w-fit p-3 rounded-2xl h-14 flex justify-center items-center text-lg">
@@ -51,8 +51,6 @@ const Homepage = () => {
                 Me,Sis,Bro,Mum,Dad (6pax)
               </div>
             </div>
-
-            <div className="font-semibold">5 activities planned</div>
           </div>
         </div>
       </div>
