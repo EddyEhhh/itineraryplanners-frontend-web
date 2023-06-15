@@ -60,11 +60,13 @@ const TripScrollbar = () =>   {
         id = "trips-shortcuts"
         class="scroll-images"
         ref={scrollWrapperRef}
-        className="w-fit flex flex-row lg:flex-row sm:flex-col overflow-x-clip  overflow-x-scroll overflow-hidden scrollbar-hide"
+        className="w-fit flex flex-row
+        lg:flex-row  lg:overflow-x-clip  lg:overflow-x-scroll outline
+        sm:flex-col sm:overflow-y-clip sm:overflow-y-scroll sm:h-[400px] overflow-hidden scrollbar-hide"
 
       >
-        <div className="flex flex-col lg:flex-row sm:flex-col gap-[2.1rem]">
-          <TripBox title = "Title" duration = "Duration" width = "[406.5px]" ></TripBox>
+        <div className="flex flex-col lg:flex-row sm:flex-col lg:gap-[2.1rem]">
+          <TripBox title = "Title" duration = "Duration"></TripBox>
           <TripBox title = "Title" duration = "Duration" ></TripBox>
           <TripBox title = "Title" duration = "Duration" ></TripBox>
           <TripBox title = "Title" duration = "Duration" ></TripBox>
