@@ -4,8 +4,25 @@
   height: 700px;
   background-color: white;
   border-radius: 15px;
-  padding: 20px;
-  flex-direction: row;
-  align-items: center;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
 }
 
+#security-card-heading {
+  display: flex;
+  align-self: flex-start;
+}
+
+#password-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+#password-info {
+  display: flex;
+  flex-direction: column;
+}
