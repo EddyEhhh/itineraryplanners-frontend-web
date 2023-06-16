@@ -149,13 +149,13 @@ function Account() {
                   User Preferences
                 </button>
                 <div className="flex justify-center">
-                  <LargeButton
+                  {/* <LargeButton
                     border="danger-red"
                     text="Log out"
                     textColour="danger-red"
-                    hover="false"
-                    colour="white"
-                  ></LargeButton>
+                    colour="bg-white"
+                  ></LargeButton> */}
+                  <button id="log-out-button">Log out</button>
                 </div>
               </div>
             </div>

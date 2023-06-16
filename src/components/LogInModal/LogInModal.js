@@ -51,7 +51,7 @@ function LogInModal(props) {
             <XLargeButton
               text="Log in"
               textColour="white"
-              colour="primary-green"
+              colour="bg-primary-green"
               hover=""
               disabled=""
               border=""

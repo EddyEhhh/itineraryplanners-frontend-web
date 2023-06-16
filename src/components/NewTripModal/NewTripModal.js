@@ -88,7 +88,7 @@ function NewTripModal(props) {
                 <div className="flex justify-center">
                   <XLargeButton
                     text="Create Trip"
-                    colour="primary-green"
+                    colour="bg-primary-green"
                     textColour="white"
                     border=""
                   ></XLargeButton>

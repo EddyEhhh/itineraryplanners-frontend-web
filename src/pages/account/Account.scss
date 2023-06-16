@@ -69,3 +69,12 @@
   top: 0px;
   vertical-align: middle;
 }
+
+#log-out-button {
+  border-color: theme("colors.danger-red");
+  border-width: 1px;
+  border-radius: 9999px;
+  width: 150px;
+  height: 40px;
+  color: theme("colors.danger-red");
+}

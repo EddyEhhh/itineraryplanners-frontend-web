@@ -64,7 +64,7 @@ function RegisterModal(props) {
                     id="join-button"
                     text="Join"
                     textColour="white"
-                    colour="primary-green"
+                    colour="bg-primary-green"
                     hover=""
                     disabled=""
                     border=""

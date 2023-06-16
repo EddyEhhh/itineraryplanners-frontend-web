@@ -56,7 +56,7 @@ const Landing = () => {
 
                     <div className="flex items-center h-12 mt-8 w-contain">
                         <XLargeButton handleClick = {routeHandler}
-                            text = "Start Planning" hover = "" colour = "primary-green" disabled = "" textColour=""
+                            text = "Start Planning" hover = "" colour = "bg-primary-green" disabled = "" textColour=""
                             border =""
                         />
                     </div>

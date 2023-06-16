@@ -35,20 +35,6 @@ function PersonalInfoCard() {
             width="w-[350px]"
           ></InputBox>
         </div>
-        <div className="flex row-auto space-x-5 ">
-          <InputBox
-            title="City"
-            placeholder="Singapore"
-            type="text"
-            width="w-[350px]"
-          ></InputBox>
-          <InputBox
-            title="State/County"
-            placeholder="NA"
-            type="text"
-            width="w-[350px]"
-          ></InputBox>
-        </div>
         <div className="flex row-auto space-x-5">
           <InputBox
             title="Country"
@@ -56,17 +42,11 @@ function PersonalInfoCard() {
             type="text"
             width="w-[350px]"
           ></InputBox>
-          <InputBox
-            title="Gender"
-            placeholder="Male"
-            type="text"
-            width="w-[350px]"
-          ></InputBox>
         </div>
         <div>
           <LargeButton
             text="Save"
-            colour="primary-green"
+            colour="bg-primary-green"
             textColour="white"
             border=""
           ></LargeButton>

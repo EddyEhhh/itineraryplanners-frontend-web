@@ -30,7 +30,7 @@ function SecurityCard() {
               <InputBox title="Current password" type="password" placeholder="Current password" width="w-[350px]"/>
               <InputBox title="New password" type="password" placeholder="New password" width="w-[350px]"/>
               <InputBox title="Confirm password" type="password" placeholder="Re-enter new password" width="w-[350px]"/>
-              <LargeButton text="Update password"/>
+              <LargeButton text="Update password" colour="bg-light-gray"/>
             </div>
             }
           </div>

@@ -65,7 +65,7 @@ const Homepage = () => {
                 text="Create new trip"
                 textColour="black"
                 hover=""
-                colour="primary-green"
+                colour="bg-primary-green"
                 disabled=""
                 border=""
                 handleClick = {newTripModalHandler}
