@@ -10,7 +10,7 @@ function NewTripModal(props) {
 
   return (
     <div>
-      <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center ">
+      <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center z-50">
           <div id="new-trip-modal">
             <div className="corner-element">
               <MediumCircleButton onButtonClick={props.onClose} />
