@@ -82,8 +82,6 @@ const Landing = () => {
 
 
             </div>
-
-
         </div>
     </Suspense>
     );
