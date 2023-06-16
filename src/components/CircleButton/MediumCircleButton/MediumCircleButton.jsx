@@ -1,4 +1,3 @@
-import "./MediumCircleButton.css";
 import React from "react";
 
 function template() {

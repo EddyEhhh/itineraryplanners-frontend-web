@@ -69,6 +69,7 @@ function Account() {
                   className={`${highlightButton(showPersonalInfoCard)}`}
                 >
                   <svg
+                    id="account-svg"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -89,6 +90,7 @@ function Account() {
                   className={`${highlightButton(showSecurityCard)}`}
                 >
                   <svg
+                    id="account-svg"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -109,6 +111,7 @@ function Account() {
                   className={`${highlightButton(showNotificationsCard)}`}
                 >
                   <svg
+                    id="account-svg"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -129,6 +132,7 @@ function Account() {
                   className={`${highlightButton(showUserPreferencesCard)}`}
                 >
                   <svg
+                    id="account-svg"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -145,13 +149,13 @@ function Account() {
                   User Preferences
                 </button>
                 <div className="flex justify-center">
-                    <LargeButton
-                      border="danger-red"
-                      text="Log out"
-                      textColour="danger-red"
-                      hover="false"
-                      colour="white"
-                    ></LargeButton>
+                  <LargeButton
+                    border="danger-red"
+                    text="Log out"
+                    textColour="danger-red"
+                    hover="false"
+                    colour="white"
+                  ></LargeButton>
                 </div>
               </div>
             </div>
