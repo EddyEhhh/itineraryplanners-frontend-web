@@ -17,7 +17,7 @@ function SmallButton(props) {
                      ${props.disabled === "true" ? 'opacity-50' : ''} 
                     `} 
                 `}
-                onClick={ () => navigate(`${props.route}`) } >
+                 onClick={props.handleClick} >
              {props.text}
              </button>
          </div>

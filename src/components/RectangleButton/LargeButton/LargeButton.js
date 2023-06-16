@@ -25,7 +25,7 @@ function LargeButton(props) {
             `
             }
         `}
-        onClick={() => navigate(`${props.route}`)}
+        onClick={props.handleClick}
       >
         {props.text}
       </button>

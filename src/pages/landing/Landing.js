@@ -7,16 +7,23 @@ import NewTripModal from '../../components/NewTripModal/NewTripModal';
 import {useTranslation, Trans} from 'react-i18next';
 import {Suspense, useEffect, useState} from "react";
 import {changeLanguage} from "i18next";
+import {useNavigate} from "react-router-dom";
 
 // <button type = "submit" onClick={() => {
 //     i18n.changeLanguage("en");
 // }}> Log in </button>
 const Landing = () => {
+    const navigate = useNavigate();
     const { t, i18n } = useTranslation('landing');
     const lng = navigator.language
     const [logInModal, setLogInModal] = useState(false);
     const logInHandler = () => {
         setLogInModal(!logInModal);
+    }
+
+    const routeHandler =() => {
+        navigate("/home");
+        console.log("helloworld");
     }
 
     const[registerModal, setRegisterModal] = useState(false);
@@ -48,8 +55,8 @@ const Landing = () => {
                     </p>
 
                     <div className="flex items-center h-12 mt-8 w-contain">
-                        <XLargeButton
-                            text = "Start Planning" hover = "" colour = "primary-green" disabled = "" route = "home" textColour=""
+                        <XLargeButton handleClick = {routeHandler}
+                            text = "Start Planning" hover = "" colour = "primary-green" disabled = "" textColour=""
                             border =""
                         />
                     </div>
