@@ -4,7 +4,7 @@ import React from "react";
 function SecurityCard() {
   return (
     <div id="security-card">
-      <div id="login-page">
+      <div>
         <div id="security-card-heading">
           <h1>Login</h1>
         </div>
