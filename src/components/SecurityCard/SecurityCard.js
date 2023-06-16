@@ -4,14 +4,14 @@ import React from "react";
 function SecurityCard() {
   return (
     <div id="security-card">
-      <h1>Login</h1>
-      <div className="content">
-        <div className="info">
+      <h1 className="flex-1">Login</h1>
+        <div id="content">
           <h2>Password</h2>
           <p>Last updated a day ago</p>
         </div>
-        <button>Update</button>
-      </div>
+        <button
+        id="right-button"
+        >Update</button>
     </div>
   );
 }

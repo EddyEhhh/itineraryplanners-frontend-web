@@ -5,17 +5,49 @@ import { Suspense, useState } from "react";
 import PersonalInfoCard from "../../components/PersonalInfoCard/PersonalInfoCard";
 import LargeButton from "../../components/RectangleButton/LargeButton/LargeButton";
 import SecurityCard from "../../components/SecurityCard/SecurityCard";
+import NotificationsCard from "../../components/NotificationsCard/NotificationsCard";
+import UserPreferencesCard from "../../components/UserPreferencesCard/UserPreferencesCard";
 
 function Account() {
     const [showPersonalInfoCard, setPersonalInfoCard] = useState(true);
     const personalInfoCardHandler = () => {
-        setPersonalInfoCard(!showPersonalInfoCard);
-        setSecurityCard(false);
+        if (!showPersonalInfoCard) {
+            setPersonalInfoCard(!showPersonalInfoCard);
+            // highlightPersonalInfo();
+            setSecurityCard(false);
+            setNotificationsCard(false);
+            setUserPreferencesCard(false);
+        }
     }
     const [showSecurityCard, setSecurityCard] = useState(false);
     const securityCardHandler = () => {
-        setSecurityCard(!showSecurityCard);
-        setPersonalInfoCard(false);
+        if (!showSecurityCard) {
+            setSecurityCard(!showSecurityCard);
+            // highlightSecurity();
+            setPersonalInfoCard(false);  
+            setNotificationsCard(false);
+            setUserPreferencesCard(false);  
+        }
+    }
+    const [showNotificationsCard, setNotificationsCard] = useState(false);
+    const notificationsCardHandler = () => {
+        if (!showNotificationsCard) {
+            setNotificationsCard(!showNotificationsCard);
+            // highlightNotifications();
+            setSecurityCard(false);
+            setPersonalInfoCard(false);
+            setUserPreferencesCard(false);
+        }
+    }
+    const [showUserPreferencesCard, setUserPreferencesCard] = useState(false);
+    const userPreferencesCardHandler = () => {
+        if (!showUserPreferencesCard) {
+            setUserPreferencesCard(!showUserPreferencesCard);
+            // highlightUserPreferences();
+            setPersonalInfoCard(false);
+            setSecurityCard(false);
+            setNotificationsCard(false);
+        }
     }
 
   return (
@@ -84,7 +116,8 @@ function Account() {
                       d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
                     />
                   </svg>
-                  <button>Notifications</button>
+                  <button onClick={notificationsCardHandler}
+                  >Notifications</button>
                 </div>
                 <div className="flex row-auto space-x-5">
                   <svg
@@ -101,7 +134,8 @@ function Account() {
                       d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"
                     />
                   </svg>
-                  <button>User Preferences</button>
+                  <button onClick={userPreferencesCardHandler}
+                  >User Preferences</button>
                 </div>
                 <LargeButton
                   border="danger-red"
@@ -114,11 +148,17 @@ function Account() {
             </div>
             {showPersonalInfoCard && (<PersonalInfoCard/>)}
             {showSecurityCard && (<SecurityCard/>)}
+            {showNotificationsCard && (<NotificationsCard/>)}
+            {showUserPreferencesCard && (<UserPreferencesCard/>)}
           </div>
         </div>
       </div>
     </Suspense>
   );
+}
+
+function highlightPersonalInfo() {
+
 }
 
 export default Account;
