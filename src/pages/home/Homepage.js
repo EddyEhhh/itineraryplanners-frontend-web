@@ -63,7 +63,7 @@ const Homepage = () => {
             <div>
               <MediumButton
                 text="Create new trip"
-                textColour="white"
+                textColour="black"
                 hover=""
                 colour="primary-green"
                 disabled=""
