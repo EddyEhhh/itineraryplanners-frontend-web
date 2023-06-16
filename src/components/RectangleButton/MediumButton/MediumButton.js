@@ -10,25 +10,22 @@ function MediumButton(props) {
   return (
     <div>
       <button
-        className={` flex items-center justify-center rounded-full font-semibold text-base
-                      ${
-                        props.hover === "true"
-                          ? `w-28 h-1 bg-transparent text-${props.textColour}
-                      hover:transition-all ease-in duration-200 hover:bg-${colour} hover:text-white hover:w-40 hover:h-10`
-                          : `w-40 h-10 text-${props.textColour}
-                      ${
-                        props.border === ""
-                          ? `bg-${colour}`
-                          : `bg-transparent outline outline-${props.border} text-black`
-                      }
-                      ${props.disabled === "true" ? `opacity-50` : ""}
-                      `
-                      }
-                  `}
-        onClick={ 
-          props.handleClick
-          // () => navigate(`${props.route}`)
+        className={`flex items-center justify-center rounded-full text-lg font-semibold 
+        ${
+          props.hover === "true"
+            ? `w-28 h-1  bg-transparent text-${props.textColour} 
+        hover:transition-all ease-in duration-200 hover:${colour} hover:text-white hover:w-40 hover:h-10`
+            : `w-40 h-10 text-white
+        ${
+          border === ""
+            ? `bg-${colour}`
+            : `bg-transparent border-[1.5px] border-${border} text-slate-900`
+        } 
+        ${props.disabled === "true" ? `opacity-50` : ``}
+        `
         }
+    `}
+        onClick={() => navigate(`${props.route}`)}
       >
         {props.text}
       </button>
