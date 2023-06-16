@@ -19,11 +19,10 @@ function LogInModal(props) {
                 Welcome
               </h1>
               <XLargeButton
-                text="Log in with Google"
-                textColour="black"
-                hover="false"
+                text="
+                Log in with Google"
+                colour="bg-[#4285F4]"
                 disabled=""
-                border="[#D3DBE6]"
               />
             </div>
             <p id="divider">
@@ -50,11 +49,9 @@ function LogInModal(props) {
             ></MediumButton>
             <XLargeButton
               text="Log in"
-              textColour="white"
               colour="bg-primary-green"
               hover=""
               disabled=""
-              border=""
             ></XLargeButton>
             <div id="join-us">
               <p>Not a member?&nbsp;</p>

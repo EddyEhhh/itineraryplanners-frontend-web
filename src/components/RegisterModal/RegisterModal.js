@@ -16,14 +16,11 @@ function RegisterModal(props) {
             </div>
             <div id="register-modal-container">
               <h1 id="register-header">
-                Join us to make the most <br></br> out of your planning.
+                Join us to make the most out of your planning.
               </h1>
               <XLargeButton
                 text="Sign up with Google"
-                textColour="black"
-                hover="false"
-                disabled=""
-                border="[#D3DBE6]"
+                colour="bg-[#4285F4]"
               />
               <p id="divider">
                 <span>or</span>
