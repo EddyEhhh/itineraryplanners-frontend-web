@@ -1,6 +1,7 @@
 .underline-button{
     width: auto;
     padding: 0px 10px;
+
     height: 48px;
     border-bottom: 3px solid theme('colors.primary-orange');
     color: theme('colors.primary-orange');
@@ -23,6 +24,7 @@
     transition: ease-in-out;
     transition-duration: 100ms;
 }
+
 
 
 .button{

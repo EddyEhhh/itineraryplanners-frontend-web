@@ -59,7 +59,7 @@ function Account() {
         >
           <div id="account-cards" className="space-x-10">
             <div id="profile-card">
-              <div className="space-y-10">
+              <div className="space-y-5">
                 <div className="space-y-5">
                   <div id="circle"></div>
                   <h1 className="flex justify-center">Taro Sakamoto</h1>
