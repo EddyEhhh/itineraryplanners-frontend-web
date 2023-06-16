@@ -5,23 +5,36 @@
 }
 
 #profile-card {
+    display: flex;
     width: 350px;
     height: 700px;
     background-color: white;
     border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
 }
 
-#details-card {
+#circle {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    background-color: blanchedalmond;
     display: flex;
-    width: 800px;
-    height: 700px;
-    background-color: white;
-    border-radius: 15px;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
 }
 
-#account-cards {
-    display: flex;
-    flex-direction: row;
-}
+// #highlight-button-side {
+
+// }
+
+// #no-highlight-button-side {
+
+// }
+
+// #no-highlight-button-side:hover {
+
+// }

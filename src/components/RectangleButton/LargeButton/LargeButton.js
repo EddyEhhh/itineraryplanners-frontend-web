@@ -14,7 +14,7 @@ function LargeButton(props) {
             ${
               props.hover === "true"
                 ? `w-32 h-10  bg-transparent text-${props.textColour} 
-            hover:transition-all ease-in duration-200 hover:${colour} hover:text-white hover:w-60 hover:h-12`
+            hover:transition-all ease-in duration-200 hover:${colour} hover:text-white hover:w-60 hover:h-10`
                 : `w-64 h-10 text-white
             ${
               border === ""
