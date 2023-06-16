@@ -4,6 +4,25 @@
     height: 700px;
     background-color: white;
     border-radius: 15px;
-    align-items: center;
-    justify-content: center;
+    padding: 40px;
+    flex-direction: column;
+}
+
+h1 {
+    align-self: flex-start;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+#email-checkboxes {
+    margin-bottom: 40px; 
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+input[type="checkbox"] {
+    accent-color: #FF9500;
+    width: 20px;
+    height: 20px;
 }

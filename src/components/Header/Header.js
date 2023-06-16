@@ -4,6 +4,8 @@ import { XMarkIcon } from "@heroicons/react/20/solid";
 import { useNavigate, useLocation } from "react-router-dom";
 
 function Header() {
+  const navigate = useNavigate();
+
   return (
     <div className="MAIN HEADER z-50 sm:justify-between w-full sm:w-full pl-0 pr-0 sm:pl-40 sm:pr-40 sticky top-0 bg-white h-12 flex items-center justify-center shadow font-semibold text-sm">
       <div className="left-header flex items-center justify-around h-12 w-fit gap-4 sm:visible invisible">
@@ -71,7 +73,10 @@ function Header() {
             </svg>
           </button>
 
-        <button className="bg-gray-500 w-10 h-10 rounded-full hover:text-hover-gray">
+        <button 
+        className="bg-gray-500 w-10 h-10 rounded-full hover:text-hover-gray"
+        onClick={() => navigate("/account")}
+        >
           A
         </button>
       </div>
@@ -81,7 +86,7 @@ function Header() {
   );
 }
 
-function HighlightHome(props) {
+function HighlightHome() {
   const location = useLocation();
   const navigate = useNavigate();
     return (
