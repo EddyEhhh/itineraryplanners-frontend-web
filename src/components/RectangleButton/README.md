@@ -10,8 +10,10 @@ Text: Insert any text
 Hover: Can be set to true or left blank depending if u want **hover animations**\
 ButtonColour: button colours can only be changed when hover = true. Do not use any colours outside of palette.
 TextColour: text colour can only be changed when hover = false
+Colour: sets bg colour for both hover/unhovered
 Disabled: Adds state to 50% opacity (note that hover has to be false)
-Border: Adds border outline
+HandleClick: Accepts a function for onclick on the button. Put the function in page then pass it to the prop
+
 ````
 
 ## Div format
@@ -21,25 +23,25 @@ Border: Adds border outline
 ### Small
 ```
 <div className="h-8 w-full flex justify-center items-center">
-    <SmallButton text = "" hover = "" colour = "" disabled = "" route = "" textColour = "" border = ""/>
+    <SmallButton text = "" hover = "" colour = "" disabled = "" textColour = "" handleClick = {}/>
 </div>
 ```
 ### Medium
 ```
 <div className="h-10 w-full flex justify-center items-center">
-    <MediumButton  text = "" hover = "" colour = "" disabled = "" route = "" textColour = "" border = ""/>
+    <MediumButton text = "" hover = "" colour = "" disabled = "" textColour = "" handleClick = {}/>
 </div>
 ```
 ### Large
 ```
 <div className="h-12 w-full flex justify-center items-center">
-    <LargeButton text = "" hover = "" colour = "" disabled = "" route = "" textColour = "" border = ""/>
+    <LargeButton text = "" hover = "" colour = "" disabled = "" textColour = "" handleClick = {}/>
 </div>
 ```
 ### Xlarge
 ```
 <div className="h-14 w-full flex justify-center items-center">
-    <XLargeButton text = "" hover = "" colour = "" disabled = "" route = "" textColour = "" border = ""/>
+    <XLargeButton text = "" hover = "" colour = "" disabled = "" route = "" textColour = ""/>
 </div>
 ```
 
