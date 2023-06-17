@@ -12,13 +12,11 @@ function PersonalInfoCard() {
             title="First Name"
             placeholder="First Name"
             type="text"
-            width="w-[350px]"
           ></InputBox>
           <InputBox
             title="Last Name"
             placeholder="First Name"
             type="text"
-            width="w-[350px]"
           ></InputBox>
         </div>
         <div className="flex row-auto space-x-5 ">
@@ -26,13 +24,12 @@ function PersonalInfoCard() {
             title="Phone Number"
             placeholder="+65 9123 6789"
             type="tel"
-            width="w-[350px]"
           ></InputBox>
           <InputBox
             title="Email Address"
             placeholder="tarosakamoto@gmail.com"
             type="email"
-            width="w-[350px]"
+
           ></InputBox>
         </div>
         <div className="flex row-auto space-x-5">
@@ -40,7 +37,6 @@ function PersonalInfoCard() {
             title="Country"
             placeholder="Singapore"
             type="text"
-            width="w-[350px]"
           ></InputBox>
         </div>
         <div>

@@ -16,7 +16,7 @@ function InputBoxWithIcon({title, placeholder, type, width, warning, icon}) {
           <input
             placeholder={placeholder}
             type={type}
-            className={`peer ${width} h-12 mt-1 block px-3 py-2 pl-10 bg-white border border-slate-300 rounded-md text-base shadow-sm
+            className={`peer w-[300px] md:w-[400px] h-12 mt-1 block px-3 py-2 pl-10 bg-white border border-slate-300 rounded-md text-base shadow-sm
                 placeholder-slate-500 placeholder-opacity-75
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 invalid:border-red-500 invalid:text-red-600 invalid:ring-red-500 invalid:ring-1`}

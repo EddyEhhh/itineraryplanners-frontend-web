@@ -18,11 +18,11 @@ const Homepage = () => {
     <div>
       <div className="w-full h-fit flex flex-col items-center
                       lg:flex-row md:flex-col sm:flex-col">
-        <div>
+        <div className={"mb-10 lg:mb-0"}>
           <Calendar></Calendar>
         </div>
 
-        <div className="bg-white shadow-md z-0 rounded-2xl w-[500px] h-[450px] lg:w-fit lg:mr-0 lg:ml-3">
+        <div className="bg-white shadow-md z-0 rounded-2xl w-[500px] h-[450px] mb-20 lg:mb-0 lg:w-fit lg:mr-0 lg:ml-3">
           {/* header */}
           <div className="overflow-hidden h-48 rounded-t-2xl relative font-bold">
             <div className="absolute bg-white m-5 drop-shadow-5xl w-fit p-3 rounded-2xl h-14 flex justify-center items-center text-lg">

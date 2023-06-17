@@ -1,20 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from "./RegisterModal.scss";
 import MediumCircleButton from "../CircleButton/MediumCircleButton/MediumCircleButton";
 import InputBox from "../InputBox";
 import XLargeButton from "../RectangleButton/XLargeButton/XLargeButton";
-import MediumButton from "../RectangleButton/MediumButton/MediumButton";
+import LogInModal from "../LogInModal/LogInModal";
 
 function RegisterModal(props) {
   return (
     <div>
-      <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center">
-        <div id="register-modal">
+      <div className="fixed inset-0 bg-black bg-opacity-30 bg-contain backdrop-blur-sm flex flex-col justify-center items-center">
+        <div id="register-modal" className="w-[400px] h-[800px] md:w-[650px] md:h-[850px]">
           <div>
             <div className="corner-element">
               <MediumCircleButton onButtonClick = {props.onClose} />
             </div>
-            <div id="register-modal-container">
+            <div id="register-modal-container" >
               <h1 id="register-header">
                 Join us to make the most out of your planning.
               </h1>
@@ -25,37 +25,34 @@ function RegisterModal(props) {
               <p id="divider">
                 <span>or</span>
               </p>
-              <div className="space-y-5">
-                <div id="name-fields" className="space-x-5">
+              <div className=" flex flex-col items-center ">
+                <div id="name-fields" className="flex justify-center">
                   <InputBox
                     title="First Name"
                     placeholder="First Name"
                     type="text"
-                    width="w-[181px]"
+                    warning="Please enter your email address"
                   ></InputBox>
                   <InputBox
                     title="Last Name"
                     placeholder="Last Name"
                     type="text"
-                    width="w-[181px]"
-                  ></InputBox>
-                </div>
-                <div>
-                  <InputBox
-                    title="Email Address"
-                    placeholder="Email"
-                    type="email"
-                    width="w-[382.35px]"
                     warning="Please enter your email address"
                   ></InputBox>
                   <InputBox
-                    title="Create a password"
-                    placeholder="Password"
-                    type="password"
-                    width="w-[382.35px]"
-                    warning="Please enter your password"
+                      title="Email Address"
+                      placeholder="Email"
+                      type="email"
+                      warning="Please enter your email address"
+                  ></InputBox>
+                  <InputBox
+                      title="Password"
+                      placeholder="Password"
+                      type="password"
+                      warning="Please enter your email address"
                   ></InputBox>
                 </div>
+
                 <div className="flex justify-center">
                   <XLargeButton
                     id="join-button"
@@ -70,7 +67,8 @@ function RegisterModal(props) {
               </div>
               <div id="join-us">
                 <p>Already a member?&nbsp;</p>
-                <button>Log in</button>
+                <button onClick={props.openPopup}>Log in</button>
+
               </div>
             </div>
           </div>

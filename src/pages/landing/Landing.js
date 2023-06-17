@@ -20,20 +20,26 @@ const Landing = () => {
     const logInHandler = () => {
         setLogInModal(!logInModal);
     }
-
     const routeHandler =() => {
         navigate("/home");
-        console.log("helloworld");
     }
 
     const[registerModal, setRegisterModal] = useState(false);
     const registerHandler = () => {
         setRegisterModal(!registerModal);
     }
+
+    const changePopUpHandler = () => {
+        setRegisterModal(!registerModal);
+        setLogInModal(!logInModal);
+    }
+
     const [newTripModal, setNewTripModal] = useState(false);
     const newTripHandler = () => {
         setNewTripModal(!newTripModal);
     }
+
+
 
     return (
     <Suspense fallback = "loading">
@@ -68,12 +74,15 @@ const Landing = () => {
 
                     <button className= "transition duration-500 ease-out" onClick={logInHandler}> {t('logIn')} </button>
                     {logInModal && (
-                        <LogInModal onClose = {logInHandler}/>
+                        <LogInModal onClose = {logInHandler} openPopup = {changePopUpHandler}/>
                     )}
                     <button onClick={registerHandler}> {t('signUp')} </button>
-                    {registerModal && (
-                        <RegisterModal onClose = {registerHandler}/>
-                    )}
+                    <div className="transition: ease-in-out duration-5000">
+                        {registerModal && (
+                            <RegisterModal onClose = {registerHandler} openPopup = {changePopUpHandler}/>
+                        )}
+                    </div>
+
                 </div>
 
 

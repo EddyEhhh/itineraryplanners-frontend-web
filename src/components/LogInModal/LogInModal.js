@@ -9,7 +9,7 @@ function LogInModal(props) {
   return (
     <div>
       <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center z-0 ">
-        <div id="log-in-modal">
+        <div id="log-in-modal" className="w-[400px] h-[600px] md:w-[524px] md:h-[650px]">
           <div className="corner-element">
             <MediumCircleButton onButtonClick = {props.onClose}/>
           </div>
@@ -55,7 +55,7 @@ function LogInModal(props) {
             ></XLargeButton>
             <div id="join-us">
               <p>Not a member?&nbsp;</p>
-              <button>Join us</button>
+              <button onClick={props.openPopup}>Join us</button>
             </div>
           </div>
         </div>
