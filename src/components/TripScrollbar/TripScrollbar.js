@@ -68,7 +68,6 @@ const TripScrollbar = () =>   {
         className="w-fit flex
         lg:flex-row  lg:overflow-x-clip  lg:overflow-x-scroll
         flex-col overflow-y-clip overflow-y-scroll h-[400px] overflow-hidden scrollbar-hide"
-
       >
         <div className="flex flex-col lg:flex-row sm:flex-col lg:gap-[1.9rem]">
           <TripBox title = "Title" duration = "Duration"></TripBox>

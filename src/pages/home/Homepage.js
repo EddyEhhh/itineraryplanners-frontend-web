@@ -1,4 +1,4 @@
-import React, {Suspense, useRef, useState} from "react";
+import React, { Suspense, useRef, useState } from "react";
 import Calendar from "../../components/Calendar";
 import kr from "../landing/kr.jpeg";
 import MediumButton from "../../components/RectangleButton/MediumButton/MediumButton";
@@ -6,18 +6,16 @@ import styles from "./Homepage.scss";
 import TripScrollbar from "../../components/TripScrollbar/TripScrollbar";
 import NewTripModal from "../../components/NewTripModal/NewTripModal";
 
-
 const Homepage = () => {
   const [showNewTripModal, setNewTripModal] = useState(false);
 
   const newTripModalHandler = () => {
     setNewTripModal(!showNewTripModal);
-  }
+  };
 
   return (
     <div>
-      <div className="w-full h-fit flex flex-col items-center
-                      lg:flex-row md:flex-col sm:flex-col">
+      <div className="w-full h-fit flex flex-col items-center lg:flex-row">
         <div className={"mb-10 lg:mb-0"}>
           <Calendar></Calendar>
         </div>
@@ -68,21 +66,20 @@ const Homepage = () => {
                 colour="bg-primary-green"
                 disabled=""
                 border=""
-                handleClick = {newTripModalHandler}
+                handleClick={newTripModalHandler}
               />
             </div>
           </div>
-
         </div>
         <TripScrollbar></TripScrollbar>
         <Suspense>
-          {showNewTripModal && <NewTripModal
-              onClose = {newTripModalHandler}
-          ></NewTripModal>}
+          {showNewTripModal && (
+            <NewTripModal onClose={newTripModalHandler}></NewTripModal>
+          )}
         </Suspense>
       </div>
     </div>
   );
-}
+};
 
 export default Homepage;

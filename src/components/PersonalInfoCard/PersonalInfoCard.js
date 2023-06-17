@@ -7,38 +7,26 @@ function PersonalInfoCard() {
   return (
     <div id="details-card">
       <div className="space-y-10">
-        <div className="flex row-auto space-x-5 ">
-          <InputBox
-            title="First Name"
-            placeholder="First Name"
-            type="text"
-          ></InputBox>
-          <InputBox
-            title="Last Name"
-            placeholder="First Name"
-            type="text"
-          ></InputBox>
-        </div>
-        <div className="flex row-auto space-x-5 ">
-          <InputBox
-            title="Phone Number"
-            placeholder="+65 9123 6789"
-            type="tel"
-          ></InputBox>
-          <InputBox
-            title="Email Address"
-            placeholder="tarosakamoto@gmail.com"
-            type="email"
-
-          ></InputBox>
-        </div>
-        <div className="flex row-auto space-x-5">
-          <InputBox
-            title="Country"
-            placeholder="Singapore"
-            type="text"
-          ></InputBox>
-        </div>
+        <InputBox
+          title="First Name"
+          placeholder="First Name"
+          type="text"
+        ></InputBox>
+        <InputBox
+          title="Last Name"
+          placeholder="Last Name"
+          type="text"
+        ></InputBox>
+        <InputBox
+          title="Phone Number"
+          placeholder="+65 9123 6789"
+          type="tel"
+        ></InputBox>
+        <InputBox
+          title="Email Address"
+          placeholder="tarosakamoto@gmail.com"
+          type="email"
+        ></InputBox>
         <div>
           <LargeButton
             text="Save"

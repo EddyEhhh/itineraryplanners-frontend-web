@@ -3,14 +3,10 @@
   justify-content: center;
 }
 
-#account-cards {
-  display: flex;
-}
-
 #profile-card {
   display: flex;
   position: relative;
-  width: 350px;
+  width: 35%;
   min-height: 700px;
   background-color: white;
   border-radius: 15px;
@@ -22,8 +18,8 @@
 
 #circle {
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  aspect-ratio: 1/ 1;
+  width: 80%;
   background-color: blanchedalmond;
   display: flex;
   align-items: center;
@@ -35,8 +31,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 350px;
-  height: 30px;
+  width: 100%;
+  padding: 5px 0px 5px 0px;
+  height: auto;
   border-right: 3px solid theme("colors.primary-orange");
   color: theme("colors.primary-orange");
   transition: ease-in-out;
@@ -48,8 +45,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 350px;
-  height: 30px;
+  padding: 5px 0px 5px 0px;
+  width: 100%;
+  height: auto;
   text-align: center;
 }
 
@@ -57,8 +55,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 350px;
-    height: 30px;
+    padding: 5px 0px 5px 0px;
+    width: 100%;
+    height: auto;
     border-right: 3px solid theme("colors.primary-orange");
     color: theme("colors.primary-orange");
     transition: ease-in-out;
@@ -81,3 +80,4 @@
   height: 40px;
   color: theme("colors.danger-red");
 }
+
