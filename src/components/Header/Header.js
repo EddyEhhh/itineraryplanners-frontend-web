@@ -6,8 +6,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 function Header() {
   const navigate = useNavigate();
   return (
-    <div className="MAIN HEADER z-10 sm:justify-between w-full sm:w-full pl-0 pr-0 sm:pl-40 sm:pr-40 sticky top-0 bg-white h-12 flex items-center justify-center shadow font-semibold text-sm">
-      <div className="left-header flex items-center justify-around h-12 w-fit gap-4 sm:visible invisible">
+    <div className="MAIN HEADER z-10 sm:justify-center md:justify-between w-full sm:w-full pl-0 pr-0 sm:pl-40 sm:pr-40 sticky top-0 bg-white h-12 flex items-center shadow font-semibold text-sm">
+      <div className="left-header flex items-center justify-around h-12 w-fit gap-4 min-[834px]:visible invisible">
 
         <div className="Home-Box h-11 flex items-center ">
           <HighlightHome></HighlightHome>
@@ -20,7 +20,7 @@ function Header() {
 
       </div>
 
-      <div className="Center-Header flex items-center w-auto justify-end ">
+      <div className="Center-Header flex items-center w-auto justify-end">
         <div className="Nav-Icon absolute mr-2">
           <button className="bg-primary-green rounded-full w-7 h-7 flex items-center justify-center">
             <svg
@@ -53,7 +53,7 @@ function Header() {
       </div>
 
 
-      <div className="Right-Header flex items-center justify-between h-12 w-fit gap-5 sm:visible invisible">
+      <div className="Right-Header flex items-center justify-between h-12 w-fit gap-5 min-[834px]:visible invisible">
           <button className="hover:text-hover-gray">EN</button>
           <button className="hover:text-hover-gray">
             <svg

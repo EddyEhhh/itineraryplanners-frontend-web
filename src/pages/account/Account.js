@@ -47,15 +47,10 @@ function Account() {
   return (
     <Suspense fallback="loading">
       <div>
-        <div
-          id="account-page"
-          className="relative flex overflow-hidden h-screen"
-        >
-          <div
-            id="account-cards"
-            className="space-x-10 flex flex-col lg:flex-row"
+        <div className="h-full pt-10">
+          <div className="space-x-7 flex flex-col lg:flex-row"
           >
-            <div id="profile-card" className="space-y-5">
+            <div id="profile-card" className="flex space-y-5 w-full shadow">
               <div className="space-y-5">
                 <div id="circle"></div>
                 <h1 className="flex justify-center">Taro Sakamoto</h1>

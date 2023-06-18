@@ -5,7 +5,7 @@ import InputBox from "../InputBox";
 
 function PersonalInfoCard() {
   return (
-    <div id="details-card">
+    <div id="details-card" className={"shadow"}>
       <div className="space-y-10">
         <InputBox
           title="First Name"

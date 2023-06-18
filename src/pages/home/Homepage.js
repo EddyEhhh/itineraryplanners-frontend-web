@@ -15,7 +15,7 @@ const Homepage = () => {
 
   return (
     <div>
-      <div className="w-full h-fit flex flex-col items-center lg:flex-row">
+      <div className="w-full h-fit flex flex-col outline items-center lg:flex-row">
         <div className={"mb-10 lg:mb-0"}>
           <Calendar></Calendar>
         </div>
@@ -44,7 +44,7 @@ const Homepage = () => {
                 Jun 15, 1:45 - 8:55am (6hours 10mins)
               </div>
 
-              <div className="font-semibold pt-5">Who's going</div>
+              <div className="font-semibold pt-12">Who's going</div>
               <div className="opacity-90 text-base">
                 Me,Sis,Bro,Mum,Dad (6pax)
               </div>
