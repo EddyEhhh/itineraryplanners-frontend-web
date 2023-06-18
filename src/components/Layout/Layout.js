@@ -7,9 +7,9 @@ const Layout = () => {
       <div className>
           <Header></Header>
           <div className="
-              bg-primary-white mt-[2px] h-full z-0">
+              bg-primary-white mt-[2px] h-screen z-0">
               <div className="lg:pl-40 lg:pr-40
-                               sm:pl-0 sm:pr-0
+                              pl-5 pr-5
                                ">
                   <Outlet></Outlet>
               </div>

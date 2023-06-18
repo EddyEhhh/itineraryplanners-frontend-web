@@ -47,10 +47,10 @@ function Account() {
   return (
     <Suspense fallback="loading">
       <div>
-        <div className="h-full pt-10">
-          <div className="space-x-7 flex flex-col lg:flex-row"
+        <div className="h-full pt-10 pb-10">
+          <div className="flex flex-col w-full space-y-5 justify-center items-center md:flex-row lg:flex-row md:space-x-7 lg:space-x-7 md:space-y-0 lg:space-y-0"
           >
-            <div id="profile-card" className="flex space-y-5 w-full shadow">
+            <div id="profile-card" className="flex space-y-5 w-full shadow md:w-2/5 lg:w-2/5">
               <div className="space-y-5">
                 <div id="circle"></div>
                 <h1 className="flex justify-center">Taro Sakamoto</h1>
@@ -143,10 +143,10 @@ function Account() {
                 <button id="log-out-button">Log out</button>
               </div>
             </div>
-              {showPersonalInfoCard && <PersonalInfoCard />}
-              {showSecurityCard && <SecurityCard />}
-              {showNotificationsCard && <NotificationsCard />}
-              {showUserPreferencesCard && <UserPreferencesCard />}
+                {showPersonalInfoCard && <PersonalInfoCard />}
+                {showSecurityCard && <SecurityCard />}
+                {showNotificationsCard && <NotificationsCard />}
+                {showUserPreferencesCard && <UserPreferencesCard />}
           </div>
         </div>
       </div>
