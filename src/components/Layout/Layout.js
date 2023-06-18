@@ -7,7 +7,7 @@ const Layout = () => {
       <div className>
           <Header></Header>
           <div className="
-              bg-primary-white mt-[2px] h-screen z-0">
+              bg-primary-white mt-[2px] h-full z-0">
               <div className="lg:pl-40 lg:pr-40
                               pl-5 pr-5
                                ">

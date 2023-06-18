@@ -110,7 +110,7 @@ function HighlightMyTrips() {
                 style={{ color: "primary-orange" }}
                 onClick={() => navigate("/my-trips")}
         >
-          Trips
+          My Trips
         </button>
       </div>
     );
