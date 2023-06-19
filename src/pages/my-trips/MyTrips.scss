@@ -4,15 +4,15 @@
     flex-direction: column;
     flex-wrap: wrap;
     row-gap: 40px;
-    padding-left: 10px;
-    padding-right: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 @media(min-width: 768px) {
     #my-trips-container {
         display: grid;
-        padding-left: 10px;
-        padding-right: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
         grid-template-columns: repeat(3, 1fr);
         justify-content: space-between;
         row-gap: 40px;
@@ -24,6 +24,8 @@
     #my-trips-container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
+        margin-left: 0px;
+        margin-right: 0px;
         justify-content: space-between;
         row-gap: 40px;
         column-gap: 20px;
