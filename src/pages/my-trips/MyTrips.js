@@ -1,5 +1,6 @@
 import React from "react";
 import TripBox from "../../components/TripBox/TripBox";
+import EmptyTripBox from "../../components/EmptyTripBox/EmptyTripBox";
 import styles from "./MyTrips.scss";
 
 export function MyTrips() {
@@ -15,6 +16,7 @@ export function MyTrips() {
           <TripBox title="Title2" duration="Duration"></TripBox>
           <TripBox title="Title2" duration="Duration"></TripBox>
           <TripBox title="Title2" duration="Duration"></TripBox>
+          <EmptyTripBox></EmptyTripBox>
         </div>
       </div>
     </div>
