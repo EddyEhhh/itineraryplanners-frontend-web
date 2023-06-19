@@ -1,35 +1,31 @@
 
-//
-//@media(min-width: 1000px) {
-//    #my-trips-container {
-//        display: grid;
-//        grid-template-columns: repeat(auto-fill, 406.5px);
-//        justify-content: space-between;
-//        row-gap: 40px;
-//
-//    }
-//}
-//
+#my-trips-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
-
-@media(min-width: 400px) {
+@media(min-width: 768px) {
     #my-trips-container {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        padding-left: 10px;
+        padding-right: 10px;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: space-between;
         row-gap: 40px;
-        justify-items: center;
-        align-items: center;
+        column-gap: 20px;
     }
 }
 
-@media(min-width: 1025px) {
+@media(min-width: 1024px) {
     #my-trips-container {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        column-gap: 60px;
-        justify-content: space-evenly;
-        align-content: center;
-
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        justify-content: space-between;
+        row-gap: 40px;
+        column-gap: 20px;
     }
 }

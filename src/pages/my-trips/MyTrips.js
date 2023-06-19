@@ -10,16 +10,13 @@ export function MyTrips() {
           <h1>My Trips</h1>
         </div>
         <div id="my-trips-container">
-          <TripBox title="Title" duration="Duration" width = "w-[406.5px]"></TripBox>
-          <TripBox title="Title" duration="Duration" width = "w-[406.5px]"></TripBox>
-          <TripBox title="Title" duration="Duration" width = "w-[406.5px]"></TripBox>
-          <TripBox title="Title" duration="Duration" width = "w-[406.5px]"></TripBox>
-          <TripBox title="Title2" duration="Duration" width = "w-[406.5px]"></TripBox>
-          <TripBox title="Title2" duration="Duration" width = "w-[406.5px]"></TripBox>
-          <TripBox title="Title2" duration="Duration" width = "w-[406.5px]"></TripBox>
-          <TripBox title="Title2" duration="Duration" width = "w-[406.5px]"></TripBox>
-          <TripBox title="Title2" duration="Duration" width = "w-[406.5px]"></TripBox>
-
+          <TripBox title="Title" duration="Duration"></TripBox>
+          <TripBox title="Title" duration="Duration"></TripBox>
+          <TripBox title="Title" duration="Duration"></TripBox>
+          <TripBox title="Title" duration="Duration"></TripBox>
+          <TripBox title="Title2" duration="Duration"></TripBox>
+          <TripBox title="Title2" duration="Duration"></TripBox>
+          <TripBox title="Title2" duration="Duration"></TripBox>
         </div>
       </div>
     </div>
