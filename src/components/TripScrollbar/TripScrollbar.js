@@ -70,22 +70,22 @@ const TripScrollbar = () =>   {
         flex-col overflow-y-clip overflow-y-scroll h-[400px] overflow-hidden scrollbar-hide"
       >
         <div className="flex flex-col lg:flex-row sm:flex-col lg:gap-[1.9rem]">
-          <TripBox title = "Title" duration = "Duration"></TripBox>
-          <TripBox title = "Title" duration = "Duration" ></TripBox>
-          <TripBox title = "Title" duration = "Duration" ></TripBox>
-          <TripBox title = "Title" duration = "Duration" ></TripBox>
-          <TripBox title = "Title2" duration = "Duration" ></TripBox>
-          <TripBox title = "Title2" duration = "Duration" ></TripBox>
-          <TripBox title = "Title2" duration = "Duration" ></TripBox>
-          <TripBox title = "Title2" duration = "Duration" ></TripBox>
-          <TripBox title = "Title3" duration = "Duration" ></TripBox>
-          <TripBox title = "Title3" duration = "Duration" ></TripBox>
-          <TripBox title = "Title3" duration = "Duration" ></TripBox>
-          <TripBox title = "Title3" duration = "Duration" ></TripBox>
-          <TripBox title = "Title4" duration = "Duration" ></TripBox>
-          <TripBox title = "Title4" duration = "Duration" ></TripBox>
-          <TripBox title = "Title4" duration = "Duration" ></TripBox>
-          <TripBox title = "Title4" duration = "Duration" ></TripBox>
+          <TripBox title = "Title" duration = "Duration" width = "w-[406.5px]"></TripBox>
+          <TripBox title = "Title" duration = "Duration" width = "w-[406.5px]"></TripBox>
+          <TripBox title = "Title" duration = "Duration" width = "w-[406.5px]"></TripBox>
+          <TripBox title = "Title" duration = "Duration" width = "w-[406.5px]"></TripBox>
+          <TripBox title = "Title2" duration = "Duration" width = "w-[406.5px]"></TripBox>
+          <TripBox title = "Title2" duration = "Duration" width = "w-[406.5px]"></TripBox>
+          <TripBox title = "Title2" duration = "Duration" width = "w-[406.5px]"></TripBox>
+          <TripBox title = "Title2" duration = "Duration" width = "w-[406.5px]"></TripBox>
+          <TripBox title = "Title3" duration = "Duration" width = "w-[406.5px]"></TripBox>
+          <TripBox title = "Title3" duration = "Duration" width = "w-[406.5px]"></TripBox>
+          <TripBox title = "Title3" duration = "Duration" width = "w-[406.5px]"></TripBox>
+          <TripBox title = "Title3" duration = "Duration" width = "w-[406.5px]"></TripBox>
+          <TripBox title = "Title4" duration = "Duration" width = "w-[406.5px]" ></TripBox>
+          <TripBox title = "Title4" duration = "Duration" width = "w-[406.5px]"></TripBox>
+          <TripBox title = "Title4" duration = "Duration" width = "w-[406.5px]"></TripBox>
+          <TripBox title = "Title4" duration = "Duration" width = "w-[406.5px]"></TripBox>
         </div>
       </div>
 

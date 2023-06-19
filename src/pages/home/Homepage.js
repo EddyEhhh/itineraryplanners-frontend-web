@@ -15,7 +15,7 @@ const Homepage = () => {
 
   return (
     <div>
-      <div className="w-full h-fit flex flex-col outline items-center lg:flex-row">
+      <div className="w-full h-fit flex flex-col items-center lg:flex-row">
         <div className={"mb-10 lg:mb-0"}>
           <Calendar></Calendar>
         </div>
