@@ -9,9 +9,6 @@ import {Suspense, useEffect, useState} from "react";
 import {changeLanguage} from "i18next";
 import {useNavigate} from "react-router-dom";
 
-// <button type = "submit" onClick={() => {
-//     i18n.changeLanguage("en");
-// }}> Log in </button>
 const Landing = () => {
     const navigate = useNavigate();
     const { t, i18n } = useTranslation('landing');
@@ -42,7 +39,6 @@ const Landing = () => {
 
 
     return (
-    <Suspense fallback = "loading">
         <div>
 
             <div className = "Layout h-10 relative overflow-hidden h-screen">
@@ -62,7 +58,7 @@ const Landing = () => {
 
                     <div className="flex items-center h-12 mt-8 w-contain">
                         <XLargeButton handleClick = {routeHandler}
-                            text = "Start Planning" hover = "" colour = "bg-primary-green" 
+                            text = {t('Start_Planning')} hover = "" colour = "bg-primary-green"
                         />
                     </div>
                 </div>
@@ -91,7 +87,6 @@ const Landing = () => {
 
             </div>
         </div>
-    </Suspense>
     );
 }
 

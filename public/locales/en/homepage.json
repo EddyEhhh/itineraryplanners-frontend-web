@@ -1,0 +1,17 @@
+{
+  "IncomingTrips": {
+    "Details": "Details",
+    "Date": "15June ~ 18June",
+    "Location": "Location1 to Location2 - SQ 54032",
+    "Participants": "Who's going",
+    "Time": "Jun 15, 1:45 - 8:55am (6hours 10 mins)"
+  },
+
+  "UpcomingTrips": {
+    "Title": "Upcoming trips"
+  },
+
+  "Button": {
+    "Start": "Create new trip"
+  }
+}

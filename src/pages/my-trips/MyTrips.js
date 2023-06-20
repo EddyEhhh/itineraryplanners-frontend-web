@@ -5,6 +5,7 @@ import FAFAFA from "../../icons/FAFAFA.jpg";
 import AddButton from "../../components/AddButton/AddButton";
 import { useState, Suspense } from "react";
 import NewTripModal from "../../components/NewTripModal/NewTripModal";
+import {useTranslation} from "react-i18next";
 
 export function MyTrips() {
   const [showNewTripModal, setNewTripModal] = useState(false);
@@ -12,12 +13,14 @@ export function MyTrips() {
   const newTripModalHandler = () => {
     setNewTripModal(!showNewTripModal);
   };
+  const [t, i18n] = useTranslation("tripsPage");
 
   return (
-    <Suspense>
       <div>
         <div className="flex flex-col pt-10 pb-20">
-          <h1 id="my-trips-title">My Trips</h1>
+          <Suspense>
+          <h1 id="my-trips-title">{t('Title')}</h1>
+          </Suspense>
           <div id="my-trips-container">
             <TripBox title="Title" duration="Duration"></TripBox>
             <TripBox title="Title" duration="Duration"></TripBox>
@@ -43,7 +46,6 @@ export function MyTrips() {
           <NewTripModal onClose={newTripModalHandler}></NewTripModal>
         )}
       </div>
-    </Suspense>
   );
 }
 

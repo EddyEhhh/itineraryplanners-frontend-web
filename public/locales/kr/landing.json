@@ -11,5 +11,17 @@
   "description": {
     "part1": "ㅋㅋㅋㅋ",
     "part2": "ㅎㅎㅎㅎ"
+  },
+  "LogInModal": {
+    "Title": "로그인",
+    "Description": ""
+  },
+
+  "SignUpModal": {
+    "Title": "가입하기",
+    "FirstName": "이름",
+    "LastName": "성",
+    "Join": "회원가입",
+    "Description": "ㅋㅋㅋㅋ"
   }
 }

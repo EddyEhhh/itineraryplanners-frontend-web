@@ -5,8 +5,6 @@ import Backend from 'i18next-http-backend';
 
 
 i18n
-    // i18next-http-backend
-    // loads translations from your server
     // https://github.com/i18next/i18next-http-backend
     .use(Backend)
     // detect user language

@@ -1,11 +1,22 @@
-import React from "react";
+import React, {Suspense} from "react";
 import './Header.scss';
-import { XMarkIcon } from "@heroicons/react/20/solid";
 import { useNavigate, useLocation } from "react-router-dom";
+import {useState} from "react";
+import LangDropDown from "../langDropDown/LangDropDown";
+import {useTranslation} from "react-i18next";
 
 function Header() {
   const navigate = useNavigate();
-  return (
+  const [langDropDown, setLangDropDown] = useState(false);
+
+  function langDropDownHandler() {
+      setLangDropDown(!langDropDown);
+  }
+    const { t, i18n } = useTranslation('header');
+
+    return (
+      <Suspense>
+
     <div className="MAIN HEADER z-10 sm:justify-center md:justify-between w-full sm:w-full pl-0 pr-0 sm:pl-40 sm:pr-40 sticky top-0 bg-white h-12 flex items-center shadow font-semibold text-sm">
       <div className="left-header flex items-center justify-around h-12 w-fit gap-4 min-[834px]:visible invisible">
 
@@ -42,7 +53,7 @@ function Header() {
 
           <input
               type="text"
-              placeholder="Plan your trip"
+              placeholder= {t('SearchBarPlaceholder')}
               className={` 
                 text-sm h-9 px-5 w-full sm:w-60 rounded-full shadow shadow-outline border-background-gray
                 placeholder-slate-500 placeholder-opacity-75 placeholder:text-center
@@ -54,7 +65,14 @@ function Header() {
 
 
       <div className="Right-Header flex items-center justify-between h-12 w-fit gap-5 min-[834px]:visible invisible">
-          <button className="hover:text-hover-gray">EN</button>
+          <button
+              onClick = {langDropDownHandler}
+              className="hover:text-hover-gray">
+              {t('Lang')}
+          </button>
+          <Suspense>
+              {langDropDown && (<LangDropDown></LangDropDown>)}
+          </Suspense>
           <button className="hover:text-hover-gray">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -78,31 +96,41 @@ function Header() {
         >
           A
         </button>
+
       </div>
 
 
     </div>
+
+      </Suspense>
   );
 }
 
 function HighlightHome(props) {
-  const location = useLocation();
+    const { t, i18n } = useTranslation('header');
+
+    const location = useLocation();
   const navigate = useNavigate();
     return (
+        <Suspense>
       <div>
           <button className={`${location.pathname === "/home" ? 'underline-button' : 'no-underline-button'}
             `}
                   style={{ color: "primary-orange" }}
                   onClick={() => navigate("/home")}
-          > Home
+          > {t('Home')}
           </button>
       </div>
+        </Suspense>
+
     );
   }
 
 
 function HighlightMyTrips() {
-  const location = useLocation();
+    const { t, i18n } = useTranslation('header');
+
+    const location = useLocation();
   const navigate = useNavigate();
     return (
       <div>
@@ -110,7 +138,7 @@ function HighlightMyTrips() {
                 style={{ color: "primary-orange" }}
                 onClick={() => navigate("/my-trips")}
         >
-          My Trips
+            {t('Trips')}
         </button>
       </div>
     );

@@ -1,0 +1,17 @@
+{
+  "IncomingTrips": {
+    "Details": "세부 사항",
+    "Date": "날짜",
+    "Location": "위치",
+    "Participants": "사람",
+    "Time": "2시간 동안 걸리다"
+  },
+
+  "UpcomingTrips": {
+    "Title": "다음 여행"
+  },
+
+  "Button": {
+    "Start": "여행 창조"
+  }
+}

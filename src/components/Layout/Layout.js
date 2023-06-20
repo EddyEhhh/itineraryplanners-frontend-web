@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Suspense} from "react";
   import Header from "../Header/Header";
 import {Outlet} from "react-router-dom";
 
@@ -11,7 +11,10 @@ const Layout = () => {
               <div className="lg:pl-40 lg:pr-40
                               pl-5 pr-5
                                ">
+                  <Suspense>
                   <Outlet></Outlet>
+                  </Suspense>
+
               </div>
           </div>
 
