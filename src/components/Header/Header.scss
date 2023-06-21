@@ -25,8 +25,36 @@
     transition-duration: 100ms;
 }
 
-
-
 .button{
     z-index: 2;
+}
+
+@media (min-width: 768px) {
+    #hamburger * {
+        display: none;
+    }    
+}
+
+#hamburger {
+    display: block;
+    z-index: 10;
+}
+
+#hamburger-icon {
+    position: absolute;
+    top: 24px;
+    transform: translate(0%, -50%);
+    left: 20px;
+    z-index: 10;
+}
+
+.fill-button {
+    width: 100vw;
+    height: 64px;
+    background-color: theme('colors.primary-orange');
+}
+
+.no-fill-button {
+    width: 100vw;
+    height: 64px;
 }
