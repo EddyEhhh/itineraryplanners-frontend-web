@@ -66,12 +66,12 @@ function Header() {
         <div className="Right-Header flex items-center justify-between h-12 w-fit gap-5 min-[834px]:visible invisible">
           <button
             onClick={langDropDownHandler}
-            className="hover:text-hover-gray"
+            className="hover:text-primary-orange"
           >
             {t("Lang")}
           </button>
-          <Suspense>{langDropDown && <LangDropDown></LangDropDown>}</Suspense>
-          <button className="hover:text-hover-gray">
+          {langDropDown && <LangDropDown></LangDropDown>}
+          <button className="hover:text-primary-orange">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
