@@ -116,13 +116,13 @@ function Header() {
           </button>
         </div>
       </div>
-      <div id="hamburger" >
+      <div id="hamburger" className={"sticky top-12"} >
           { showHamburgerDropDown && (
             <div className="w-full bg-white h-fit flex flex-col items-center justify-center shadow-lg ease-in-out duration-100 ">
               <HighlightHomeDropdown/>
             </div>
           ) }
-        </div>
+      </div>
     </Suspense>
   );
 }
