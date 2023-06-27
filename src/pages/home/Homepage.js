@@ -24,7 +24,7 @@ const Homepage = () => {
           <Calendar></Calendar>
         </div>
 
-        <div className="bg-white shadow-md z-0 rounded-2xl w-[500px] h-[450px] mb-20 lg:mb-0 lg:w-fit lg:mr-0 lg:ml-3">
+        <div className="bg-white shadow-md z-0 rounded-2xl sm:w-[500px] h-[500px] w-[350px] h-[450px] mb-20 lg:mb-0 lg:w-fit lg:mr-0 lg:ml-3">
           {/* header */}
           <div className="overflow-hidden h-48 rounded-t-2xl relative font-bold">
             <div className="absolute bg-white m-5 drop-shadow-5xl w-fit p-3 rounded-2xl h-14 flex justify-center items-center text-lg">

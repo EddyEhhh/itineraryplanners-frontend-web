@@ -21,8 +21,8 @@ function Header() {
 
   return (
     <Suspense>
-      <div className="MAIN HEADER z-10 sm:justify-center md:justify-between w-full sm:w-full pl-0 pr-0 sm:pl-40 sm:pr-40 sticky top-0 bg-white h-12 flex items-center shadow font-semibold text-sm">
-        <div className="left-header flex items-center justify-around h-12 w-fit gap-4 min-[834px]:visible invisible">
+      <div className="MAIN HEADER flex items-center z-10 justify-center md:justify-between w-full sm:w-full pl-0 pr-0 sm:pl-40 sm:pr-40 sticky top-0 bg-white h-12 shadow font-semibold text-sm">
+        <div className="left-header flex items-center justify-around h-12 min-[834px]:w-fit w-0 gap-4 min-[834px]:visible invisible">
           <div className="Home-Box h-11 flex items-center ">
             <HighlightHome></HighlightHome>
           </div>
@@ -30,10 +30,29 @@ function Header() {
           <div className="Home-Box h-11 flex items-center">
             <HighlightMyTrips></HighlightMyTrips>
           </div>
+
+          <button className={"min-[834px]:invisible visible"}
+              id="hamburger-icon"
+              onClick={hamburgerDropDownHandler}>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-6 h-6"
+            >
+              <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </button>
         </div>
 
-        <div className="Center-Header flex items-center w-auto justify-end">
-          <div className="Nav-Icon absolute mr-2">
+        <div className="Center-Header flex items-center justify-end mr-auto ml-auto">
+          <div className="Nav-Icon absolute mr-2 ">
             <button className="bg-primary-green rounded-full w-7 h-7 flex items-center justify-center">
               <svg
                 className="w-4 h-4"
@@ -51,19 +70,20 @@ function Header() {
               </svg>
             </button>
           </div>
-
-          <input
-            type="text"
-            placeholder={t("SearchBarPlaceholder")}
-            className={` 
-                text-sm h-9 px-5 w-full sm:w-60 rounded-full shadow shadow-outline border-background-gray
+            <input
+                type="text"
+                placeholder={t("SearchBarPlaceholder")}
+                className={` 
+                text-sm h-9 w-full sm:w-60 shrink-0 rounded-full shadow shadow-outline border-background-gray
                 placeholder-slate-500 placeholder-opacity-75 placeholder:text-center
                 focus:ring-1 focus:border-primary-green
                 `}
-          ></input>
+            ></input>
+
+
         </div>
 
-        <div className="Right-Header flex items-center justify-between h-12 w-fit gap-5 min-[834px]:visible invisible">
+        <div className="Right-Header flex items-center justify-between h-12 w-0 gap-5 min-[834px]:visible min-[834px]:w-fit invisible">
           <button
             onClick={langDropDownHandler}
             className="hover:text-primary-orange"
@@ -96,29 +116,10 @@ function Header() {
           </button>
         </div>
       </div>
-      <div id="hamburger">
-          <button 
-          id="hamburger-icon"
-          onClick={hamburgerDropDownHandler}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
-          </button>
+      <div id="hamburger" >
           { showHamburgerDropDown && (
-            <div className="w-full bg-white h-32 flex flex-col items-center justify-center shadow-lg ease-in-out duration-100">
-              <HighlightHomeDropdown />
-              <HighlightMyTripsDropdown />
+            <div className="w-full bg-white h-fit flex flex-col items-center justify-center shadow-lg ease-in-out duration-100 ">
+              <HighlightHomeDropdown/>
             </div>
           ) }
         </div>
@@ -181,46 +182,49 @@ function HighlightHomeDropdown() {
   const navigate = useNavigate();
   return (
     <Suspense>
-      <div>
+      <div className={"font-semibold w-full flex flex-col"} >
         <button
-          className={`${
+          className={`h-[64px] ${
             location.pathname === "/home"
-              ? "fill-button"
-              : "no-fill-button"
+              ? "bg-primary-green"
+              : ""
           }
-            `}
+            transition: ease-in-out duration-300`}
           style={{ color: "primary-orange" }}
           onClick={() => navigate("/home")}
         >
           {" "}
           {t("Home")}
         </button>
+        <button
+            className={`h-[64px] ${
+                location.pathname === "/my-trips"
+                    ? "bg-primary-green"
+                    : ""
+            } transition: ease-in-out duration-300`}
+            style={{ color: "primary-orange" }}
+            onClick={() => navigate("/my-trips")}
+        >
+          {t("Trips")}
+        </button>
+        <button
+            className={`h-[64px] ${
+                location.pathname === "/Account"
+                    ? "bg-primary-green"
+                    : ""
+            } transition: ease-in-out duration-300`}
+            style={{ color: "primary-orange" }}
+            onClick={() => navigate("/Account") }
+        >
+          {t("Profile")}
+        </button>
+
       </div>
     </Suspense>
   );
 }
 
-function HighlightMyTripsDropdown() {
-  const { t, i18n } = useTranslation("header");
 
-  const location = useLocation();
-  const navigate = useNavigate();
-  return (
-    <div>
-      <button
-        className={` ${
-          location.pathname === "/my-trips"
-            ? "fill-button"
-            : "no-fill-button"
-        } `}
-        style={{ color: "primary-orange" }}
-        onClick={() => navigate("/my-trips")}
-      >
-        {t("Trips")}
-      </button>
-    </div>
-  );
-}
 
 // function HighlightCalendar() {
 //   const location = useLocation();
