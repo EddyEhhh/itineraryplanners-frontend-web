@@ -17,8 +17,8 @@ const Homepage = () => {
 
   const [t, i18n] = useTranslation("homepage");
   return (
-    <div>
-
+  <Suspense>
+    <div className="pt-8">
       <div className="w-full h-fit flex flex-col items-center lg:flex-row">
         <div className={"mb-10 lg:mb-0"}>
           <Calendar></Calendar>
@@ -85,6 +85,7 @@ const Homepage = () => {
           )}
       </div>
     </div>
+  </Suspense>
   );
 };
 

@@ -14,8 +14,8 @@ function MediumButton(props) {
         ${
           props.hover === "true"
             ? `w-28 h-1  bg-transparent ${textColour} hover:transition-all ease-in duration-200 hover:${colour} hover:text-white hover:w-40 hover:h-10`
-            : `w-40 h-10 text-white ${colour}
-                ${props.disabled === "true" ? `opacity-50` : ``}`
+            : `w-40 h-10 text-white opacity-100 hover:opacity-75 active:opacity-100 ${colour}
+              ${props.disabled === "true" ? `opacity-50` : ``}`
         }
     `}
         onClick={props.handleClick}

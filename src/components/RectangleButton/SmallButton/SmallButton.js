@@ -10,7 +10,7 @@ function SmallButton(props) {
                  {` flex items-center justify-center rounded-full text-sm 
                     ${props.hover === "true" ? `w-1 h-1 bg-transparent font-semibold ${props.textColour} ` +
                      `hover:transition-all ease-in duration-300 hover:bg-${colour} hover:text-white hover:w-32 hover:h-8`
-                     : `w-32 h-8 text-white ${colour}
+                     : `w-32 h-8 text-white opacity-100 hover:opacity-75 active:opacity-100 ${colour}
                      ${props.disabled === "true" ? 'opacity-50' : ''} 
                     `} 
                 `}

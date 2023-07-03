@@ -5,7 +5,9 @@ import {Outlet} from "react-router-dom";
 const Layout = () => {
   return (
       <div className>
-          <Header></Header>
+          <Suspense>
+              <Header></Header>
+          </Suspense>
           <div className="
               bg-primary-white mt-[2px] min-h-screen z-0">
               <div className="lg:pl-40 lg:pr-40
