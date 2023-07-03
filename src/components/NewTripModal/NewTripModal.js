@@ -3,11 +3,12 @@ import MediumCircleButton from "../CircleButton/MediumCircleButton/MediumCircleB
 import InputBox from "../InputBox";
 import InputBoxWithIcon from "../InputBoxWithIcons/InputBoxWithIcon";
 import XLargeButton from "../RectangleButton/XLargeButton/XLargeButton";
-import { useEffect, useState } from "react";
-import MediumButton from "../RectangleButton/MediumButton/MediumButton";
-
+import {useNavigate} from "react-router-dom";
 function NewTripModal(props) {
-
+    const navigate = useNavigate();
+    const clickHandler = () => {
+        navigate("/itinerary");
+    }
   return (
     <div>
       <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center z-50">
@@ -95,6 +96,7 @@ function NewTripModal(props) {
                     colour="bg-primary-green"
                     textColour="white"
                     border=""
+                    handleClick = {clickHandler}
                   ></XLargeButton>
                 </div>
               </div>

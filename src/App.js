@@ -8,6 +8,7 @@ import Layout from "./components/Layout/Layout";
 import Landing from "./pages/landing/Landing.js";
 import Account from "./pages/account/Account";
 import './i18n';
+import ItineraryPlan from "./pages/itinerary/ItineraryPlan";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
                 element={<CalendarPage/>}
             ></Route> */}
             <Route path="/account" element={<Account/>}></Route>
+            <Route path="/itinerary" element={<ItineraryPlan/>}></Route>
           </Route>
       </Routes>
     </BrowserRouter>
