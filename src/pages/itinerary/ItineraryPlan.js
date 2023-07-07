@@ -17,7 +17,6 @@ const ItineraryPlan = () => {
             flight:'',
         }
     ]
-
     const dateValues = [
         {
             day: 'Thursday',
@@ -53,7 +52,9 @@ const ItineraryPlan = () => {
             <ItinerarySelection></ItinerarySelection>
             <div className="flex flex-row w-full">
                 <div className= "w-2/12 outline">
-                    {dates.map((dateValues) => <DateBlock day = {dateValues.day} date = {dateValues.date}></DateBlock>)}
+                    {dates.map((dateValues) =>
+                        <DateBlock day = {dateValues.day} date = {dateValues.date}></DateBlock>)
+                    }
                     <div className="items-center justify-center flex mt-5">
                         <AddDateForm onAddDate = {addDateHandler}></AddDateForm>
                     </div>
