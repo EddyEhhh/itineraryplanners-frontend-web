@@ -9,14 +9,14 @@ const ItinerarySelection = () => {
     const [Flights, setFlights] = useState(false);
 
     const ItineraryOnClickHandler = () => {
-        if (Itinerary == false) {
+        if (Itinerary === false) {
             setItinerary(!Itinerary);
             setFlights(false);
             setAccommodation(false);
         }
     }
     const AccommodationOnClickHandler = () => {
-        if (Accommodation == false) {
+        if (Accommodation === false) {
             setAccommodation(!Accommodation);
             setFlights(false);
             setItinerary(false);
@@ -24,7 +24,7 @@ const ItinerarySelection = () => {
     }
 
     const FlightsOnClickHandler = () => {
-        if (Flights == false) {
+        if (Flights === false) {
             setFlights(!Flights);
             setItinerary(false);
             setAccommodation(false);
