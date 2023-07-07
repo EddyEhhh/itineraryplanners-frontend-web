@@ -12,15 +12,17 @@ function XLargeButton(props) {
     return (
         <button 
         id="x-large-button"
+        type={props.type}
+        // onClickCapture={() => console.log("test")}
         className=
             {`flex items-center justify-center rounded-full text-lg font-semibold 
                 ${props.hover === "true" ? `w-32 h-8  bg-transparent text-${props.textColour} 
                 hover:transition-all ease-in duration-200 hover:${colour} hover:text-white hover:w-72 hover:h-12` 
                 : `w-72 h-12 text-white opacity-100 hover:opacity-75 active:opacity-100 ${colour}
-                ${props.disabled === "true" ? `opacity-50` : ``}
+                ${props.disabled ? `opacity-50` : ``}
                 `}
             `}
-            onClick={props.handleClick} >
+            onClick={props.onClick} >
             {t(`${props.text}`)}
         </button>
     );

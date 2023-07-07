@@ -16,6 +16,8 @@ function InputBox(props) {
           <input
             placeholder = {props.placeholder}
             type = {props.type}
+            onChange = {props.onChange}
+            name = {props.name}
             className= {`peer w-[300px] md:w-[400px]  h-12 mt-1 block px-3 py-2 bg-white border border-slate-300 rounded-md text-base  
             placeholder-slate-500 placeholder-opacity-50 placeholder:font-light
             focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500    
