@@ -6,7 +6,9 @@ import React from "react";
 //               warning = ""/>
 // </div>
 function InputBox(props) {
-  
+
+    const disabled = 'disabled';
+
     return (
       <div>
           <span className="block text-base font-medium text-slate-700">
@@ -18,10 +20,11 @@ function InputBox(props) {
             type = {props.type}
             onChange = {props.onChange}
             name = {props.name}
-            className= {`peer w-[300px] md:w-[400px]  h-12 mt-1 block px-3 py-2 bg-white border border-slate-300 rounded-md text-base  
+            disabled = {props.disabled}
+            className= { `peer w-[300px] md:w-[400px]  h-12 mt-1 block px-3 py-2 bg-white border border-slate-300 rounded-md text-base  
             placeholder-slate-500 placeholder-opacity-50 placeholder:font-light
             focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500    
-            invalid:border-red-500 invalid:text-red-600 invalid:ring-red-500 invalid:ring-1`}
+            invalid:border-red-500 invalid:text-red-600 invalid:ring-red-500 invalid:ring-1 ` + (props.disabled === 'true' ? 'cursor-not-allowed' : '')}
           />
 
           <p className = "invisible peer-invalid:visible text-red-500 text-sm font-normal">

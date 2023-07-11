@@ -7,7 +7,8 @@
   "logIn":"Log in",
   "signUp": "Sign up",
   "password": "Password",
-  "email": "Email",
+  "email": "Username",
+  "googleLogin": "Log in with Google",
   "description": {
     "part1": "Make your next vacation enriching &",
     "part2": "memorable with our paid itinerary planner."

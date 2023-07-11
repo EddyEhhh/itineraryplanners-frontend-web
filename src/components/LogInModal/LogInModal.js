@@ -19,9 +19,7 @@ function LogInModal(props) {
   const navigate = useNavigate();
 
   const { login } = useAuth();
-  // const login = () =>{
-  //   console.log("TEEE");
-  // }
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();

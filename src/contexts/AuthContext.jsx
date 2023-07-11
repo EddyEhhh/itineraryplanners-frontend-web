@@ -13,32 +13,31 @@ const AuthProvider = ({ children }) => {
 
     const [account, setAccount] = useState(null);
 
-    // const setAccountFromToken = () => {
-    //     let token = localStorage.getItem("token");
-    //     if(token){
-    //         token = jwtDecode(token);
-    //         setAccount({
-    //             username: token.sub,
-    //             roles: token.scopes
-    //         })
-    //     }
-    // }
-    // useEffect(() => {
-    //     setAccountFromToken();
-    // })
+    const setAccountFromToken = () => {
+        let token = localStorage.getItem("token");
+        if (token) {
+            token = jwtDecode(token);
+            setAccount({
+                username: token.sub,
+                roles: token.scopes
+            })
+        }
+    }
+    useEffect(() => {
+        setAccountFromToken()
+    }, [])
 
     const login = async (loginData) => {
-        console.log("LOGIN BUTTON")
         return new Promise((resolve, reject) => {
             performLogin(loginData).then(res =>{
-                console.log("Auth", res.headers);
+                // console.log("Auth", res.headers);
 
-                const jwtToken = res.headers['Authorization']
-                console.log("Test: ",  jwtToken);
+                const jwtToken = res.headers['authorization']
+                // console.log("Test: ",  jwtToken);
                 localStorage.setItem("token", jwtToken);
-
                 const decodedToken = jwtDecode(jwtToken);
 
+                //TEMP
                 setAccount({
                     username: decodedToken.sub,
                     roles: decodedToken.scopes
@@ -74,7 +73,7 @@ const AuthProvider = ({ children }) => {
             login,
             logout,
             isAuthenticated,
-            // setAccountFromToken
+            setAccountFromToken
         }}>
             {children}
         </AuthContext.Provider>

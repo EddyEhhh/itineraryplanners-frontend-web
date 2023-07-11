@@ -1,12 +1,44 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styles from "./Account.scss";
 import { Suspense, useState } from "react";
 import PersonalInfoCard from "../../components/PersonalInfoCard/PersonalInfoCard";
 import SecurityCard from "../../components/SecurityCard/SecurityCard";
 import NotificationsCard from "../../components/NotificationsCard/NotificationsCard";
 import UserPreferencesCard from "../../components/UserPreferencesCard/UserPreferencesCard";
+import { getAccount } from "../../services/AuthenticationService"
+import { useNavigate } from "react-router-dom";
+import {useAuth} from "../../contexts/AuthContext";
 
 function Account() {
+
+  const [account, setAccount] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState([])
+
+  const navigate = useNavigate();
+  const { logout } = useAuth();
+
+  const fetchAccount = () => {
+    setLoading(true);
+    getAccount().then(res => {
+      setAccount(res.data)
+    }).catch(err => {
+      setError(err.data)
+    }).finally(() => {
+      setLoading(false);
+    })
+
+  }
+  useEffect(() => {
+    fetchAccount();
+  }, [])
+
+  const handleLogout = async (e) => {
+    logout()
+    navigate("/")
+
+  }
+
   const [showPersonalInfoCard, setPersonalInfoCard] = useState(true);
   const personalInfoCardHandler = () => {
     if (!showPersonalInfoCard) {
@@ -53,7 +85,7 @@ function Account() {
             <div id="profile-card" className="flex space-y-5 w-full shadow md:w-2/5 lg:w-2/5">
               <div className="space-y-5">
                 <div id="circle"></div>
-                <h1 className="flex justify-center">Taro Sakamoto</h1>
+                <h1 className="flex justify-center">{account.username}</h1>
               </div>
               <button
                 onClick={personalInfoCardHandler}
@@ -140,10 +172,10 @@ function Account() {
                 User Preferences
               </button>
               <div className="flex justify-center">
-                <button id="log-out-button">Log out</button>
+                  <button id="log-out-button" onClick={handleLogout}>Log out</button>
               </div>
             </div>
-                {showPersonalInfoCard && <PersonalInfoCard />}
+                {showPersonalInfoCard && <PersonalInfoCard data={account}/>}
                 {showSecurityCard && <SecurityCard />}
                 {showNotificationsCard && <NotificationsCard />}
                 {showUserPreferencesCard && <UserPreferencesCard />}
