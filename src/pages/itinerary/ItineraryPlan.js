@@ -19,25 +19,33 @@ const ItineraryPlan = () => {
     ]
     const dateValues = [
         {
-            day: 'Thursday',
-            date: '15 August',
+            day: '',
+            date: '',
+            id: 0,
             activityBlock: ActivityBlock
         }
     ]
 
     const [activity, setActivity] = useState([]);
-    const [dates, setDate] = useState(dateValues);
+    const [dates, setDate] = useState([]);
+    const [dateId, setDateId] = useState(0);
     const addActivityHandler = (ActivityBlock) => {
+
         setActivity((prevActivity) => {
             return [...prevActivity, ActivityBlock];
         });
     }
     const addDateHandler = (dateValues) => {
         setDate((prevDate) => {
+            setDateId(dateValues.id);
             return [...prevDate, dateValues];
         });
     }
 
+    const changeStateHandler = (x) => {
+        setDateId(x);
+        console.log(x);
+    }
     return (
         <Suspense>
 
@@ -53,17 +61,20 @@ const ItineraryPlan = () => {
             <div className="flex flex-row w-full">
                 <div className= "w-2/12 outline">
                     {dates.map((dateValues) =>
-                        <DateBlock day = {dateValues.day} date = {dateValues.date}></DateBlock>)
+                        <DateBlock data = {dateValues.id} amountOfActivity = {dateValues.id}  day = {dateValues.day} date = {dateValues.date}
+                        onClick = {() => {changeStateHandler(dateValues.id)}}/>)
                     }
+
                     <div className="items-center justify-center flex mt-5">
-                        <AddDateForm onAddDate = {addDateHandler}></AddDateForm>
+                        <AddDateForm currentDates = {dates} onAddDate = {addDateHandler}></AddDateForm>
                     </div>
                 </div>
+
                 <div className= "h-[900px] rounded-lg shadow-2xl w-10/12">
                     {activity.map((ActivityBlock) =>
                         <ItineraryActivityBlock title = {ActivityBlock.title}/>)
                     }
-                    <ItineraryActivityForm onSaveActivityData = {addActivityHandler}></ItineraryActivityForm>
+                    <ItineraryActivityForm currentDate = {dateId} onSaveActivityData = {addActivityHandler}></ItineraryActivityForm>
                 </div>
             </div>
 

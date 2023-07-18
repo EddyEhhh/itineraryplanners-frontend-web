@@ -8,6 +8,7 @@ const AddDateForm = (props) => {
         const date = {
             day: 'Day',
             date: 'Date',
+            id: props.currentDates.length
         }
         saveDateHandler(date);
     }
@@ -15,7 +16,6 @@ const AddDateForm = (props) => {
     const saveDateHandler = (enteredDateData) => {
         const dateData = {
             ...enteredDateData,
-            id: Math.random().toString(),
         };
         props.onAddDate(dateData);
     }
