@@ -25,14 +25,28 @@ const ItineraryPlan = () => {
             activityBlock: ActivityBlock
         }
     ]
-
-    const [activity, setActivity] = useState([]);
     const [dates, setDate] = useState([]);
     const [dateId, setDateId] = useState(0);
+
+    const changeStateHandler = (x) => {
+        setDateId(x.id);
+        setActivity(x.activityBlock);
+        // console.log(x);
+        // console.log(dates);
+    }
+    const [activity, setActivity] = useState([]);
+
     const addActivityHandler = (ActivityBlock) => {
         setActivity((prevActivity) => {
-            return [...prevActivity, ActivityBlock];
+            const x = [...dates[dateId].activityBlock, ActivityBlock];
+            addActivityToDate(x);
+            return x;
         });
+    }
+
+    const addActivityToDate = (activity) => {
+        dates[dateId].activityBlock = activity;
+        console.log(dates[dateId]);
     }
     const addDateHandler = (dateValues) => {
         setDate((prevDate) => {
@@ -41,13 +55,9 @@ const ItineraryPlan = () => {
         });
     }
 
-    const changeStateHandler = (x) => {
-        setDateId(x);
-        console.log(x);
-    }
+
     return (
         <Suspense>
-
         <div>
             <div className="Titlebox h-[330px] w-full bg-primary-green pt-6 pl-4 shadow">
                 <div className="bg-white h-[80px] rounded-lg shadow-base w-[400px] flex flex-col pt-3 ">
@@ -61,7 +71,7 @@ const ItineraryPlan = () => {
                 <div className= "w-2/12 outline">
                     {dates.map((dateValues) =>
                         <DateBlock data = {dateValues.id} amountOfActivity = {dateValues.id}  day = {dateValues.day} date = {dateValues.date}
-                        onClick = {() => {changeStateHandler(dateValues.id)}}/>)
+                        onClick = {() => {changeStateHandler(dateValues)}}/>)
                     }
 
                     <div className="items-center justify-center flex mt-5">

@@ -8,7 +8,8 @@ const AddDateForm = (props) => {
         const date = {
             day: 'Day',
             date: 'Date',
-            id: props.currentDates.length
+            id: props.currentDates.length,
+            activityBlock: []
         }
         saveDateHandler(date);
     }
@@ -21,7 +22,7 @@ const AddDateForm = (props) => {
     }
 
     return (
-        <SmallButton text ="Add Date" colour = "bg-gray-500" handleClick = {submitHandler}></SmallButton>
+        <SmallButton onClick = {props.onClick} text ="Add Date" colour = "bg-gray-500" handleClick = {submitHandler}></SmallButton>
     );
 }
 
