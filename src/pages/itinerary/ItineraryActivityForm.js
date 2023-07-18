@@ -10,7 +10,6 @@ const ItineraryActivityForm = (props) => {
 
     //saveActivityHandler adds it to array, and saves it to the array in
     const saveActivityHandler = (enteredActivityData) => {
-        // getDateid?
         const activityData = {
             ...enteredActivityData,
             id: Math.random().toString(),

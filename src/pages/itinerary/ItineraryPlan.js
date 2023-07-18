@@ -30,7 +30,6 @@ const ItineraryPlan = () => {
     const [dates, setDate] = useState([]);
     const [dateId, setDateId] = useState(0);
     const addActivityHandler = (ActivityBlock) => {
-
         setActivity((prevActivity) => {
             return [...prevActivity, ActivityBlock];
         });
