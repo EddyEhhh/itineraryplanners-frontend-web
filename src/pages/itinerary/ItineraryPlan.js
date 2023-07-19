@@ -5,7 +5,11 @@ import {useState} from "react";
 import ItineraryActivityForm from "./ItineraryActivityForm";
 import DateBlock from "./DateBlock";
 import AddDateForm from "./AddDateForm";
-const ItineraryPlan = () => {
+import {useLocation} from "react-router-dom";
+const ItineraryPlan = (props) => {
+    //gets state from newTripModal
+    const from = useLocation();
+
 
     const ActivityBlock = [
         {
@@ -25,20 +29,28 @@ const ItineraryPlan = () => {
             activityBlock: ActivityBlock
         }
     ]
+
+    const Trip = [
+        {
+            dates: dateValues,
+            id: 0
+        }
+    ]
     const [dates, setDate] = useState([]);
     const [dateId, setDateId] = useState(0);
 
     const changeStateHandler = (x) => {
         setDateId(x.id);
+        // console.log(x.id);
         setActivity(x.activityBlock);
-        // console.log(x);
-        // console.log(dates);
     }
     const [activity, setActivity] = useState([]);
 
+    //adds activity to state
     const addActivityHandler = (ActivityBlock) => {
         setActivity((prevActivity) => {
             const x = [...dates[dateId].activityBlock, ActivityBlock];
+            //adds activity to the date itself
             addActivityToDate(x);
             return x;
         });
@@ -46,22 +58,22 @@ const ItineraryPlan = () => {
 
     const addActivityToDate = (activity) => {
         dates[dateId].activityBlock = activity;
-        console.log(dates[dateId]);
+        // console.log(dates[dateId]);
     }
     const addDateHandler = (dateValues) => {
         setDate((prevDate) => {
-            setDateId(dateValues.id);
+            changeStateHandler(dateValues);
             return [...prevDate, dateValues];
         });
+
     }
-
-
+    console.log(from.state.title);
     return (
         <Suspense>
         <div>
             <div className="Titlebox h-[330px] w-full bg-primary-green pt-6 pl-4 shadow">
                 <div className="bg-white h-[80px] rounded-lg shadow-base w-[400px] flex flex-col pt-3 ">
-                    <input placeholder="Enter title" className="w-80% focus:outline-0 ml-2 font-semibold text-2xl"/>
+                    <input placeholder="Enter title" value = {`${from.state.title === "" ? '' : `Trip to ${from.state.title}` }`} className="w-80% focus:outline-0 ml-2 font-semibold text-2xl"/>
                     <h3 className={"ml-2"}> 15/7/1200 ~ 10/3/5000 </h3>
                 </div>
             </div>
@@ -70,10 +82,9 @@ const ItineraryPlan = () => {
             <div className="flex flex-row w-full">
                 <div className= "w-2/12 outline">
                     {dates.map((dateValues) =>
-                        <DateBlock data = {dateValues.id} amountOfActivity = {dateValues.id}  day = {dateValues.day} date = {dateValues.date}
+                        <DateBlock data = {dateValues.id} amountOfActivity = {dateValues.activityBlock.length}  day = {dateValues.day} date = {dateValues.date}
                         onClick = {() => {changeStateHandler(dateValues)}}/>)
                     }
-
                     <div className="items-center justify-center flex mt-5">
                         <AddDateForm currentDates = {dates} onAddDate = {addDateHandler}></AddDateForm>
                     </div>

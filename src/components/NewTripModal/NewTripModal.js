@@ -4,13 +4,31 @@ import InputBox from "../InputBox";
 import InputBoxWithIcon from "../InputBoxWithIcons/InputBoxWithIcon";
 import XLargeButton from "../RectangleButton/XLargeButton/XLargeButton";
 import {useNavigate} from "react-router-dom";
+import {useState} from "react";
+
 function NewTripModal(props) {
     const navigate = useNavigate();
-    const clickHandler = () => {
-        navigate("/itinerary");
+    const [location, setLocation] = useState('');
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+
+    const locationChangeHandler = (event) => {
+        setLocation(event.target.value);
     }
+    const startDateChangeHandler = (event) => {
+        setStartDate(event.target.value);
+    }
+    const endDateChangeHandler = (event) => {
+        setEndDate(event.target.value);
+    }
+
+
+    const clickHandler = () => {
+       navigate('/itinerary', {state:{title:location,startDate:startDate,endDate:endDate}});
+    }
+
   return (
-    <div>
+    <form>
       <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center z-50">
           <div id="new-trip-modal" className = "md:w-[600px] md:h-[400px] w-[400px] h-[400px]">
             <div className="corner-element">
@@ -21,6 +39,8 @@ function NewTripModal(props) {
                 <h1>New Trip</h1>
                   <div className="flex justify-center ">
                       <InputBoxWithIcon
+                          value = {location}
+                          onChange = {locationChangeHandler}
                           icon={
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -50,6 +70,8 @@ function NewTripModal(props) {
 
                 <div id="date-inputs" className="space-y-5 flex-row md:flex-row ">
                   <InputBoxWithIcon
+                      value = {startDate}
+                      onChange = {startDateChangeHandler}
                     icon={
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -70,6 +92,8 @@ function NewTripModal(props) {
                     placeholder="Start Date"
                   ></InputBoxWithIcon>
                   <InputBoxWithIcon
+                      value = {endDate}
+                      onChange = {endDateChangeHandler}
                     icon={
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -96,14 +120,14 @@ function NewTripModal(props) {
                     colour="bg-primary-green"
                     textColour="white"
                     border=""
-                    handleClick = {clickHandler}
+                    onClick = {clickHandler}
                   ></XLargeButton>
                 </div>
               </div>
             </div>
           </div>
       </div>
-    </div>
+    </form>
   );
 }
 

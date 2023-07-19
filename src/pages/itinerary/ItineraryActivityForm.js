@@ -36,8 +36,6 @@ const ItineraryActivityForm = (props) => {
                onChange={titleChangeHandler}/>
       </form>
     );
-
-
 }
 
 export default ItineraryActivityForm;

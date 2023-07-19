@@ -8,8 +8,6 @@ const DateBlock = (props) => {
     return (
         <button
             className=" w-full h-28 flex flex-col justify-center items-start pl-5"
-            // onClick={ () => {getDateID(props.dateValue)} }
-            // onClick = { () => {getDateID(props.data)}}
             onClick = {props.onClick}
 
         >
@@ -20,7 +18,7 @@ const DateBlock = (props) => {
                 </div>
                 <div className="flex flex-col">
                     <p>{props.location} location </p>
-                    <p>{props.amountOfActivity} amount of activity</p>
+                    <p>{props.amountOfActivity} Activities </p>
                 </div>
             </div>
 
