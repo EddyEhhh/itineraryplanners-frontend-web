@@ -1,9 +1,10 @@
 import AxiosInstance from "../api/AxiosInstance.js";
 
-const getAuthConfig = () => ({
+export const getAuthConfig = () => ({
     headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`
-    }})
+    }}
+)
 
 export const login = async (loginData) =>{
     // const {username, password} = loginData;

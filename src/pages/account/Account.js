@@ -5,9 +5,13 @@ import PersonalInfoCard from "../../components/PersonalInfoCard/PersonalInfoCard
 import SecurityCard from "../../components/SecurityCard/SecurityCard";
 import NotificationsCard from "../../components/NotificationsCard/NotificationsCard";
 import UserPreferencesCard from "../../components/UserPreferencesCard/UserPreferencesCard";
-import { getAccount } from "../../services/AuthenticationService"
+import {getAccount, getAuthConfig} from "../../services/AuthenticationService"
 import { useNavigate } from "react-router-dom";
 import {useAuth} from "../../contexts/AuthContext";
+import {useRef} from "react";
+import { uploadProfilePicture, getProfilePicture } from "../../services/AccountService";
+import AxiosInstance from "../../api/AxiosInstance";
+
 
 function Account() {
 
@@ -18,20 +22,34 @@ function Account() {
   const navigate = useNavigate();
   const { logout } = useAuth();
 
+  const [profilePicture, setProfilePicture] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");
+
+  useEffect(() => {
+    fetchAccount();
+  }, [])
+
   const fetchAccount = () => {
     setLoading(true);
     getAccount().then(res => {
       setAccount(res.data)
+      fetchProfilePicture(res.data.username);
     }).catch(err => {
       setError(err.data)
     }).finally(() => {
       setLoading(false);
     })
-
   }
-  useEffect(() => {
-    fetchAccount();
-  }, [])
+
+  const fetchProfilePicture = (username) => {
+    getProfilePicture(username).then(res => {
+      setProfilePicture("data:image/png;base64," + res.data);
+      console.log("success");
+    })
+    console.log("This is the pic:" + profilePicture);
+    document.getElementById("profilePic").src = profilePicture;
+  }
+
+
 
   const handleLogout = async (e) => {
     logout()
@@ -76,6 +94,28 @@ function Account() {
     }
   };
 
+  const inputRef = useRef(null);
+  const [image, setImage] = useState("");
+  const handleImageClick = () => {
+    inputRef.current.click();
+  };
+
+  const [state, setState] = useState("");
+  const token = '{TOKEN}';
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    console.log(file);
+    setImage(event.target.files[0])
+    let data = new FormData();
+    data.append('image', event.target.files[0]);
+    uploadProfilePicture(account.username, data)
+        .then(
+
+    ).catch(
+
+    )
+  };
+
   return (
     <Suspense fallback="loading">
       <div>
@@ -84,9 +124,15 @@ function Account() {
           >
             <div id="profile-card" className="flex space-y-5 w-full shadow md:w-2/5 lg:w-2/5">
               <div className="space-y-5">
-                <div id="circle"></div>
+                <div onClick={handleImageClick}>
+                  {image ? <img src={URL.createObjectURL(image)} alt="" className="img-display"/> :
+                      <img id="profilePic" src="" className="img-display"/>
+                  }
+                  <input type="file" ref={inputRef} onChange={handleImageChange} style={{display: "none"}} />
+                </div>
                 <h1 className="flex justify-center">{account.username}</h1>
               </div>
+
               <button
                 onClick={personalInfoCardHandler}
                 className={`${highlightButton(showPersonalInfoCard)}`}
@@ -190,6 +236,7 @@ function Account() {
       ? "highlight-button-side"
       : "no-highlight-button-side";
   }
+
 }
 
 export default Account;
