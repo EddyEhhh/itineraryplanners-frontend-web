@@ -7,6 +7,7 @@ const ItineraryActivityForm = (props) => {
     const titleChangeHandler = (event) => {
         setTitle(event.target.value);
     }
+
     //saveActivityHandler adds it to array, and saves it to the array in
     const saveActivityHandler = (enteredActivityData) => {
         const activityData = {
@@ -35,8 +36,6 @@ const ItineraryActivityForm = (props) => {
                onChange={titleChangeHandler}/>
       </form>
     );
-
-
 }
 
 export default ItineraryActivityForm;

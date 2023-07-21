@@ -4,7 +4,7 @@ import React from "react";
 //     <InputBox title = "" placeholder = "" type = "" width = ""
 //               warning = ""/>
 // </div>
-function InputBoxWithIcon({title, placeholder, type, width, warning, icon}) {
+function InputBoxWithIcon({title, placeholder, type, width, warning, icon, value, onChange}) {
   return (
     <div>
       <span className="block text-base font-medium text-slate-700">
@@ -14,6 +14,8 @@ function InputBoxWithIcon({title, placeholder, type, width, warning, icon}) {
           <span className="absolute inset-y-0 left-0 flex items-center pl-2"
           >{!!icon} {icon}</span>
           <input
+          value = {value}
+          onChange={onChange}
             placeholder={placeholder}
             type={type}
             className={`peer w-[300px] md:w-[400px] h-12 mt-1 block px-3 py-2 pl-10 bg-white border border-slate-300 rounded-md text-base shadow-sm

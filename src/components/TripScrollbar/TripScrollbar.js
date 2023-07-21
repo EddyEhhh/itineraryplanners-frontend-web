@@ -77,15 +77,6 @@ const TripScrollbar = () =>   {
           <TripBox title = "Title2" duration = "Duration" width = "w-[406.5px]"></TripBox>
           <TripBox title = "Title2" duration = "Duration" width = "w-[406.5px]"></TripBox>
           <TripBox title = "Title2" duration = "Duration" width = "w-[406.5px]"></TripBox>
-          <TripBox title = "Title2" duration = "Duration" width = "w-[406.5px]"></TripBox>
-          <TripBox title = "Title3" duration = "Duration" width = "w-[406.5px]"></TripBox>
-          <TripBox title = "Title3" duration = "Duration" width = "w-[406.5px]"></TripBox>
-          <TripBox title = "Title3" duration = "Duration" width = "w-[406.5px]"></TripBox>
-          <TripBox title = "Title3" duration = "Duration" width = "w-[406.5px]"></TripBox>
-          <TripBox title = "Title4" duration = "Duration" width = "w-[406.5px]" ></TripBox>
-          <TripBox title = "Title4" duration = "Duration" width = "w-[406.5px]"></TripBox>
-          <TripBox title = "Title4" duration = "Duration" width = "w-[406.5px]"></TripBox>
-          <TripBox title = "Title4" duration = "Duration" width = "w-[406.5px]"></TripBox>
         </div>
       </div>
 

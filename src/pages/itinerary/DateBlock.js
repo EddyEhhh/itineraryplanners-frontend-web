@@ -2,12 +2,15 @@ import React from 'react';
 
 
 const DateBlock = (props) => {
-
-    const addDateHandler = () => {
-
+    const getDateID = (x) => {
+        console.log(x);
     }
     return (
-        <button className=" outline w-full h-28 flex flex-col justify-center items-start pl-5">
+        <button
+            className=" w-full h-28 flex flex-col justify-center items-start pl-5"
+            onClick = {props.onClick}
+
+        >
             <div>
                 <div className="mb-4 flex flex-row  font-bold text-lg items-center justify-center">
                     <p>{props.date},</p>
@@ -15,7 +18,7 @@ const DateBlock = (props) => {
                 </div>
                 <div className="flex flex-col">
                     <p>{props.location} location </p>
-                    <p>{props.amountOfActivity} amount of activity</p>
+                    <p>{props.amountOfActivity} Activities </p>
                 </div>
             </div>
 
