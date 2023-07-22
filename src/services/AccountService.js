@@ -29,6 +29,7 @@ export const getProfilePicture = async (username) => {
             "/api/v1/accounts/" + username + '/imageRetrieve',
                 getAuthConfig()
         )
+        console.log("What's given back:" + response.data);
         return response;
 
     } catch (e){
