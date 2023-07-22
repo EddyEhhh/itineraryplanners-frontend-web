@@ -9,7 +9,7 @@ import {useLocation} from "react-router-dom";
 const ItineraryPlan = (props) => {
     //gets state from newTripModal
     const from = useLocation();
-
+    console.log(from.state);
 
     const ActivityBlock = [
         {
@@ -67,7 +67,7 @@ const ItineraryPlan = (props) => {
         });
 
     }
-    console.log(from.state.title);
+
     return (
         <Suspense>
         <div>

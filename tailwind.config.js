@@ -4,6 +4,7 @@ module.exports = {
   content: [
     "./src/**/*.{html,js,scss, jsx}",
     "./node_modules/flowbite/**/*.js",
+    "./node_modules/tailwind-datepicker-react/dist/**/*.js"
   ],
   theme: {
     fontFeatureSettings: {
@@ -36,7 +37,10 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-font-inter")],
+  plugins: [
+      require("tailwindcss-font-inter"),
+      require('flowbite/plugin')
+  ],
 };
 
 // colors: {
