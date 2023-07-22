@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useCallback, useEffect, useMemo} from "react";
 import styles from "./Account.scss";
 import { Suspense, useState } from "react";
 import PersonalInfoCard from "../../components/PersonalInfoCard/PersonalInfoCard";
@@ -11,7 +11,6 @@ import {useAuth} from "../../contexts/AuthContext";
 import {useRef} from "react";
 import { uploadProfilePicture, getProfilePicture } from "../../services/AccountService";
 import AxiosInstance from "../../api/AxiosInstance";
-
 
 function Account() {
 
@@ -31,7 +30,7 @@ function Account() {
   const fetchAccount = () => {
     setLoading(true);
     getAccount().then(res => {
-      setAccount(res.data)
+      setAccount(res.data);
       fetchProfilePicture(res.data.username);
     }).catch(err => {
       setError(err.data)
@@ -42,14 +41,12 @@ function Account() {
 
   const fetchProfilePicture = (username) => {
     getProfilePicture(username).then(res => {
+      console.log("What we get:" + res.data);
       setProfilePicture("data:image/png;base64," + res.data);
-      console.log("success");
-    })
+    });
     console.log("This is the pic:" + profilePicture);
     document.getElementById("profilePic").src = profilePicture;
   }
-
-
 
   const handleLogout = async (e) => {
     logout()
