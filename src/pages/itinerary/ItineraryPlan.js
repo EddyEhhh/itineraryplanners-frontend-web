@@ -32,11 +32,9 @@ const ItineraryPlan = (props) => {
                 day: days[from.state.startDate.getDay()],
                 date: from.state.startDate.getDate(),
                 id: dates.length,
-                activity: []
+                activityBlock: []
             }
-            // dates.push(newDate);
             addDateHandler(newDate);
-            // addDateHandler(newDate);
             from.state.startDate.setDate(from.state.startDate.getDate() + 1);
         }
     }
@@ -90,8 +88,8 @@ const ItineraryPlan = (props) => {
             </div>
 
             <ItinerarySelection></ItinerarySelection>
-            <div className="flex flex-row w-full">
-                <div className= "w-2/12 outline">
+            <div className="flex flex-row w-full mb-10">
+                <div className= "w-2/12 outline h-[900px] overflow-hidden scrollbar-hide overflow-y-auto">
                         {dates.map((data) =>
                             <DateBlock data = {data.id} amountOfActivity = {data.activityBlock.length}  day = {data.day} date = {data.date}
                             onClick = {() => {changeStateHandler(data)}}/>)
