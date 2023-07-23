@@ -15,10 +15,7 @@ const AddDateForm = (props) => {
     }
 
     const saveDateHandler = (enteredDateData) => {
-        const dateData = {
-            ...enteredDateData,
-        };
-        props.onAddDate(dateData);
+        props.onAddDate(enteredDateData);
     }
 
     return (

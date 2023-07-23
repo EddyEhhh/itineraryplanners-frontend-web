@@ -1,4 +1,4 @@
-import React, {Suspense} from "react";
+import React, {Suspense, useEffect} from "react";
 import ItinerarySelection from "./ItinerarySelection";
 import ItineraryActivityBlock from "./ItineraryActivityBlock";
 import {useState} from "react";
@@ -9,39 +9,52 @@ import {useLocation} from "react-router-dom";
 const ItineraryPlan = (props) => {
     //gets state from newTripModal
     const from = useLocation();
-    console.log(from.state);
 
     const ActivityBlock = [
-        {
-            title: '',
-            arrival: '',
-            departure:'',
-            accommodation:'',
-            duration:'',
-            flight:'',
-        }
+        // {
+        //     title: '',
+        //     arrival: '',
+        //     departure:'',
+        //     accommodation:'',
+        //     duration:'',
+        //     flight:'',
+        //     id: '',
+        // }
     ]
-    const dateValues = [
-        {
-            day: '',
-            date: '',
-            id: 0,
-            activityBlock: ActivityBlock
-        }
-    ]
-
-    const Trip = [
-        {
-            dates: dateValues,
-            id: 0
-        }
-    ]
+    const dateValues = [];
     const [dates, setDate] = useState([]);
     const [dateId, setDateId] = useState(0);
+    const days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+
+    const extractDates = (dates) => {
+        while (from.state.startDate <= from.state.endDate) {
+            const newDate = {
+                day: days[from.state.startDate.getDay()],
+                date: from.state.startDate.getDate(),
+                id: dates.length,
+                activity: []
+            }
+            // dates.push(newDate);
+            addDateHandler(newDate);
+            // addDateHandler(newDate);
+            from.state.startDate.setDate(from.state.startDate.getDate() + 1);
+        }
+    }
+
+    useEffect(() => {
+        extractDates(dates);
+        console.log(dates);
+    }, [dates])
+
+
+    // useEffect(() => {
+    //     console.log("date values are" + dates);
+    //     console.log(dates.length);
+    // }, [dates]);
+
 
     const changeStateHandler = (x) => {
         setDateId(x.id);
-        // console.log(x.id);
         setActivity(x.activityBlock);
     }
     const [activity, setActivity] = useState([]);
@@ -55,17 +68,15 @@ const ItineraryPlan = (props) => {
             return x;
         });
     }
-
     const addActivityToDate = (activity) => {
         dates[dateId].activityBlock = activity;
-        // console.log(dates[dateId]);
     }
+
     const addDateHandler = (dateValues) => {
         setDate((prevDate) => {
             changeStateHandler(dateValues);
             return [...prevDate, dateValues];
         });
-
     }
 
     return (
@@ -81,10 +92,10 @@ const ItineraryPlan = (props) => {
             <ItinerarySelection></ItinerarySelection>
             <div className="flex flex-row w-full">
                 <div className= "w-2/12 outline">
-                    {dates.map((dateValues) =>
-                        <DateBlock data = {dateValues.id} amountOfActivity = {dateValues.activityBlock.length}  day = {dateValues.day} date = {dateValues.date}
-                        onClick = {() => {changeStateHandler(dateValues)}}/>)
-                    }
+                        {dates.map((data) =>
+                            <DateBlock data = {data.id} amountOfActivity = {data.activityBlock.length}  day = {data.day} date = {data.date}
+                            onClick = {() => {changeStateHandler(data)}}/>)
+                        }
                     <div className="items-center justify-center flex mt-5">
                         <AddDateForm currentDates = {dates} onAddDate = {addDateHandler}></AddDateForm>
                     </div>
@@ -97,7 +108,6 @@ const ItineraryPlan = (props) => {
                     <ItineraryActivityForm currentDate = {dateId} onSaveActivityData = {addActivityHandler}></ItineraryActivityForm>
                 </div>
             </div>
-
         </div>
         </Suspense>
 
