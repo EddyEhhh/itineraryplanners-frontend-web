@@ -43,19 +43,14 @@ const ItineraryPlan = (props) => {
     useEffect(() => {
         extractDates(dates);
         console.log(dates);
-    }, [dates])
-
-
-    // useEffect(() => {
-    //     console.log("date values are" + dates);
-    //     console.log(dates.length);
-    // }, [dates]);
+    }, [])
 
 
     const changeStateHandler = (x) => {
         setDateId(x.id);
         setActivity(x.activityBlock);
     }
+
     const [activity, setActivity] = useState([]);
 
     //adds activity to state
@@ -77,13 +72,16 @@ const ItineraryPlan = (props) => {
             return [...prevDate, dateValues];
         });
     }
-
+    const [title, setTitle] = useState(from.state.title);
+    const titleChangeHandler = (event) => {
+        setTitle(event.target.value);
+    }
     return (
         <Suspense>
         <div>
             <div className="Titlebox h-[330px] w-full bg-primary-green pt-6 pl-4 shadow">
                 <div className="bg-white h-[80px] rounded-lg shadow-base w-[400px] flex flex-col pt-3 ">
-                    <input placeholder="Enter title" value = {`${from.state.title === "" ? '' : `Trip to ${from.state.title}` }`} className="w-80% focus:outline-0 ml-2 font-semibold text-2xl"/>
+                    <input onChange = {titleChangeHandler} placeholder="Enter title" value = {`${title === "" ? "" : `${title}` }`} className="w-80% focus:outline-0 ml-2 font-semibold text-2xl"/>
                     <h3 className={"ml-2"}> 15/7/1200 ~ 10/3/5000 </h3>
                 </div>
             </div>
