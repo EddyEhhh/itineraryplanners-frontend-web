@@ -25,12 +25,13 @@ const ItineraryPlan = (props) => {
     const [dates, setDate] = useState([]);
     const [dateId, setDateId] = useState(0);
     const days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+    const months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
 
     const extractDates = (dates) => {
         while (from.state.startDate <= from.state.endDate) {
             const newDate = {
-                day: days[from.state.startDate.getDay()],
-                date: from.state.startDate.getDate(),
+                day: days[from.state.startDate.getDay()] ,
+                date: from.state.startDate.getDate() + " " + months[from.state.startDate.getMonth()],
                 id: dates.length,
                 activityBlock: []
             }
