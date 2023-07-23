@@ -10,18 +10,6 @@ const ItineraryPlan = (props) => {
     //gets state from newTripModal
     const from = useLocation();
 
-    const ActivityBlock = [
-        // {
-        //     title: '',
-        //     arrival: '',
-        //     departure:'',
-        //     accommodation:'',
-        //     duration:'',
-        //     flight:'',
-        //     id: '',
-        // }
-    ]
-    const dateValues = [];
     const [dates, setDate] = useState([]);
     const [dateId, setDateId] = useState(0);
     const days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
@@ -35,14 +23,16 @@ const ItineraryPlan = (props) => {
                 id: dates.length,
                 activityBlock: []
             }
+
             addDateHandler(newDate);
+            dates.push(newDate);
             from.state.startDate.setDate(from.state.startDate.getDate() + 1);
         }
     }
 
     useEffect(() => {
         extractDates(dates);
-        console.log(dates);
+
     }, [])
 
 
@@ -71,6 +61,7 @@ const ItineraryPlan = (props) => {
             changeStateHandler(dateValues);
             return [...prevDate, dateValues];
         });
+        console.log(dates);
     }
     const [title, setTitle] = useState(from.state.title);
     const titleChangeHandler = (event) => {
@@ -98,7 +89,7 @@ const ItineraryPlan = (props) => {
                     </div>
                 </div>
 
-                <div className= "h-[900px] rounded-lg shadow-2xl w-10/12">
+                <div className= "h-[900px] rounded-lg shadow-2xl w-10/12 overflow-hidden scrollbar-hide overflow-y-auto">
                     {activity.map((ActivityBlock) =>
                         <ItineraryActivityBlock title = {ActivityBlock.title}/>)
                     }

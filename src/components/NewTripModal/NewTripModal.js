@@ -44,12 +44,41 @@ function NewTripModal(props) {
 
     const options = {
         title: "Calendar",
-        inputPlaceholderProp: "Select Dates",
+        inputPlaceholderProp: "Select Start Date",
         autoHide: true,
         todayBtn: true,
         clearBtn: true,
         maxDate: new Date("2030-01-01"),
         minDate: new Date("1950-01-01"),
+        theme: {
+            background: "bg-white dark:bg-gray-800 w-500",
+            todayBtn: "",
+            clearBtn: "",
+            icons: "",
+            text: "",
+            disabledText: "",
+            input: "",
+            inputIcon: "",
+            selected: "bg-red-500",
+        },
+        icons: {
+            // () => ReactElement | JSX.Element
+            prev: () => <span>Previous</span>,
+            next: () => <span>Next</span>,
+        },
+        datepickerClassNames: "top-12",
+        defaultDate: new Date("2023-01-01"),
+        language: "en",
+
+    }
+    const options2 = {
+        title: "Calendar",
+        inputPlaceholderProp: "Select End Date",
+        autoHide: true,
+        todayBtn: true,
+        clearBtn: true,
+        maxDate: new Date("2030-01-01"),
+        minDate: new Date(startDate),
         theme: {
             background: "bg-white dark:bg-gray-800 w-500",
             todayBtn: "",
@@ -80,13 +109,10 @@ function NewTripModal(props) {
 
     const handleChangeStartDate = (selectedDate) => {
         setStartDate(selectedDate);
-        // console.log(startDate + "start date is ");
         setStartDateDisplay(`${selectedDate.getDate()}/${selectedDate.getMonth() + 1}/${selectedDate.getFullYear()}`);
     }
     const handleChangeEndDate = (selectedDate) => {
-
         setEndDate(selectedDate);
-        // console.log(endDate + "end date is ");
         setEndDateDisplay(`${selectedDate.getDate()}/${selectedDate.getMonth() + 1}/${selectedDate.getFullYear()}`);
     }
   return (
@@ -170,7 +196,7 @@ function NewTripModal(props) {
                     </div>
 
                     <div>
-                        <DatePicker  className ="w-[512px] md:w-[100px] " options = {options} onChange={handleChangeEndDate} show={showEndDate} setShow = {handleEndDateClose}>
+                        <DatePicker  className ="w-[512px] md:w-[100px] " options = {options2} onChange={handleChangeEndDate} show={showEndDate} setShow = {handleEndDateClose}>
                             <label htmlFor="date" className="mb-2 block text-sm font-semibold text-gray-900 dark:text-gray-300">
                                 End Date
                             </label>
