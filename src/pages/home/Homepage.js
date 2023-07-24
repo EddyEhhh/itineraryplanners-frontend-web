@@ -1,4 +1,4 @@
-import React, { Suspense, useRef, useState } from "react";
+import React, {Suspense, useEffect, useRef, useState} from "react";
 import Calendar from "../../components/Calendar";
 import kr from "../landing/kr.jpeg";
 import MediumButton from "../../components/RectangleButton/MediumButton/MediumButton";
@@ -10,6 +10,7 @@ import {useTranslation} from "react-i18next";
 
 
 const Homepage = () => {
+
   const [showNewTripModal, setNewTripModal] = useState(false);
   const newTripModalHandler = () => {
     setNewTripModal(!showNewTripModal);
