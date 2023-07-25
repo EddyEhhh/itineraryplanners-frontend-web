@@ -10,6 +10,7 @@ import Account from "./pages/account/Account";
 import './i18n';
 import ItineraryPlan from "./pages/itinerary/ItineraryPlan";
 
+
 function App() {
   return (
     <BrowserRouter>

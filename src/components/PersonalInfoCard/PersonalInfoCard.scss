@@ -1,10 +1,20 @@
 #details-card {
+    position: relative;
     display: flex;
     width: 100%;
     min-height: 700px;
     background-color: white;
     border-radius: 15px;
     flex-direction: column;
+}
+
+#alert-message {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
 
