@@ -3,23 +3,28 @@ import React from "react";
 import LargeButton from "../RectangleButton/LargeButton/LargeButton";
 import InputBox from "../InputBox";
 import {useState} from "react";
+import {saveAccountDetails} from "../../services/AccountService";
 
 
 
 function PersonalInfoCard(props) {
-  const [displayName, setDisplayName] = useState("");
-  const [email, setEmail] = useState("");
-  const saveDetails = (e) => {
+  const [displayName, setDisplayName] = useState(props.data.displayName);
+  const [email, setEmail] = useState(props.data.email);
 
+  const saveDetails = (event) => {
+      event.preventDefault();
+      let data = {
+          displayName: displayName,
+          email: email
+      }
+      saveAccountDetails(props.data.username, data).then(res => console.log(res));
   };
 
   const displayNameHandler = event => {
     setDisplayName(event.target.value);
-    console.log('displayName is: ', event.target.value);
   };
   const emailHandler = event => {
     setEmail(event.target.value);
-    console.log('email is: ', event.target.value);
   };
 
   return (

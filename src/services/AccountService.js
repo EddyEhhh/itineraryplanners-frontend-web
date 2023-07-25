@@ -24,6 +24,19 @@ export const getProfilePicture = async (username) => {
     }
 }
 
+export const saveAccountDetails = async (username, props) => {
+    try {
+        return await AxiosInstance.put("/api/v1/accounts/" + username + '/edit',
+            props,
+            {
+                ...getAuthConfig(),
+                'Content-Type': 'application/json'
+            });
+    } catch (e) {
+        console.log(e);
+    }
+}
+
 
 
 
