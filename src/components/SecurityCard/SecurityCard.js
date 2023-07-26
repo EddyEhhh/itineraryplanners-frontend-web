@@ -34,12 +34,16 @@ function SecurityCard() {
             </div>
             }
           </div>
-          { !updatePassword && <button onClick={updatePasswordHandler}>
-            <b>Update</b>
-          </button>}
-          { updatePassword && <button onClick={updatePasswordHandler}>
-            <b>Cancel</b>
-          </button>}
+          { !updatePassword &&
+              <button onClick={updatePasswordHandler}>
+                <b>Update</b>
+             </button>
+          }
+          { updatePassword &&
+              <button onClick={updatePasswordHandler}>
+                <b>Cancel</b>
+              </button>
+          }
         </div>
         <div id="security-card-heading">
           <h1>Social accounts</h1>

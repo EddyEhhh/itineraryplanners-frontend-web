@@ -17,4 +17,21 @@
     width: 100%;
 }
 
+#email-address-input{
+    p {
+        padding-top: 5px;
+        margin-left: 5px;
+        font-size: 14px;
+        color: red;
+        margin-bottom: auto;
+    }
+}
+
+#invalid-email-message{
+    display: none;
+    max-height: 14px;
+}
+
+
+
 

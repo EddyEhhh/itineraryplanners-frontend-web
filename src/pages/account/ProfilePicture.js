@@ -29,7 +29,9 @@ export function ProfilePicture({username}){
         getProfilePicture(username).then(
             res => {
                 try {
-                    setImageUrl(res.data);
+                    if(res !== undefined){
+                        setImageUrl(res.data);
+                    }
                     document.getElementById("profilePic").src = imageUrl;
                 } catch (e) {
                     console.log(e);

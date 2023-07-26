@@ -6,8 +6,6 @@ import {useState} from "react";
 import {saveAccountDetails} from "../../services/AccountService";
 import AlertMessage from "../AlertMessageModal/AlertMessage";
 
-
-
 function PersonalInfoCard(props) {
   const [displayName, setDisplayName] = useState(props.data.displayName);
   const [email, setEmail] = useState(props.data.email);
@@ -39,12 +37,17 @@ function PersonalInfoCard(props) {
   };
   const emailHandler = event => {
     setEmail(event.target.value);
+    if(event.target.value === '' || (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(event.target.value))){
+        document.getElementById("invalid-email-message").style.display="none";
+    } else {
+        document.getElementById("invalid-email-message").style.display="block";
+    }
   };
 
   return (
     <div id="details-card" className="shadow p-5 md:p-10 lg:p-10">
 
-      <div className="space-y-10">
+      <div id="details-card-1" className="space-y-10">
           <InputBox
             title="Username"
             placeholder={props.data.username}
@@ -66,15 +69,20 @@ function PersonalInfoCard(props) {
           {/*  placeholder="+65 9123 6789"*/}
           {/*  type="tel"*/}
           {/*></InputBox>*/}
-          <InputBox
-            title="Email Address"
-            placeholder={props.data.email}
-            type="email"
-            onChange={emailHandler}
-            value={email}
-          ></InputBox>
+          <div id="email-address-input">
+              <InputBox
+                title="Email Address"
+                placeholder={props.data.email}
+                type="email"
+                onChange={emailHandler}
+                value={email}
+              ></InputBox>
+              <div id="invalid-email-message">
+                <p> Invalid Email Address </p>
+              </div>
+          </div>
 
-        <div onClick={saveDetails}>
+        <div id="submit-button" onClick={saveDetails}>
           <LargeButton
             text="Save"
             colour="bg-primary-green"
