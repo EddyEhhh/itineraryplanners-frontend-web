@@ -181,7 +181,7 @@ export default function Account() {
               </div>
             </div>
                 {showPersonalInfoCard && <PersonalInfoCard data={account}/>}
-                {showSecurityCard && <SecurityCard />}
+                {showSecurityCard && <SecurityCard data={account} />}
                 {showNotificationsCard && <NotificationsCard />}
                 {showUserPreferencesCard && <UserPreferencesCard />}
           </div>

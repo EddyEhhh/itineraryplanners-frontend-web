@@ -3,11 +3,12 @@
     color: white;
   }
   display: flex;
-  margin: 0 auto;
+  margin: auto auto;
   background-color: black;
   overflow: hidden;
-  inline-size: min-content;
-  height: 50px;
+  white-space: nowrap;
+  max-width: min-content;
+  height: 100%;
   opacity: 0.60;
   border-radius: 15px;
   padding: 20px;

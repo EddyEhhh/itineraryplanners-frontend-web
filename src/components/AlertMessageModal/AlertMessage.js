@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import styles from "./AlertMessage.scss";
-function AlertMessage(status){
+function AlertMessage(props){ // props include message and status
     const [show, setShow] = useState(true)
 
     useEffect(() => {
@@ -16,10 +16,10 @@ function AlertMessage(status){
         return null;
     }
 
-    if(status.status === 'success') {
+    if(props.status === 'success') {
         return (
             <div id="alert-popup">
-                <p>Saved</p>
+                <p>{props.message}</p>
             </div>
         );
     }

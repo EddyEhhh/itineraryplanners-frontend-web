@@ -37,6 +37,19 @@ export const saveAccountDetails = async (username, props) => {
     }
 }
 
+export const saveNewPassword = async (username, props) => {
+    try {
+        return await AxiosInstance.put("/api/v1/accounts/" + username + '/updatePassword',
+            props,
+            {
+                ...getAuthConfig(),
+                'Content-Type': 'application/json'
+            });
+    } catch (e) {
+        console.log(e);
+    }
+}
+
 
 
 
