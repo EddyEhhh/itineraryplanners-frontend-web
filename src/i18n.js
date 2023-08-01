@@ -22,7 +22,7 @@ i18n
             escapeValue: false,
         },
         backend: {
-            loadPath: `http://localhost:3000/locales/{{lng}}/{{ns}}.json`,
+            loadPath: `http://theitineraryplanner.s3-website-ap-southeast-1.amazonaws.com/locales/{{lng}}/{{ns}}.json`,
         }
     });
 

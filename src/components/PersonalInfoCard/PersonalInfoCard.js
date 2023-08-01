@@ -62,7 +62,7 @@ function PersonalInfoCard(props) {
             value={displayName}
           ></InputBox>
           <div id="alert-message">
-              {showAlertMessage && <AlertMessage status={'success'}/>}
+              {showAlertMessage && <AlertMessage message={'Saved!'} status={'success'}/>}
           </div>
           {/*<InputBox*/}
           {/*  title="Phone Number"*/}
