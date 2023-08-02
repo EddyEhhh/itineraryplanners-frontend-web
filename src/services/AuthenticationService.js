@@ -42,7 +42,7 @@ export const register = async (registerData) =>{
         )
         return response
     } catch (e){
-        console.log(e);
+        throw (e);
     }
 }
 

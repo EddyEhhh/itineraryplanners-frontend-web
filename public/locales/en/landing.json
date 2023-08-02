@@ -23,7 +23,23 @@
     "Title": "Join us to make the most out of your planning!",
     "FirstName": "First Name",
     "LastName": "Last Name",
+    "Username": "Username",
+    "Email": "Email",
+    "DisplayName": "Display Name",
+    "Password": "Password",
+    "ConfirmPassword": "Confirm Password",
     "Join": "Join us",
-    "Description": "Already a member?"
+    "Description": "Already a member?",
+    "Error":
+    {
+      "Email": "Invalid email address",
+
+      "Blank": {
+        "Username": "Username cannot be blank",
+        "DisplayName": "Display Name cannot be blank",
+        "Password": "Password cannot be blank",
+        "ConfirmPassword": "Confirm Password cannot be blank"
+      }
+    }
   }
 }
