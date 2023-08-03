@@ -115,11 +115,29 @@ function SecurityCard(props) {
               <p>Updated a day ago</p>
             </div>}
             { updatePassword &&
-            <div className="space-y-5">
-              <InputBox title="Current password" type="password" placeholder="Current password" width="w-[350px]" onChange={currentPasswordHandler}/>
-              <InputBox title="New password" type="password" placeholder="New password" width="w-[350px]" onChange={newPasswordHandler}/>
+            <div className="">
+              <InputBox
+                  title="Current password"
+                  type="password"
+                  placeholder="Current password"
+                  width="w-[350px]"
+                  warning=""
+                  onChange={currentPasswordHandler}/>
+              <InputBox
+                  title="New password"
+                  type="password"
+                  placeholder="New password"
+                  width="w-[350px]"
+                  warning=""
+                  onChange={newPasswordHandler}/>
               <div id="invalid-password"><p>Please enter a password of at least length 8 containing at least 1 uppercase letter, 1 special character, 2 digits and 2 lowercase letters. </p></div>
-              <InputBox title="Confirm password" type="password" placeholder="Re-enter new password" width="w-[350px]" onChange={reEnterPasswordHandler}/>
+              <InputBox
+                  title="Confirm password"
+                  type="password"
+                  placeholder="Re-enter new password"
+                  width="w-[350px]"
+                  warning=""
+                  onChange={reEnterPasswordHandler}/>
               <div id="non-matching-password"><p>The password confirmation does not match.</p></div>
               <LargeButton text="Update password" colour="bg-primary-green" handleClick={changePasswordHandler}/>
             </div>
@@ -136,24 +154,24 @@ function SecurityCard(props) {
               </button>
           }
         </div>
-        <div id="security-card-heading">
-          <h1>Social accounts</h1>
-        </div>
-        <div id="alert-message">
-          {setShowAlertMessage && successfullySaved && <AlertMessage status='success' message='Password Updated!'/>}
-          {setShowAlertMessage && errorSaving && <AlertMessage status='success' message='Error updating password.'/>}
-        </div>
-        <div id="password-container">
-          <div id="password-info">
-            <h2>
-              <b>Google</b>
-            </h2>
-            <p>Not connected</p>
-          </div>
-          <button>
-            <b>Connect</b>
-          </button>
-        </div>
+        {/*<div id="security-card-heading">*/}
+        {/*  <h1>Social accounts</h1>*/}
+        {/*</div>*/}
+        {/*<div id="alert-message">*/}
+        {/*  {setShowAlertMessage && successfullySaved && <AlertMessage status='success' message='Password Updated!'/>}*/}
+        {/*  {setShowAlertMessage && errorSaving && <AlertMessage status='success' message='Error updating password.'/>}*/}
+        {/*</div>*/}
+        {/*<div id="password-container">*/}
+        {/*  <div id="password-info">*/}
+        {/*    <h2>*/}
+        {/*      <b>Google</b>*/}
+        {/*    </h2>*/}
+        {/*    <p>Not connected</p>*/}
+        {/*  </div>*/}
+        {/*  <button>*/}
+        {/*    <b>Connect</b>*/}
+        {/*  </button>*/}
+        {/*</div>*/}
         <div id="security-card-heading">
           <h1>Account</h1>
         </div>

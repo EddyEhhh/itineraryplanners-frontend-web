@@ -86,7 +86,7 @@ export default function Account() {
         <div className="h-full pt-10 pb-10">
           <div className="flex flex-col w-full space-y-5 justify-center items-center md:flex-row lg:flex-row md:space-x-7 lg:space-x-7 md:space-y-0 lg:space-y-0"
           >
-            <div id="profile-card" className="flex space-y-5 w-full shadow md:w-2/5 lg:w-2/5">
+            <div id="profile-card" className="flex space-y-5 w-full shadow md:w-1/3 lg:w-2/5">
               <div className="space-y-5">
                 <ProfilePicture username={account.username}/>
                 <h1 className="flex justify-center">{account.username}</h1>
@@ -180,7 +180,8 @@ export default function Account() {
                   <button id="log-out-button" onClick={handleLogout}>Log out</button>
               </div>
             </div>
-                {showPersonalInfoCard && <PersonalInfoCard data={account}/>}
+
+            {showPersonalInfoCard && <PersonalInfoCard data={account}/>}
                 {showSecurityCard && <SecurityCard data={account} />}
                 {showNotificationsCard && <NotificationsCard />}
                 {showUserPreferencesCard && <UserPreferencesCard />}

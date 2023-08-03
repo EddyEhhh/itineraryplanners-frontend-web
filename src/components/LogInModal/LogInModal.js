@@ -14,23 +14,57 @@ function LogInModal(props) {
   const [loginForm, setLoginForm] = useState({username: "", password: ""})
   const [isSubmit, setIsSubmit] = useState(false);
 
+  const [loginFormValidationError, setLoginFormValidationError] =
+      useState({
+        usernameErrorMessage: "",
+        passwordErrorMessage: "",
+        errorMessage:""
+      });
 
+  const updateLoginFormValidationError = (key, value) => {
+    setLoginFormValidationError(prev => ({
+      ...prev,
+      [key] : value
+    }));
+  }
 
   const navigate = useNavigate();
 
   const { login } = useAuth();
+
+  const validateLoginForm = () => {
+    let isValid = true;
+    if(loginForm.username === ''){
+      isValid = false;
+      updateLoginFormValidationError('usernameErrorMessage', "authenticate.error.validation.username.blank")
+    }else{
+      updateLoginFormValidationError('usernameErrorMessage', "")
+    }
+    if(loginForm.password === ''){
+      isValid = false;
+      updateLoginFormValidationError('passwordErrorMessage', "authenticate.error.validation.password.blank")
+    }else{
+      updateLoginFormValidationError('passwordErrorMessage', "")
+    }
+    return isValid;
+  }
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmit(true);
     console.log("Values: ", loginForm);
+    if(!validateLoginForm()){
+      return;
+    }
     login(loginForm)
         .then(res => {
           navigate("/home")
           console.log("Successfully logged in")
         }).catch(err => {
-      console.log(err.code);
+          // console.log("TEST: " + err.json())
+      updateLoginFormValidationError('errorMessage', 'authenticate.error.generic')
+
     }).finally(() => {
       setIsSubmit(false);
     })
@@ -70,9 +104,9 @@ function LogInModal(props) {
                     <span>or</span>
                   </p>
                   <InputBox
-                      placeholder={t("email")}
+                      placeholder={t("SignUpModal.Username")}
                       width="w-[382.35px]"
-                      warning="Please enter your email address"
+                      warning={t(loginFormValidationError.usernameErrorMessage)}
                       name="username"
                       onChange={handleInputChange}
                   ></InputBox>
@@ -80,10 +114,13 @@ function LogInModal(props) {
                       placeholder={t("password")}
                       type={t("password")}
                       width="w-[382.35px]"
-                      warning="Please enter your password"
+                      warning={t(loginFormValidationError.passwordErrorMessage)}
                       name="password"
                       onChange={handleInputChange}
                   ></InputBox>
+                  <p className = "text-red-500 text-sm font-normal">
+                    {t(loginFormValidationError.errorMessage)}
+                  </p>
                   <MediumButton
                       text="Forgot Password?"
                       textColour="black"

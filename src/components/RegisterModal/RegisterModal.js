@@ -23,13 +23,33 @@ function RegisterModal(props) {
         confirmPassword: ""
       });
 
+  const [registerFormValidationError, setRegisterFormValidationError] =
+      useState({
+        usernameErrorMessage: "",
+        displayNameErrorMessage: "",
+        emailErrorMessage: "",
+        passwordErrorMessage: "",
+        confirmPasswordErrorMessage: ""
+      });
+
+
+  const updateRegisterFormValidationError = (key, value) => {
+      setRegisterFormValidationError(prev => ({
+          ...prev,
+          [key] : value
+      }));
+  }
+
+    const updateRegisterFormError = (key, value) => {
+        setRegisterFormError(prev => ({
+            ...prev,
+            [key] : value
+        }));
+    }
+
   const [registerFormError, setRegisterFormError] =
       useState({
-        username: "",
-        displayName: "",
-        email: "",
-        password: "",
-        confirmPassword: ""
+        errorMessage: "",
       });
 
   const [isSubmit, setIsSubmit] = useState(false);
@@ -40,25 +60,48 @@ function RegisterModal(props) {
     return password === confirmPassword;
   }
 
+  const registerFormValidation = () => {
+      console.log("Function run");
+      let valid = true;
+      console.log(registerForm.password + "   " + registerForm.confirmPassword)
+      if(registerForm.password !== registerForm.confirmPassword) {
+          console.log("If run");
+          updateRegisterFormValidationError("confirmPasswordErrorMessage", "authenticate.validation.error.confirm_password.not_match");
+          valid = false;
+      }
+
+      return valid;
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmit(true);
-    console.log("Values: ", registerForm);
-    if(checkConfirmPassword(registerForm.password, registerForm.confirmPassword)){
-      console.log("Trying to register");
+
+    console.log("Test: ", registerFormValidationError.usernameErrorMessage);
+    if(registerFormValidation()){
+      console.log("PRINT: " + registerForm);
 
       register(registerForm).then(res => {
-        console.log("Successfully register in");
+        // console.log("Successfully register in");
+        // console.log("RES" + res.headers);
 
           login(registerForm).then(res => {
             navigate("/home");
           }).catch(err =>{
-            console.log(err.code);
+            // console.log("ERR" + err.code);
+            // console.log(err.code);
           })
 
 
       }).catch(err =>{
-        console.log(err.code);
+
+          updateRegisterFormValidationError('usernameErrorMessage' ,err.response.data.usernameErrorMessage);
+          updateRegisterFormValidationError('emailErrorMessage' ,err.response.data.emailErrorMessage);
+          updateRegisterFormValidationError('displayNameErrorMessage' ,err.response.data.displayNameErrorMessage);
+          updateRegisterFormValidationError('passwordErrorMessage' ,err.response.data.passwordErrorMessage);
+          // updateRegisterFormError('errorMessage', err.response.data.errorMessage);
+
+
       }).finally(() => {
         setIsSubmit(false);
       })
@@ -74,6 +117,7 @@ function RegisterModal(props) {
       ...prevState,
       [name]: value
     }));
+    console.log("PRINT" + registerForm);
   }
 
 
@@ -105,7 +149,7 @@ function RegisterModal(props) {
                       title={t('SignUpModal.Username')}
                       placeholder={t('SignUpModal.Username')}
                       type="text"
-                      warning={t('SignUpModal.Error.Blank.Username')}
+                      warning={t(registerFormValidationError.usernameErrorMessage)}
                       name="username"
                       onChange={handleInputChange}
                     ></InputBox>
@@ -113,7 +157,7 @@ function RegisterModal(props) {
                       title={t('SignUpModal.Email')}
                       placeholder={t('SignUpModal.Email')}
                       type="email"
-                      warning={t('SignUpModal.Error.Email')}
+                      warning={t(registerFormValidationError.emailErrorMessage)}
                       name="email"
                       onChange={handleInputChange}
                     ></InputBox>
@@ -121,7 +165,7 @@ function RegisterModal(props) {
                         title= {t('SignUpModal.DisplayName')}
                         placeholder={t('SignUpModal.DisplayName')}
                         type="text"
-                        warning={t('SignUpModal.Error.Blank.DisplayName')}
+                        warning={t(registerFormValidationError.displayNameErrorMessage)}
                         name="displayName"
                         onChange={handleInputChange}
                     ></InputBox>
@@ -129,7 +173,7 @@ function RegisterModal(props) {
                         title= {t('SignUpModal.Password')}
                         placeholder={t('SignUpModal.Password')}
                         type="password"
-                        warning={t('SignUpModal.Error.Blank.Password')}
+                        warning={t(registerFormValidationError.passwordErrorMessage)}
                         name="password"
                         onChange={handleInputChange}
                     ></InputBox>
@@ -137,7 +181,7 @@ function RegisterModal(props) {
                         title= {t('SignUpModal.ConfirmPassword')}
                         placeholder={t('SignUpModal.ConfirmPassword')}
                         type="password"
-                        warning={t('SignUpModal.Error.Blank.ConfirmPassword')}
+                        warning={t(registerFormValidationError.confirmPasswordErrorMessage)}
                         name="confirmPassword"
                         onChange={handleInputChange}
                     ></InputBox>
