@@ -94,7 +94,7 @@ const ItineraryPlan = (props) => {
                     {activity.map((ActivityBlock) =>
                         <ItineraryActivityBlock type = {ActivityBlock.typeOfActivity} title = {ActivityBlock.title}/>)
                     }
-                    <ItineraryActivityForm currentDate = {dateId} onSaveActivityData = {addActivityHandler}></ItineraryActivityForm>
+                    <ItineraryActivityForm currentActivity = {activity} currentDate = {dateId} onSaveActivityData = {addActivityHandler}></ItineraryActivityForm>
                 </div>
             </div>
         </div>

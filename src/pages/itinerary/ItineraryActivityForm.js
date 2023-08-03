@@ -9,24 +9,18 @@ const ItineraryActivityForm = (props) => {
     }
 
     //saveActivityHandler adds it to array, and saves it to the array in
-    const saveActivityHandler = (enteredActivityData) => {
-        const activityData = {
-            ...enteredActivityData,
-            id: Math.random().toString(),
-        };
-        props.onSaveActivityData(activityData);
-    }
-
 
     //handles when data is submitted, adds data to a new object passes it to saveActivityHandler
     const submitHandler = (event) => {
+        
+
         event.preventDefault();
         const activityData = {
             title: title,
             typeOfActivity: 'activity',
-
+            id: props.currentActivity.length,
         }
-        saveActivityHandler(activityData);
+        props.onSaveActivityData(activityData);
         setTitle('');
     }
 
