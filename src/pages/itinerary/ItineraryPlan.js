@@ -18,12 +18,12 @@ const ItineraryPlan = (props) => {
     const extractDates = (dates) => {
         while (from.state.startDate <= from.state.endDate) {
             const newDate = {
-                day: days[from.state.startDate.getDay()] ,
+                day: days[from.state.startDate.getDay()],
                 date: from.state.startDate.getDate() + " " + months[from.state.startDate.getMonth()],
+                year: from.state.startDate.getFullYear() + "",
                 id: dates.length,
                 activityBlock: []
             }
-
             addDateHandler(newDate);
             dates.push(newDate);
             from.state.startDate.setDate(from.state.startDate.getDate() + 1);
@@ -32,7 +32,6 @@ const ItineraryPlan = (props) => {
 
     useEffect(() => {
         extractDates(dates);
-
     }, [])
 
 
@@ -61,15 +60,15 @@ const ItineraryPlan = (props) => {
             changeStateHandler(dateValues);
             return [...prevDate, dateValues];
         });
-        console.log(dates);
     }
     const [title, setTitle] = useState(from.state.title);
     const titleChangeHandler = (event) => {
         setTitle(event.target.value);
     }
+
     return (
         <Suspense>
-        <div>
+        <div className= "pb-10">
             <div className="Titlebox h-[330px] w-full bg-primary-green pt-6 pl-4 shadow">
                 <div className="bg-white h-[80px] rounded-lg shadow-base w-[400px] flex flex-col pt-3 ">
                     <input onChange = {titleChangeHandler} placeholder="Enter title" value = {`${title === "" ? "" : `${title}` }`} className="w-80% focus:outline-0 ml-2 font-semibold text-2xl"/>
@@ -78,18 +77,20 @@ const ItineraryPlan = (props) => {
             </div>
 
             <ItinerarySelection></ItinerarySelection>
-            <div className="flex flex-row w-full mb-10">
-                <div className= "w-2/12 outline h-[900px] overflow-hidden scrollbar-hide overflow-y-auto">
+
+            <div className="flex flex-row w-full shadow-lg rounded-xl">
+                <div className= "rounded-l-xl w-2/12 h-[900px] overflow-hidden scrollbar-hide overflow-y-auto">
                         {dates.map((data) =>
-                            <DateBlock data = {data.id} amountOfActivity = {data.activityBlock.length}  day = {data.day} date = {data.date}
+                            <DateBlock currentId = {dateId} data = {data.id} amountOfActivity = {data.activityBlock.length}  day = {data.day} date = {data.date}
                             onClick = {() => {changeStateHandler(data)}}/>)
                         }
+
                     <div className="items-center justify-center flex mt-5">
                         <AddDateForm currentDates = {dates} onAddDate = {addDateHandler}></AddDateForm>
                     </div>
                 </div>
 
-                <div className= "h-[900px] rounded-lg shadow-2xl w-10/12 overflow-hidden scrollbar-hide overflow-y-auto">
+                <div className= "h-[900px] flex flex-col items-center space-y-5 rounded-r-xl  w-10/12 overflow-hidden scrollbar-hide overflow-y-auto">
                     {activity.map((ActivityBlock) =>
                         <ItineraryActivityBlock title = {ActivityBlock.title}/>)
                     }

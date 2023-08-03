@@ -31,8 +31,9 @@ const ItineraryActivityForm = (props) => {
 
     return (
       <form onSubmit = {submitHandler}>
-        <input className="outline"
+        <input className="pl-2 mt-5 mb-5 md:w-[1200px] rounded-lg h-12 border-2   placeholder-slate-500 placeholder:font-sm"
                value={title}
+               placeholder= "Add new location"
                onChange={titleChangeHandler}/>
       </form>
     );
