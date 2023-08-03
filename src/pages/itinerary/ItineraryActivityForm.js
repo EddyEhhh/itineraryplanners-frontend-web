@@ -22,7 +22,9 @@ const ItineraryActivityForm = (props) => {
     const submitHandler = (event) => {
         event.preventDefault();
         const activityData = {
-            title: title
+            title: title,
+            typeOfActivity: 'activity',
+
         }
         saveActivityHandler(activityData);
         setTitle('');

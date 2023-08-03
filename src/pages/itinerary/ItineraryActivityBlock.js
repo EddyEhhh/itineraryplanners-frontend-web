@@ -2,6 +2,10 @@ import React from 'react';
 
 
 const ItineraryActivityBlock = (props) => {
+
+    if (props.type === 'activity' ) {
+            console.log("hi");
+    }
     return (
         <div className="flex flex-row justify-between  pl-5 pt-3 pb-3  h-56 mt-10 md:w-[1300px] shadow-xl-inner rounded-xl bg-[#f4f4f4]">
             <div className= "left-section font-bold ">

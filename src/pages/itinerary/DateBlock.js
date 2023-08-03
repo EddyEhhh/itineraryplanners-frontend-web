@@ -11,7 +11,7 @@ const DateBlock = (props) => {
                 onClick = {props.onClick}
             >
                 <div>
-                    <div className="mb-4 flex flex-row  font-bold text-lg items-center justify-center">
+                    <div className="mb-4 flex flex-row font-bold text-lg items-center justify-center">
                         <p>{props.date},</p>
                         <p>{props.day}</p>
 

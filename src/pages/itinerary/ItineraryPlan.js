@@ -92,7 +92,7 @@ const ItineraryPlan = (props) => {
 
                 <div className= "h-[900px] flex flex-col items-center space-y-5 rounded-r-xl  w-10/12 overflow-hidden scrollbar-hide overflow-y-auto">
                     {activity.map((ActivityBlock) =>
-                        <ItineraryActivityBlock title = {ActivityBlock.title}/>)
+                        <ItineraryActivityBlock type = {ActivityBlock.typeOfActivity} title = {ActivityBlock.title}/>)
                     }
                     <ItineraryActivityForm currentDate = {dateId} onSaveActivityData = {addActivityHandler}></ItineraryActivityForm>
                 </div>
