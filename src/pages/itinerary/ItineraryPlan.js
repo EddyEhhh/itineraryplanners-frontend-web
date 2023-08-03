@@ -78,7 +78,7 @@ const ItineraryPlan = (props) => {
 
             <ItinerarySelection></ItinerarySelection>
 
-            <div className="flex flex-row w-full shadow-lg rounded-xl">
+            <div className="flex flex-row w-full shadow-[0px_4px_10px_3px_rgba(0,0,0,0.1)] rounded-xl">
                 <div className= "rounded-l-xl w-2/12 h-[900px] overflow-hidden scrollbar-hide overflow-y-auto">
                         {dates.map((data) =>
                             <DateBlock currentId = {dateId} data = {data.id} amountOfActivity = {data.activityBlock.length}  day = {data.day} date = {data.date}

@@ -11,8 +11,12 @@ function InputBoxWithIcon({title, placeholder, type, width, warning, icon, value
         {title}
       </span>
       <label class="relative block">
-          <span className="absolute inset-y-0 left-0 flex items-center pl-2"
-          >{!!icon} {icon}</span>
+          {/*<span className="absolute inset-y-0 left-0 flex items-center pl-2"*/}
+          {/*>{icon}</span>*/}
+          <div  className="absolute inset-y-0 left-0 flex items-center pl-2">
+              {icon}
+          </div>
+
           <input
           value = {value}
           onChange= {onChange}

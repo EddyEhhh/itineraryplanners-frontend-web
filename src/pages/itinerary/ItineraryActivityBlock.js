@@ -4,18 +4,18 @@ import React from 'react';
 const ItineraryActivityBlock = (props) => {
     return (
         <div className="flex flex-row justify-between  pl-5 pt-3 pb-3  h-56 mt-10 md:w-[1300px] shadow-xl-inner rounded-xl bg-[#f4f4f4]">
-            <div className= "left-section ">
+            <div className= "left-section font-bold ">
                 <div className="title flex justify-start">
-                    <h1>{props.title}</h1>
+                    <h1 className="text-black">{props.title}</h1>
                 </div>
 
-                <div>
+                <div className="text-[#808080]">
                     <h2>{props.duration} Duration: </h2>
                     <h2>{props.arrival} Arrival: </h2>
                     <h2>{props.departure} Departure: </h2>
                 </div>
 
-                <div>
+                <div className="text-[#808080]">
                     <h2>{props.accommodation} Accommodation: </h2>
                     <h2>{props.flight} Flight: </h2>
                 </div>
