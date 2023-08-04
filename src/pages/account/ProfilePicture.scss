@@ -1,0 +1,30 @@
+#profile-picture {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.change-text{
+  position: absolute;
+  color: #ffffff;
+  font-size: 12px;
+  top: 9%;
+  right: 26.5%;
+}
+
+#upload {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  transition: 0.5s;
+  top: 65%;
+  background: rgba(0,0,0,0.45);
+  justify-content: center;
+  opacity: 0;
+}
+.my_file::-webkit-file-upload-button {
+  visibility: hidden;
+}

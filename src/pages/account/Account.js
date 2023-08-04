@@ -9,6 +9,8 @@ import {getAccount} from "../../services/AuthenticationService"
 import { useNavigate } from "react-router-dom";
 import {useAuth} from "../../contexts/AuthContext";
 import {ProfilePicture} from "./ProfilePicture";
+import {ReactComponent as Upload} from '../../icons/camera.svg';
+import AlertMessage from "../../components/AlertMessageModal/AlertMessage";
 
 export default function Account() {
 
@@ -87,8 +89,10 @@ export default function Account() {
           <div className="flex flex-col w-full space-y-5 justify-center items-center md:flex-row lg:flex-row md:space-x-7 lg:space-x-7 md:space-y-0 lg:space-y-0"
           >
             <div id="profile-card" className="flex space-y-5 w-full shadow md:w-2/5 lg:w-2/5">
-              <div className="space-y-5">
-                <ProfilePicture username={account.username}/>
+              <div id="profile" className="space-y-5">
+                <div id="profile-picture">
+                  <ProfilePicture username={account.username} style={{position: "fixed"}}/>
+                </div>
                 <h1 className="flex justify-center">{account.username}</h1>
               </div>
 
