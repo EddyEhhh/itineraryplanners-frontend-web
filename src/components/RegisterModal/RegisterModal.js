@@ -66,8 +66,10 @@ function RegisterModal(props) {
       console.log(registerForm.password + "   " + registerForm.confirmPassword)
       if(registerForm.password !== registerForm.confirmPassword) {
           console.log("If run");
-          updateRegisterFormValidationError("confirmPasswordErrorMessage", "authenticate.validation.error.confirm_password.not_match");
+          updateRegisterFormValidationError("confirmPasswordErrorMessage", "authenticate.error.validation.confirm_password.not_match");
           valid = false;
+      }else{
+          updateRegisterFormValidationError("confirmPasswordErrorMessage", "");
       }
 
       return valid;
