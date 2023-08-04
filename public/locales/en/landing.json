@@ -19,6 +19,40 @@
     "Description": "Not a member?"
   },
 
+  "authenticate": {
+    "error": {
+      "generic": "Credentials not found",
+      "validation":
+      {
+        "password": {
+          "blank": "Password cannot be blank"
+        },
+        "display_name": {
+          "blank": "Display name cannot be blank"
+        },
+        "username": {
+          "blank": "Username cannot be blank"
+        },
+        "email": {
+          "blank": "Email cannot be blank",
+          "invalid": "Email is invalid"
+        },
+        "confirm_password": {
+          "not_match": "Password does not match"
+        }
+      },
+      "internal": {
+        "username": {
+          "exist": "Username already exists"
+        },
+        "email": {
+          "exist": "Email already exists"
+        }
+      }
+    }
+
+  },
+
   "SignUpModal": {
     "Title": "Join us to make the most out of your planning!",
     "FirstName": "First Name",

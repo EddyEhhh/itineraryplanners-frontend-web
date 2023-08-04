@@ -30,10 +30,10 @@ const AuthProvider = ({ children }) => {
     const login = async (loginData) => {
         return new Promise((resolve, reject) => {
             performLogin(loginData).then(res =>{
-                console.log("Auth", res.headers);
+                // console.log("Auth", res.headers);
 
                 const jwtToken = res.headers['authorization']
-                console.log("Test: ",  jwtToken);
+                // console.log("Test: ",  jwtToken);
                 localStorage.setItem("token", jwtToken);
                 const decodedToken = jwtDecode(jwtToken);
 
@@ -45,6 +45,7 @@ const AuthProvider = ({ children }) => {
                 resolve(res);
             }).catch(err => {
                 reject(err);
+                // throw (err);
             })
         })
     }

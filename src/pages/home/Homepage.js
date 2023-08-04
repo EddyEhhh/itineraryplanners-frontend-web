@@ -16,7 +16,7 @@ const Homepage = () => {
     setNewTripModal(!showNewTripModal);
   };
 
-  const [t, i18n] = useTranslation("homepage");
+  const [t] = useTranslation("homepage");
   return (
   <Suspense>
     <div className="pt-8">

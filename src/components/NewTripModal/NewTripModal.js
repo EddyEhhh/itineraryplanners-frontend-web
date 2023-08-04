@@ -6,13 +6,14 @@ import XLargeButton from "../RectangleButton/XLargeButton/XLargeButton";
 import DatePicker from "tailwind-datepicker-react";
 import {useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
+// import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
+import {CalendarIcon} from "@heroicons/react/24/solid";
+import {MapPinIcon} from "@heroicons/react/24/solid";
+
 
 function NewTripModal(props) {
     const navigate = useNavigate();
     const [location, setLocation] = useState('');
-
-
-
 
     //sets the value for start and end date
     const [startDate, setStartDate] = useState(new Date());
@@ -36,11 +37,10 @@ function NewTripModal(props) {
             startDate: startDate,
             endDate: endDate
         }
-        // console.log(Trip);
        navigate('/itinerary', {state:Trip});
     }
 
-
+    const todayDate = new Date();
 
     const options = {
         title: "Calendar",
@@ -67,7 +67,7 @@ function NewTripModal(props) {
             next: () => <span>Next</span>,
         },
         datepickerClassNames: "top-12",
-        defaultDate: new Date("2023-01-01"),
+        defaultDate: new Date(todayDate.toString()),
         language: "en",
 
     }
@@ -96,7 +96,7 @@ function NewTripModal(props) {
             next: () => <span>Next</span>,
         },
         datepickerClassNames: "top-12",
-        defaultDate: new Date("2023-01-01"),
+        defaultDate: new Date(todayDate.toString()),
         language: "en",
 
     }
@@ -115,11 +115,20 @@ function NewTripModal(props) {
         setEndDate(selectedDate);
         setEndDateDisplay(`${selectedDate.getDate()}/${selectedDate.getMonth() + 1}/${selectedDate.getFullYear()}`);
     }
-  return (
-    <div>
-      <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center z-50">
 
-          <div id="new-trip-modal" className = "md:w-[600px] md:h-[500px] w-[400px] h-[400px]">
+    const handleKeyPress = (event) => {
+
+        if (event.key === "Enter") {
+            clickHandler();
+        }
+    }
+  return (
+    <div onKeyDown={handleKeyPress}>
+        {/*<GooglePlacesAutocomplete*/}
+        {/*    apiKey="****"*/}
+        {/*/>*/}
+      <div  className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center z-50">
+          <div  id="new-trip-modal" className = "md:w-[600px] md:h-[500px] w-[400px] h-[400px]">
             <div className="corner-element">
               <MediumCircleButton onButtonClick={props.onClose} />
             </div>
@@ -130,31 +139,12 @@ function NewTripModal(props) {
                       <label htmlFor="date" className="block text-sm font-semibold text-gray-900 dark:text-gray-300">
                           Location
                       </label>
-                      <div className="flex justify-center ">
 
+                      <div className="flex justify-center ">
                           <InputBoxWithIcon
                               value={location}
                               onChange={locationChangeHandler}
-                              icon={
-                                  <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      fill="none"
-                                      viewBox="0 0 24 24"
-                                      stroke-width="1.5"
-                                      stroke="currentColor"
-                                      className="w-6 h-6 stroke-slate-500"
-                                  >
-                                      <path
-                                          stroke-linecap="round"
-                                          stroke-linejoin="round"
-                                          d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-                                      />
-                                      <path
-                                          stroke-linecap="round"
-                                          stroke-linejoin="round"
-                                          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-                                      />
-                                  </svg>
+                              icon={ <MapPinIcon className="w-6 text-slate-500"/>
                               }
                               width="w-[512px]"
                               placeholder="Where to?"
@@ -173,21 +163,7 @@ function NewTripModal(props) {
                             <InputBoxWithIcon
                                 onFocus={handleClose}
                                 value = {startDateDisplay}
-                                icon={
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke-width="1.5"
-                                        stroke="currentColor"
-                                        class="w-6 h-6 stroke-slate-500"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
-                                        />
-                                    </svg>
+                                icon={ <CalendarIcon className="w-6 text-slate-500"/>
                                 }
                                 width="w-[246px]"
                                 placeholder="Start Date"
@@ -203,22 +179,8 @@ function NewTripModal(props) {
                             <InputBoxWithIcon
                                 onFocus={handleEndDateClose}
                                 value = {endDateDisplay}
-                              icon={
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke-width="1.5"
-                                  stroke="currentColor"
-                                  class="w-6 h-6 stroke-slate-500"
-                                >
-                                  <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
-                                  />
-                                </svg>
-                              }
+                                icon={ <CalendarIcon className="w-6 text-slate-500"/>
+                                }
                               width="w-[246px]"
                               placeholder="End Date"
                             ></InputBoxWithIcon>
