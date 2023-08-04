@@ -12,28 +12,30 @@ import {ProfilePicture} from "./ProfilePicture";
 
 export default function Account() {
 
-  const [account, setAccount] = useState([]);
+  // const [account, setAccount] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState([])
 
   const navigate = useNavigate();
-  const { logout } = useAuth();
+  const { logout, account } = useAuth();
+
+  console.log("TEST: " + account);
 
 
-  useEffect(() => {
-    fetchAccount();
-  }, [])
-
-  const fetchAccount = () => {
-    setLoading(true);
-    getAccount().then(res => {
-      setAccount(res.data);
-    }).catch(err => {
-      setError(err.data)
-    }).finally(() => {
-      setLoading(false);
-    })
-  }
+  // useEffect(() => {
+  //   fetchAccount();
+  // }, [])
+  //
+  // const fetchAccount = () => {
+  //   setLoading(true);
+  //   getAccount().then(res => {
+  //     setAccount(res.data);
+  //   }).catch(err => {
+  //     setError(err.data)
+  //   }).finally(() => {
+  //     setLoading(false);
+  //   })
+  // }
 
 
 
@@ -88,8 +90,8 @@ export default function Account() {
           >
             <div id="profile-card" className="flex space-y-5 w-full shadow md:w-1/3 lg:w-2/5">
               <div className="space-y-5">
-                <ProfilePicture username={account.username}/>
-                <h1 className="flex justify-center">{account.username}</h1>
+                <ProfilePicture username={account?.username}/>
+                <h1 className="flex justify-center">{account?.username}</h1>
               </div>
 
               <button

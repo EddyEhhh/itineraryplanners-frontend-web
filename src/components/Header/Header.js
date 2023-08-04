@@ -4,15 +4,37 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import LangDropDown from "../langDropDown/LangDropDown";
 import { useTranslation } from "react-i18next";
+import {useAuth} from "../../contexts/AuthContext";
+import {getProfilePicture} from "../../services/AccountService";
 
 function Header() {
   const navigate = useNavigate();
   const [langDropDown, setLangDropDown] = useState(false);
 
+  const [imageUrl, setImageUrl] = useState("");
+
   const [showHamburgerDropDown, setHamburgerDropDown] = useState(false);
   const hamburgerDropDownHandler = () => {
     setHamburgerDropDown(!showHamburgerDropDown);
   }
+
+  const displayImage = (username) => {
+    getProfilePicture(username).then(
+        res => {
+          try {
+            if(res !== undefined){
+              setImageUrl(res.data);
+            }
+            document.getElementById("profilePic").src = imageUrl;
+          } catch (e) {
+            console.log(e);
+          }
+        }
+    )
+  }
+
+  const { account } = useAuth();
+
 
   function langDropDownHandler() {
     setLangDropDown(!langDropDown);
@@ -112,7 +134,7 @@ function Header() {
             className="bg-gray-500 w-10 h-10 rounded-full hover:text-hover-gray"
             onClick={() => navigate("./account")}
           >
-            A
+            <img id="profilePic2" src={imageUrl} className="img-display"/>
           </button>
         </div>
       </div>
