@@ -44,6 +44,8 @@ function PersonalInfoCard(props) {
     }
   };
 
+
+
   return (
     <div id="details-card" className="shadow p-5 md:p-10 lg:p-10">
 
