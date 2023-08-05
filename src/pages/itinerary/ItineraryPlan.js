@@ -99,23 +99,7 @@ const ItineraryPlan = (props) => {
         setTypeOfActivity("accommodation");
     }
 
-    function handleDragEnd (event) {
-        const {active, over} = event;
-        //note that over and active ids are the same as activity id, hence we get the position through finding the objects where id == something
-        if (active.id !== over.id) {
-            setActivity((activity) => {
-                const activeIndex = activity.findIndex(objects => {
-                    return objects.id == active.id;
-                });
-                const overIndex = activity.findIndex(objects => {
-                    return objects.id == over.id;
-                });
-                const x =  arrayMove(activity, activeIndex,overIndex);
-                addActivityToDate(x);
-                return x;
-            })
-        }
-    }
+
 
 
     const [selectItinerary, setSelectItinerary] = useState(true);
@@ -123,7 +107,6 @@ const ItineraryPlan = (props) => {
     const [selectAccommodation, setSelectAccommodation] = useState(false);
 
     const itineraryFilterHandler = (selection) => {
-        console.log(selection);
         if (selection === "itinerary" && selectItinerary === false) {
             setSelectItinerary(true);
             setSelectAccommodation(false);
@@ -140,7 +123,45 @@ const ItineraryPlan = (props) => {
     }
 
 
+    function handleDragEnd (event) {
+        if (selectItinerary == true) {
+            const {active, over} = event;
+            console.log(active.id, over.id);
+            //note that over and active ids are the same as activity id, hence we get the position through finding the objects where id == something
 
+            const activeIndex = activity.findIndex(objects => {
+                return objects.id == active.id;
+            });
+            const overIndex = activity.findIndex(objects => {
+                return objects.id == over.id;
+            });
+
+
+            if (active.id != over.id) {
+                // if (selectItinerary === true) {
+                setActivity((activity) => {
+                    const x =  arrayMove(activity, activeIndex,overIndex);
+                    addActivityToDate(x);
+                    return x;
+                })
+                // }
+                // else if (selectFlight === true) {
+                //     setActivity((activity) => {
+                //         const x = activity;
+                //         console.log(x[activeIndex]);
+                //         console.log(x[overIndex]);
+                //         const temp = activity[activeIndex];
+                //         x[activeIndex] = x[overIndex];
+                //         x[overIndex] = temp;
+                //         console.log(x);
+                //         addActivityToDate(x);
+                //         return x;
+                //     })
+                // }
+            }
+        }
+
+    }
     return (
         <Suspense>
         <div className= "pb-10">
@@ -162,18 +183,21 @@ const ItineraryPlan = (props) => {
                     <SortableContext items={activity} strategy={verticalListSortingStrategy}>
                         <div className= "h-[900px] flex flex-col items-center space-y-5 rounded-r-xl w-10/12 overflow-hidden scrollbar-hide overflow-y-scroll">
                             {selectFlight && activity.filter((ActivityBlock) => ActivityBlock.typeOfActivity === "flight").map((ActivityBlock) =>
-                                <ItineraryActivityBlock key={ActivityBlock.id} id={ActivityBlock.id} type={ActivityBlock.typeOfActivity}  title = {ActivityBlock.title}/>)}
+                                <ItineraryActivityBlock adjust={false} key={ActivityBlock.id} id={ActivityBlock.id} type={ActivityBlock.typeOfActivity}  title = {ActivityBlock.title}/>)}
 
                             {selectAccommodation && activity.filter((ActivityBlock) => ActivityBlock.typeOfActivity === "accommodation").map((ActivityBlock) =>
-                                <ItineraryActivityBlock key={ActivityBlock.id} id={ActivityBlock.id} type={ActivityBlock.typeOfActivity}  title = {ActivityBlock.title}/>)}
+                                <ItineraryActivityBlock  adjust={false} key={ActivityBlock.id} id={ActivityBlock.id} type={ActivityBlock.typeOfActivity}  title = {ActivityBlock.title}/>)}
 
                             {selectItinerary && activity.map((ActivityBlock) =>
-                                <ItineraryActivityBlock key={ActivityBlock.id} id={ActivityBlock.id} type={ActivityBlock.typeOfActivity}  title = {ActivityBlock.title}/>)
+                                <ItineraryActivityBlock key={ActivityBlock.id} id={ActivityBlock.id} type={ActivityBlock.typeOfActivity}  title = {ActivityBlock.title}/>)}
+                            {selectItinerary &&
+                                <div className= "flex flex-row items-center gap-x-2">
+                                    <ItineraryActivityForm currentActivity = {activity} currentDate = {dateId} onSaveActivityData = {addActivityHandler} chosenType = {typeOfActivity}></ItineraryActivityForm>
+                                    <TypeOfItineraryButton currentTypeOfActivity= {typeOfActivity} activityHandler = {changeToActivityHandler} accommodationHandler = {changeToAccommodationHandler} flightHandler = {changeToFlightHandler}></TypeOfItineraryButton>
+                                </div>
                             }
-                            <div className= "flex flex-row items-center gap-x-2">
-                                <ItineraryActivityForm currentActivity = {activity} currentDate = {dateId} onSaveActivityData = {addActivityHandler} chosenType = {typeOfActivity}></ItineraryActivityForm>
-                                <TypeOfItineraryButton currentTypeOfActivity= {typeOfActivity} activityHandler = {changeToActivityHandler} accommodationHandler = {changeToAccommodationHandler} flightHandler = {changeToFlightHandler}></TypeOfItineraryButton>
-                            </div>
+
+
                         </div>
                     </SortableContext>
                 </DndContext>

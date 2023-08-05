@@ -16,14 +16,18 @@ const ItineraryActivityBlock = (props) => {
         transition,
     } = useSortable({id: props.id});
 
+
     const style = {
         transform: CSS.Transform.toString(transform),
         transition,
     };
+
+    console.log(props.adjust == false)
     if (props.type === "flight") {
         return (
             <button className="relative flex flex-row flex-none justify-between  pl-5 pt-3 pb-3  md:h-56 mt-10 md:w-[1300px] shadow-xl-inner rounded-xl bg-[#f4f4f4]"
-                    ref={setNodeRef} style={style} {...listeners} {...attributes}>
+
+                    ref={props.adjust == false ? null : setNodeRef} style={style} {...listeners} {...attributes}>
                 <div className= " left-section font-bold ">
                     <div className="title flex justify-start">
                         <h1 className="text-black">{props.title}</h1>
@@ -50,7 +54,7 @@ const ItineraryActivityBlock = (props) => {
     } else if (props.type === "accommodation") {
         return (
             <button className="relative flex flex-row flex-none justify-between  pl-5 pt-3 pb-3  md:h-56  mt-10 md:w-[1300px] shadow-xl-inner rounded-xl bg-[#f4f4f4]"
-                    ref={setNodeRef} style={style} {...listeners} {...attributes}>
+                    ref={props.adjust == false ? null : setNodeRef} style={style} {...listeners} {...attributes}>
                 <div className= "left-section font-bold ">
                     <div className="title flex justify-start">
                         <h1 className="text-black">{props.title}</h1>
