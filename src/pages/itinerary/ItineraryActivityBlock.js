@@ -1,13 +1,36 @@
 import React from 'react';
-
+import {useDraggable} from "@dnd-kit/core";
+import {useSortable} from "@dnd-kit/sortable";
+import {CSS} from '@dnd-kit/utilities';
 
 const ItineraryActivityBlock = (props) => {
+    //
+    // if (props.type === 'activity' ) {
+    //         console.log("hi");
+    // }
+    // const {attributes, listeners, setNodeRef, transform} = useDraggable({
+    //     id: props.id,
+    // });
+    // const style = transform ? {
+    //     transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
+    // } : undefined;
 
-    if (props.type === 'activity' ) {
-            console.log("hi");
-    }
+    const {
+        attributes,
+        listeners,
+        setNodeRef,
+        transform,
+        transition,
+    } = useSortable({id: props.id});
+
+    const style = {
+        transform: CSS.Transform.toString(transform),
+        transition,
+    };
+
     return (
-        <div className="flex flex-row justify-between  pl-5 pt-3 pb-3  h-56 mt-10 md:w-[1300px] shadow-xl-inner rounded-xl bg-[#f4f4f4]">
+        <button className="flex flex-row justify-between  pl-5 pt-3 pb-3  h-56 mt-10 md:w-[1300px] shadow-xl-inner rounded-xl bg-[#f4f4f4]"
+             ref={setNodeRef} style={style} {...listeners} {...attributes}>
             <div className= "left-section font-bold ">
                 <div className="title flex justify-start">
                     <h1 className="text-black">{props.title}</h1>
@@ -35,7 +58,7 @@ const ItineraryActivityBlock = (props) => {
 
             </div>
 
-        </div>
+        </button>
 
     );
 }

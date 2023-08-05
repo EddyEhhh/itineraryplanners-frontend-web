@@ -6,6 +6,23 @@ import ItineraryActivityForm from "./ItineraryActivityForm";
 import DateBlock from "./DateBlock";
 import AddDateForm from "./AddDateForm";
 import {useLocation} from "react-router-dom";
+import {useDroppable} from '@dnd-kit/core';
+import {
+    DndContext,
+    closestCenter,
+    KeyboardSensor,
+    PointerSensor,
+    useSensor,
+    useSensors,
+} from '@dnd-kit/core';
+import {
+    arrayMove,
+    SortableContext,
+    sortableKeyboardCoordinates,
+    verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
+
+
 const ItineraryPlan = (props) => {
     //gets state from newTripModal
     const from = useLocation();
@@ -35,6 +52,7 @@ const ItineraryPlan = (props) => {
     }, [])
 
 
+    //this changes the display
     const changeStateHandler = (x) => {
         setDateId(x.id);
         setActivity(x.activityBlock);
@@ -66,6 +84,24 @@ const ItineraryPlan = (props) => {
         setTitle(event.target.value);
     }
 
+    function handleDragEnd (event) {
+        const {active, over} = event;
+        //note that over and active ids are the same as activity id, hence we get the position through finding the objects where id == something
+        if (active.id !== over.id) {
+            setActivity((activity) => {
+                const activeIndex = activity.findIndex(objects => {
+                    return objects.id == active.id;
+                });
+                const overIndex = activity.findIndex(objects => {
+                    return objects.id == over.id;
+                });
+                const x =  arrayMove(activity, activeIndex,overIndex);
+                addActivityToDate(x);
+                return x;
+            })
+        }
+    }
+
     return (
         <Suspense>
         <div className= "pb-10">
@@ -84,18 +120,26 @@ const ItineraryPlan = (props) => {
                             <DateBlock currentId = {dateId} data = {data.id} amountOfActivity = {data.activityBlock.length}  day = {data.day} date = {data.date}
                             onClick = {() => {changeStateHandler(data)}}/>)
                         }
-
                     <div className="items-center justify-center flex mt-5">
                         <AddDateForm currentDates = {dates} onAddDate = {addDateHandler}></AddDateForm>
                     </div>
                 </div>
 
-                <div className= "h-[900px] flex flex-col items-center space-y-5 rounded-r-xl  w-10/12 overflow-hidden scrollbar-hide overflow-y-auto">
-                    {activity.map((ActivityBlock) =>
-                        <ItineraryActivityBlock type = {ActivityBlock.typeOfActivity} title = {ActivityBlock.title}/>)
-                    }
-                    <ItineraryActivityForm currentActivity = {activity} currentDate = {dateId} onSaveActivityData = {addActivityHandler}></ItineraryActivityForm>
-                </div>
+                <DndContext onDragEnd={handleDragEnd}>
+                    <SortableContext items={activity} strategy={verticalListSortingStrategy}>
+                        <div className= "h-[900px] flex flex-col items-center space-y-5 rounded-r-xl  w-10/12 overflow-hidden scrollbar-hide overflow-y-auto">
+                            {activity.map((ActivityBlock) =>
+                                <ItineraryActivityBlock key = {ActivityBlock.id} id = {ActivityBlock.id} type = {ActivityBlock.typeOfActivity} title = {ActivityBlock.title}/>)
+                            }
+                            <div className= "flex flex-row gap-x-2">
+                                <ItineraryActivityForm currentActivity = {activity} currentDate = {dateId} onSaveActivityData = {addActivityHandler}></ItineraryActivityForm>
+                                <button className="active:border-4"> ACT </button>
+                                <button className="active:border-4"> FLI </button>
+                                <button className="active:border-4"> ACC </button>
+                            </div>
+                        </div>
+                    </SortableContext>
+                </DndContext>
             </div>
         </div>
         </Suspense>

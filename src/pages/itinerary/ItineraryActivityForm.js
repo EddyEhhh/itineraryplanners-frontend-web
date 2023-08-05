@@ -18,7 +18,7 @@ const ItineraryActivityForm = (props) => {
         const activityData = {
             title: title,
             typeOfActivity: 'activity',
-            id: props.currentActivity.length,
+            id: props.currentActivity.length + "",
         }
         props.onSaveActivityData(activityData);
         setTitle('');
