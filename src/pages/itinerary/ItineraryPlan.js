@@ -6,7 +6,10 @@ import ItineraryActivityForm from "./ItineraryActivityForm";
 import DateBlock from "./DateBlock";
 import AddDateForm from "./AddDateForm";
 import {useLocation} from "react-router-dom";
-import {useDroppable} from '@dnd-kit/core';
+import TypeOfItineraryButton from "./TypeOfItineraryButton";
+import TitleBox from "./TitleBox";
+
+
 import {
     DndContext,
     closestCenter,
@@ -59,7 +62,6 @@ const ItineraryPlan = (props) => {
     }
 
     const [activity, setActivity] = useState([]);
-
     //adds activity to state
     const addActivityHandler = (ActivityBlock) => {
         setActivity((prevActivity) => {
@@ -72,16 +74,29 @@ const ItineraryPlan = (props) => {
     const addActivityToDate = (activity) => {
         dates[dateId].activityBlock = activity;
     }
-
     const addDateHandler = (dateValues) => {
         setDate((prevDate) => {
             changeStateHandler(dateValues);
             return [...prevDate, dateValues];
         });
     }
+
     const [title, setTitle] = useState(from.state.title);
     const titleChangeHandler = (event) => {
         setTitle(event.target.value);
+    }
+
+
+    const [typeOfActivity, setTypeOfActivity] = useState("activity");
+
+    const changeToActivityHandler = () => {
+        setTypeOfActivity("activity");
+    }
+    const changeToFlightHandler = () => {
+        setTypeOfActivity("flight");
+    }
+    const changeToAccommodationHandler = () => {
+        setTypeOfActivity("accommodation");
     }
 
     function handleDragEnd (event) {
@@ -102,17 +117,35 @@ const ItineraryPlan = (props) => {
         }
     }
 
+
+    const [selectItinerary, setSelectItinerary] = useState(true);
+    const [selectFlight, setSelectFlight] = useState(false);
+    const [selectAccommodation, setSelectAccommodation] = useState(false);
+
+    const itineraryFilterHandler = (selection) => {
+        console.log(selection);
+        if (selection === "itinerary" && selectItinerary === false) {
+            setSelectItinerary(true);
+            setSelectAccommodation(false);
+            setSelectFlight(false);
+        } else if (selection === "flight"  && selectFlight === false) {
+            setSelectFlight(true);
+            setSelectItinerary(false);
+            setSelectAccommodation(false);
+        } else if (selection === "accommodation" && selectAccommodation === false) {
+            setSelectAccommodation(true);
+            setSelectItinerary(false);
+            setSelectFlight(false);
+        }
+    }
+
+
+
     return (
         <Suspense>
         <div className= "pb-10">
-            <div className="Titlebox h-[330px] w-full bg-primary-green pt-6 pl-4 shadow">
-                <div className="bg-white h-[80px] rounded-lg shadow-base w-[400px] flex flex-col pt-3 ">
-                    <input onChange = {titleChangeHandler} placeholder="Enter title" value = {`${title === "" ? "" : `${title}` }`} className="w-80% focus:outline-0 ml-2 font-semibold text-2xl"/>
-                    <h3 className={"ml-2"}> 15/7/1200 ~ 10/3/5000 </h3>
-                </div>
-            </div>
-
-            <ItinerarySelection></ItinerarySelection>
+            <TitleBox titleChangeHandler ={itineraryFilterHandler} title ={title}></TitleBox>
+            <ItinerarySelection itineraryFilter = {itineraryFilterHandler}></ItinerarySelection>
 
             <div className="flex flex-row w-full shadow-[0px_4px_10px_3px_rgba(0,0,0,0.1)] rounded-xl">
                 <div className= "rounded-l-xl w-2/12 h-[900px] overflow-hidden scrollbar-hide overflow-y-auto">
@@ -127,15 +160,19 @@ const ItineraryPlan = (props) => {
 
                 <DndContext onDragEnd={handleDragEnd}>
                     <SortableContext items={activity} strategy={verticalListSortingStrategy}>
-                        <div className= "h-[900px] flex flex-col items-center space-y-5 rounded-r-xl  w-10/12 overflow-hidden scrollbar-hide overflow-y-auto">
-                            {activity.map((ActivityBlock) =>
-                                <ItineraryActivityBlock key = {ActivityBlock.id} id = {ActivityBlock.id} type = {ActivityBlock.typeOfActivity} title = {ActivityBlock.title}/>)
+                        <div className= "h-[900px] flex flex-col items-center space-y-5 rounded-r-xl w-10/12 overflow-hidden scrollbar-hide overflow-y-scroll">
+                            {selectFlight && activity.filter((ActivityBlock) => ActivityBlock.typeOfActivity === "flight").map((ActivityBlock) =>
+                                <ItineraryActivityBlock key={ActivityBlock.id} id={ActivityBlock.id} type={ActivityBlock.typeOfActivity}  title = {ActivityBlock.title}/>)}
+
+                            {selectAccommodation && activity.filter((ActivityBlock) => ActivityBlock.typeOfActivity === "accommodation").map((ActivityBlock) =>
+                                <ItineraryActivityBlock key={ActivityBlock.id} id={ActivityBlock.id} type={ActivityBlock.typeOfActivity}  title = {ActivityBlock.title}/>)}
+
+                            {selectItinerary && activity.map((ActivityBlock) =>
+                                <ItineraryActivityBlock key={ActivityBlock.id} id={ActivityBlock.id} type={ActivityBlock.typeOfActivity}  title = {ActivityBlock.title}/>)
                             }
-                            <div className= "flex flex-row gap-x-2">
-                                <ItineraryActivityForm currentActivity = {activity} currentDate = {dateId} onSaveActivityData = {addActivityHandler}></ItineraryActivityForm>
-                                <button className="active:border-4"> ACT </button>
-                                <button className="active:border-4"> FLI </button>
-                                <button className="active:border-4"> ACC </button>
+                            <div className= "flex flex-row items-center gap-x-2">
+                                <ItineraryActivityForm currentActivity = {activity} currentDate = {dateId} onSaveActivityData = {addActivityHandler} chosenType = {typeOfActivity}></ItineraryActivityForm>
+                                <TypeOfItineraryButton currentTypeOfActivity= {typeOfActivity} activityHandler = {changeToActivityHandler} accommodationHandler = {changeToAccommodationHandler} flightHandler = {changeToFlightHandler}></TypeOfItineraryButton>
                             </div>
                         </div>
                     </SortableContext>

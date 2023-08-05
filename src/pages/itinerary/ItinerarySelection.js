@@ -3,7 +3,7 @@ import { useState } from "react";
 import itineraryPlan from "./ItineraryPlan";
 
 
-const ItinerarySelection = () => {
+const ItinerarySelection = (props) => {
     const [Itinerary, setItinerary] = useState(true);
     const [Accommodation, setAccommodation] = useState(false);
     const [Flights, setFlights] = useState(false);
@@ -11,13 +11,17 @@ const ItinerarySelection = () => {
     const ItineraryOnClickHandler = () => {
         if (Itinerary === false) {
             setItinerary(!Itinerary);
+            props.itineraryFilter("itinerary");
             setFlights(false);
             setAccommodation(false);
         }
+
+        // console.log(Itinerary, Accommodation, Flights)
     }
     const AccommodationOnClickHandler = () => {
         if (Accommodation === false) {
             setAccommodation(!Accommodation);
+            props.itineraryFilter("accommodation");
             setFlights(false);
             setItinerary(false);
         }
@@ -26,6 +30,7 @@ const ItinerarySelection = () => {
     const FlightsOnClickHandler = () => {
         if (Flights === false) {
             setFlights(!Flights);
+            props.itineraryFilter("flight");
             setItinerary(false);
             setAccommodation(false);
         }
@@ -64,8 +69,6 @@ const ItinerarySelection = () => {
                 onClick={FlightsOnClickHandler}>
                 FLIGHTS
             </button>}
-
-
         </div>
     );
 }

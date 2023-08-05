@@ -1,7 +1,6 @@
 import React from 'react';
 import {useState} from "react";
 
-
 const ItineraryActivityForm = (props) => {
     const [title, setTitle] = useState('');
     const titleChangeHandler = (event) => {
@@ -17,7 +16,7 @@ const ItineraryActivityForm = (props) => {
         event.preventDefault();
         const activityData = {
             title: title,
-            typeOfActivity: 'activity',
+            typeOfActivity: props.chosenType,
             id: props.currentActivity.length + "",
         }
         props.onSaveActivityData(activityData);
@@ -27,7 +26,7 @@ const ItineraryActivityForm = (props) => {
 
     return (
       <form onSubmit = {submitHandler}>
-        <input className="pl-2 mt-5 mb-5 md:w-[1200px] rounded-lg h-12 border-2   placeholder-slate-500 placeholder:font-sm"
+        <input className="pl-2 mt-5 mb-5 md:w-[1100px] rounded-lg h-12 border-2   placeholder-slate-500 placeholder:font-sm"
                value={title}
                placeholder= "Add new location"
                onChange={titleChangeHandler}/>

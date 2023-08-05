@@ -1,19 +1,12 @@
 import React from 'react';
-import {useDraggable} from "@dnd-kit/core";
 import {useSortable} from "@dnd-kit/sortable";
 import {CSS} from '@dnd-kit/utilities';
+import {HomeModernIcon} from "@heroicons/react/24/solid";
+import {RocketLaunchIcon} from "@heroicons/react/24/solid";
+import {ShoppingBagIcon} from "@heroicons/react/24/solid";
+import Homepage from "../home/Homepage";
 
 const ItineraryActivityBlock = (props) => {
-    //
-    // if (props.type === 'activity' ) {
-    //         console.log("hi");
-    // }
-    // const {attributes, listeners, setNodeRef, transform} = useDraggable({
-    //     id: props.id,
-    // });
-    // const style = transform ? {
-    //     transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
-    // } : undefined;
 
     const {
         attributes,
@@ -27,13 +20,73 @@ const ItineraryActivityBlock = (props) => {
         transform: CSS.Transform.toString(transform),
         transition,
     };
+    if (props.type === "flight") {
+        return (
+            <button className="relative flex flex-row flex-none justify-between  pl-5 pt-3 pb-3  md:h-56 mt-10 md:w-[1300px] shadow-xl-inner rounded-xl bg-[#f4f4f4]"
+                    ref={setNodeRef} style={style} {...listeners} {...attributes}>
+                <div className= " left-section font-bold ">
+                    <div className="title flex justify-start">
+                        <h1 className="text-black">{props.title}</h1>
+                    </div>
+                <div className="absolute w-8 pt-6 -ml-10 h-[300px] text-blue-500 rounded-full ">
+                    <RocketLaunchIcon></RocketLaunchIcon>
+                </div>
+                    <div className="text-[#808080]">
+                        <h2>{props.checkIn} Check-In: </h2>
+                        <h2>{props.checkOut} Check-Out: </h2>
+                        <h2>{props.phone} Phone: </h2>
+                        <h2>{props.type}</h2>
+                    </div>
+                </div>
 
+                <div className="right-section pl-5 pt-3 flex flex-row justify-between  mr-5 rounded-xl right-section h-full md:w-1/2 bg-[#E9ECEF] ">
+                    <div> comments </div>
+                    <div className=" w-1/2 rounded-r-xl mr-3 mb-3">
+                        Insert Picture
+                    </div>
+                </div>
+            </button>
+        )
+    } else if (props.type === "accommodation") {
+        return (
+            <button className="relative flex flex-row flex-none justify-between  pl-5 pt-3 pb-3  md:h-56  mt-10 md:w-[1300px] shadow-xl-inner rounded-xl bg-[#f4f4f4]"
+                    ref={setNodeRef} style={style} {...listeners} {...attributes}>
+                <div className= "left-section font-bold ">
+                    <div className="title flex justify-start">
+                        <h1 className="text-black">{props.title}</h1>
+                    </div>
+
+                    <div className="absolute w-8 pt-6 -ml-10 h-[300px] text-blue-500 rounded-full ">
+                       <HomeModernIcon></HomeModernIcon>
+                    </div>
+
+                    <div className="text-[#808080]">
+                        <h2>{props.checkIn} Check-In: </h2>
+                        <h2>{props.checkOut} Check-Out: </h2>
+                        <h2>{props.phone} Phone: </h2>
+                        <h2>{props.type}</h2>
+                    </div>
+                </div>
+
+                <div className="right-section pl-5 pt-3 flex flex-row justify-between  mr-5 rounded-xl right-section h-full md:w-1/2 bg-[#E9ECEF] ">
+                    <div> comments </div>
+                    <div className=" w-1/2 rounded-r-xl mr-3 mb-3">
+                        Insert Picture
+                    </div>
+                </div>
+            </button>
+        )
+    } else
     return (
-        <button className="flex flex-row justify-between  pl-5 pt-3 pb-3  h-56 mt-10 md:w-[1300px] shadow-xl-inner rounded-xl bg-[#f4f4f4]"
+        <button className="relative flex flex-row  flex-none justify-between  pl-5 pt-3 pb-3 md:h-56 mt-10 md:w-[1300px] shadow-xl-inner rounded-xl bg-[#f4f4f4]"
              ref={setNodeRef} style={style} {...listeners} {...attributes}>
             <div className= "left-section font-bold ">
                 <div className="title flex justify-start">
                     <h1 className="text-black">{props.title}</h1>
+                </div>
+
+                <div className="absolute w-8 pt-6 -ml-10 h-[300px] text-blue-500 rounded-full ">
+                    <ShoppingBagIcon></ShoppingBagIcon>
                 </div>
 
                 <div className="text-[#808080]">
@@ -57,9 +110,7 @@ const ItineraryActivityBlock = (props) => {
                 </div>
 
             </div>
-
         </button>
-
     );
 }
 
