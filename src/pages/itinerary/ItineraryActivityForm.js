@@ -11,18 +11,26 @@ const ItineraryActivityForm = (props) => {
 
     //handles when data is submitted, adds data to a new object passes it to saveActivityHandler
     const submitHandler = (event) => {
-        
-
         event.preventDefault();
         const activityData = {
             title: title,
-            typeOfActivity: props.chosenType,
+            typeOfActivity: props.chosenType, //activity accommodation flight
+            note: '',
+            picture:'',
             id: props.currentActivity.length + "",
+            flight: null,
+            accommodation: null
         }
+
+        // if (activityData.typeOfActivity === "flight") {
+        //     const additionalDate = {
+        //
+        //     }
+        //     activityData = [...activityData, additionalDate];
+        // }
         props.onSaveActivityData(activityData);
         setTitle('');
     }
-
 
     return (
       <form onSubmit = {submitHandler}>
