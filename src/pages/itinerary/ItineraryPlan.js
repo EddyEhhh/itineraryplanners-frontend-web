@@ -18,6 +18,12 @@ import {
     useSensor,
     useSensors,
 } from '@dnd-kit/core';
+
+import {
+    restrictToVerticalAxis,
+    restrictToParentElement,
+} from '@dnd-kit/modifiers';
+
 import {
     arrayMove,
     SortableContext,
@@ -80,6 +86,23 @@ const ItineraryPlan = (props) => {
             return [...prevDate, dateValues];
         });
     }
+    const deleteActivityHandler = (ActivityBlock) => {
+        // console.log(ActivityBlock);
+        // console.log(activity);
+        setActivity(() => {
+            const x = [...activity];
+            const index = activity.findIndex(objects => {
+                return objects.id == ActivityBlock.id;
+            });
+
+            x.splice(index, 1);
+            addActivityToDate(x);
+            console.log(activity);
+            return x;
+        })
+    }
+
+
 
     const [title, setTitle] = useState(from.state.title);
     const titleChangeHandler = (event) => {
@@ -98,8 +121,6 @@ const ItineraryPlan = (props) => {
     const changeToAccommodationHandler = () => {
         setTypeOfActivity("accommodation");
     }
-
-
 
 
     const [selectItinerary, setSelectItinerary] = useState(true);
@@ -124,40 +145,27 @@ const ItineraryPlan = (props) => {
 
 
     function handleDragEnd (event) {
-        if (selectItinerary == true) {
-            const {active, over} = event;
-            console.log(active.id, over.id);
-            //note that over and active ids are the same as activity id, hence we get the position through finding the objects where id == something
+        const {active, over} = event;
 
+        //usecase when deleting to 0 activities
+        if (active === null || over === null) {
+            return;
+        }
+        if (selectItinerary == true) {
+            // console.log(active.id, over.id);
+            //note that over and active ids are the same as activity id, hence we get the position through finding the objects where id == something
             const activeIndex = activity.findIndex(objects => {
                 return objects.id == active.id;
             });
             const overIndex = activity.findIndex(objects => {
                 return objects.id == over.id;
             });
-
-
             if (active.id != over.id) {
-                // if (selectItinerary === true) {
                 setActivity((activity) => {
                     const x =  arrayMove(activity, activeIndex,overIndex);
                     addActivityToDate(x);
                     return x;
                 })
-                // }
-                // else if (selectFlight === true) {
-                //     setActivity((activity) => {
-                //         const x = activity;
-                //         console.log(x[activeIndex]);
-                //         console.log(x[overIndex]);
-                //         const temp = activity[activeIndex];
-                //         x[activeIndex] = x[overIndex];
-                //         x[overIndex] = temp;
-                //         console.log(x);
-                //         addActivityToDate(x);
-                //         return x;
-                //     })
-                // }
             }
         }
 
@@ -179,7 +187,7 @@ const ItineraryPlan = (props) => {
                     </div>
                 </div>
 
-                <DndContext onDragEnd={handleDragEnd}>
+                <DndContext modifiers={[restrictToParentElement]} onDragEnd={handleDragEnd}>
                     <SortableContext items={activity} strategy={verticalListSortingStrategy}>
                         <div className= "h-[900px] flex flex-col items-center space-y-5 rounded-r-xl w-10/12 overflow-hidden scrollbar-hide overflow-y-scroll">
                             {selectFlight && activity.filter((ActivityBlock) => ActivityBlock.typeOfActivity === "flight").map((ActivityBlock) =>
@@ -189,7 +197,7 @@ const ItineraryPlan = (props) => {
                                 <ItineraryActivityBlock  adjust={false} key={ActivityBlock.id} id={ActivityBlock.id} type={ActivityBlock.typeOfActivity}  title = {ActivityBlock.title}/>)}
 
                             {selectItinerary && activity.map((ActivityBlock) =>
-                                <ItineraryActivityBlock key={ActivityBlock.id} id={ActivityBlock.id} type={ActivityBlock.typeOfActivity}  title = {ActivityBlock.title}/>)}
+                                <ItineraryActivityBlock onPointerDown = {() => deleteActivityHandler(ActivityBlock)} key={ActivityBlock.id} id={ActivityBlock.id} type={ActivityBlock.typeOfActivity}  title = {ActivityBlock.title}/>)}
                             {selectItinerary &&
                                 <div className= "flex flex-row items-center gap-x-2">
                                     <ItineraryActivityForm currentActivity = {activity} currentDate = {dateId} onSaveActivityData = {addActivityHandler} chosenType = {typeOfActivity}></ItineraryActivityForm>
