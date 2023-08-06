@@ -84,7 +84,7 @@ const ItineraryActivityBlock = (props) => {
                     <div className=" w-1/2 rounded-r-xl mr-3 mb-3">
                         Insert Picture
                     </div>
-                    <button className="absolute -mt-4 ml-[660px] ">
+                    <button onPointerDown={props.onPointerDown} className="active:bg-primary-green absolute w-20 -mt-4 ml-[660px] ">
                         <TrashIcon className="w-6 text-gray-700"></TrashIcon>
                     </button>
                 </div>
@@ -118,7 +118,7 @@ const ItineraryActivityBlock = (props) => {
             <div className="right-section mr-8 pl-5 pt-3 flex flex-row justify-between  mr-5 rounded-xl right-section h-full md:w-1/2 bg-[#E9ECEF] ">
                 <div>comments</div>
                 <div className=" w-1/2 rounded-r-xl mr-3 mb-3"> Insert Picture </div>
-                <button className="absolute -mt-4 ml-[660px] ">
+                <button onPointerDown={props.onPointerDown} className="active:bg-primary-green absolute w-20 -mt-4 ml-[660px] ">
                     <TrashIcon className="w-6 text-gray-700"></TrashIcon>
                 </button>
             </div>
