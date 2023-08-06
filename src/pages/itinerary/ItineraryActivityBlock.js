@@ -4,7 +4,7 @@ import {CSS} from '@dnd-kit/utilities';
 import {HomeModernIcon} from "@heroicons/react/24/solid";
 import {RocketLaunchIcon} from "@heroicons/react/24/solid";
 import {ShoppingBagIcon} from "@heroicons/react/24/solid";
-import Homepage from "../home/Homepage";
+import {TrashIcon} from "@heroicons/react/24/solid";
 
 const ItineraryActivityBlock = (props) => {
 
@@ -22,19 +22,20 @@ const ItineraryActivityBlock = (props) => {
         transition,
     };
 
-    console.log(props.adjust == false)
+
     if (props.type === "flight") {
         return (
-            <button className="relative flex flex-row flex-none justify-between  pl-5 pt-3 pb-3  md:h-56 mt-10 md:w-[1300px] shadow-xl-inner rounded-xl bg-[#f4f4f4]"
-
+            <div className="relative flex flex-row flex-none justify-between  pl-5 pt-3 pb-3  md:h-56 mt-10 md:w-[1300px] shadow-xl-inner rounded-xl bg-[#f4f4f4]"
                     ref={props.adjust == false ? null : setNodeRef} style={style} {...listeners} {...attributes}>
+
+
                 <div className= " left-section font-bold ">
                     <div className="title flex justify-start">
                         <h1 className="text-black">{props.title}</h1>
                     </div>
-                <div className="absolute w-8 pt-6 -ml-10 h-[300px] text-blue-500 rounded-full ">
-                    <RocketLaunchIcon></RocketLaunchIcon>
-                </div>
+                    <div className="absolute w-8 pt-6 -ml-10 h-[300px] text-blue-500 rounded-full ">
+                        <RocketLaunchIcon></RocketLaunchIcon>
+                    </div>
                     <div className="text-[#808080]">
                         <h2>{props.checkIn} Check-In: </h2>
                         <h2>{props.checkOut} Check-Out: </h2>
@@ -43,17 +44,23 @@ const ItineraryActivityBlock = (props) => {
                     </div>
                 </div>
 
-                <div className="right-section pl-5 pt-3 flex flex-row justify-between  mr-5 rounded-xl right-section h-full md:w-1/2 bg-[#E9ECEF] ">
+
+                <div className="right-section mr-8 pl-5 pt-3 flex flex-row justify-between  mr-5 rounded-xl right-section h-full md:w-1/2 bg-[#E9ECEF] ">
+
                     <div> comments </div>
                     <div className=" w-1/2 rounded-r-xl mr-3 mb-3">
                         Insert Picture
                     </div>
+                    <button onPointerDown={props.onPointerDown} className="active:bg-primary-green absolute w-20 -mt-4 ml-[660px] ">
+                        <TrashIcon className="w-6 text-gray-700"></TrashIcon>
+                    </button>
                 </div>
-            </button>
+
+            </div>
         )
     } else if (props.type === "accommodation") {
         return (
-            <button className="relative flex flex-row flex-none justify-between  pl-5 pt-3 pb-3  md:h-56  mt-10 md:w-[1300px] shadow-xl-inner rounded-xl bg-[#f4f4f4]"
+            <div className="relative flex flex-row flex-none justify-between  pl-5 pt-3 pb-3  md:h-56  mt-10 md:w-[1300px] shadow-xl-inner rounded-xl bg-[#f4f4f4]"
                     ref={props.adjust == false ? null : setNodeRef} style={style} {...listeners} {...attributes}>
                 <div className= "left-section font-bold ">
                     <div className="title flex justify-start">
@@ -72,17 +79,20 @@ const ItineraryActivityBlock = (props) => {
                     </div>
                 </div>
 
-                <div className="right-section pl-5 pt-3 flex flex-row justify-between  mr-5 rounded-xl right-section h-full md:w-1/2 bg-[#E9ECEF] ">
+                <div className="right-section mr-8 pl-5 pt-3 flex flex-row justify-between  mr-5 rounded-xl right-section h-full md:w-1/2 bg-[#E9ECEF] ">
                     <div> comments </div>
                     <div className=" w-1/2 rounded-r-xl mr-3 mb-3">
                         Insert Picture
                     </div>
+                    <button onPointerDown={props.onPointerDown} className="active:bg-primary-green absolute w-20 -mt-4 ml-[660px] ">
+                        <TrashIcon className="w-6 text-gray-700"></TrashIcon>
+                    </button>
                 </div>
-            </button>
+            </div>
         )
     } else
     return (
-        <button className="relative flex flex-row  flex-none justify-between  pl-5 pt-3 pb-3 md:h-56 mt-10 md:w-[1300px] shadow-xl-inner rounded-xl bg-[#f4f4f4]"
+        <div className="relative flex flex-row  flex-none justify-between  pl-5 pt-3 pb-3 md:h-56 mt-10 md:w-[1300px] shadow-xl-inner rounded-xl bg-[#f4f4f4]"
              ref={setNodeRef} style={style} {...listeners} {...attributes}>
             <div className= "left-section font-bold ">
                 <div className="title flex justify-start">
@@ -105,16 +115,14 @@ const ItineraryActivityBlock = (props) => {
                 </div>
             </div>
 
-            <div className="right-section pl-5 pt-3 flex flex-row justify-between  mr-5 rounded-xl right-section h-full md:w-1/2 bg-[#E9ECEF] ">
-                <div>
-                    comments
-                </div>
-                <div className=" w-1/2 rounded-r-xl mr-3 mb-3">
-                    Insert Picture
-                </div>
-
+            <div className="right-section mr-8 pl-5 pt-3 flex flex-row justify-between  mr-5 rounded-xl right-section h-full md:w-1/2 bg-[#E9ECEF] ">
+                <div>comments</div>
+                <div className=" w-1/2 rounded-r-xl mr-3 mb-3"> Insert Picture </div>
+                <button onPointerDown={props.onPointerDown} className="active:bg-primary-green absolute w-20 -mt-4 ml-[660px] ">
+                    <TrashIcon className="w-6 text-gray-700"></TrashIcon>
+                </button>
             </div>
-        </button>
+        </div>
     );
 }
 
