@@ -5,7 +5,7 @@ import {useState} from "react";
 import ItineraryActivityForm from "./ItineraryActivityForm";
 import DateBlock from "./DateBlock";
 import AddDateForm from "./AddDateForm";
-import {useLocation} from "react-router-dom";
+import {useLocation, useSearchParams} from "react-router-dom";
 import TypeOfItineraryButton from "./TypeOfItineraryButton";
 import TitleBox from "./TitleBox";
 
@@ -32,39 +32,121 @@ import {
     verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import TestBlock from "./TestBlock";
+import {getLatestTrip, getTripDetails} from "../../services/TripService";
+import {useAuth} from "../../contexts/AuthContext";
 
 
-const ItineraryPlan = (props) => {
+const ItineraryPlan = () => {
     //gets state from newTripModal
     const from = useLocation();
+
 
     const [dates, setDate] = useState([]);
     const [dateId, setDateId] = useState(0);
     const days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
-    const months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+    const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
-    const extractDates = (dates) => {
-        while (from.state.startDate <= from.state.endDate) {
-            const newDate = {
-                day: days[from.state.startDate.getDay()],
-                date: from.state.startDate.getDate() + " " + months[from.state.startDate.getMonth()],
-                year: from.state.startDate.getFullYear() + "",
-                id: dates.length,
-                activityBlock: []
-            }
-            addDateHandler(newDate);
-            dates.push(newDate);
-            from.state.startDate.setDate(from.state.startDate.getDate() + 1);
-        }
+
+    const [searchParams, setSearchParams] = useSearchParams();
+    const tripId = searchParams.get('id');
+
+    const [tripData, setTripData] = useState({
+        id: 0,
+        title: "",
+        location: "",
+        startDate: "",
+        endDate: "",
+        currency: "",
+        totalBudget: 0.0,
+        pictureLink: "",
+        lastUpdate: "",
+        itinerarys: []
+    });
+
+    const updateTripData = (key, value) => {
+        setTripData(prev => ({
+            ...prev,
+            [key] : value
+        }));
     }
 
+    const { account } = useAuth();
+
+    const username = account?.username;
+
+    const [dataLoaded, setDataLoaded] = useState(false); // Add dataLoaded state
+
+    useEffect( () => {
+        getTripDetails(username, tripId)
+            .then(res => {
+                console.log("RES:" + res.data.title);
+                res.data.startDate = new Date(res.data.startDate);
+                res.data.endDate = new Date(res.data.endDate);
+                setTripData(res.data);
+                // setTripData((prevTrip) => {
+                //     return [...prevTrip, tripData];
+                // });
+                setDataLoaded(true)// Data has been loaded successfully
+                console.log(tripData);
+                setActivity(res.data.itinerarys);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }, []);
+
     useEffect(() => {
-        extractDates(dates);
-    }, [])
+        if (dataLoaded) {
+            extractDates(dates); // Call extractDates only when dataLoaded is true
+            // console.log("DATE SIZE2: " + dates[0].day);
+            setDateId(dates[0].id)
+            console.log("Selected ID: " + dates[0].id);
+        }
+    }, [dataLoaded]);
+
+    const extractDates = (dates) => {
+        setDate([]);
+        let count = 0;
+        while (tripData.startDate <= tripData.endDate) {
+            // console.log("TYPE 4: " + tripData.startDate + " | " + tripData.endDate);
+            const newDate = {
+                day: days[tripData.startDate.getDay()],
+                date: tripData.startDate.getDate() + " " + months[tripData.startDate.getMonth()],
+                year: tripData.startDate.getFullYear() + "",
+                id: tripData.itinerarys[dates.length].id,
+                activityBlock: []
+            }
+            // console.log("RUNCOUNT: " + count++);
+            // console.log("DATE SIZE: " + dates.length);
+            // console.log("Itinerary id: " + tripData.itinerarys[dates.length].id);
+            addDateHandler(newDate);
+            dates.push(newDate);
+            // console.log("Current Date:" + )
+            // updateTripData('startDate', tripData.startDate.getDate() + 1);
+            tripData.startDate.setDate(tripData.startDate.getDate() + 1);
+        }
+
+
+    }
+
+    const getDateId = () => {
+        const index = dates.findIndex(date => {
+            return date.id == dateId;
+        });
+        return index;
+    }
+
+
+
+    //
+    // useEffect(() => {
+    //
+    // }, [])
 
 
     //this changes the display
     const changeStateHandler = (x) => {
+        console.log("Selecting id: " + x.id);
         setDateId(x.id);
         setActivity(x.activityBlock);
     }
@@ -72,15 +154,18 @@ const ItineraryPlan = (props) => {
     const [activity, setActivity] = useState([]);
     //adds activity to state
     const addActivityHandler = (ActivityBlock) => {
+
         setActivity((prevActivity) => {
-            const x = [...dates[dateId].activityBlock, ActivityBlock];
+            const x = [...dates[getDateId()].activityBlock, ActivityBlock];
             //adds activity to the date itself
             addActivityToDate(x);
             return x;
         });
     }
     const addActivityToDate = (activity) => {
-        dates[dateId].activityBlock = activity;
+
+
+        dates[getDateId()].activityBlock = activity;
     }
     const addDateHandler = (dateValues) => {
         setDate((prevDate) => {
@@ -104,7 +189,7 @@ const ItineraryPlan = (props) => {
 
 
     //TITLE FOR TRIP
-    const [title, setTitle] = useState(from.state.title);
+    const [title, setTitle] = useState(tripData.title);
     const titleChangeHandler = (event) => {
         setTitle(event.target.value);
     }
@@ -182,6 +267,7 @@ const ItineraryPlan = (props) => {
             }
         }
 
+
     }
     return (
         <Suspense>
@@ -191,7 +277,8 @@ const ItineraryPlan = (props) => {
 
             <div className="flex flex-row w-full shadow-[0px_4px_10px_3px_rgba(0,0,0,0.1)] rounded-xl">
                 <div className= "rounded-l-xl w-2/12 h-[900px] overflow-hidden scrollbar-hide overflow-y-auto">
-                        {dates.map((data) =>
+                        {
+                            dates.map((data) =>
                             <DateBlock currentId = {dateId} data = {data.id} amountOfActivity = {data.activityBlock.length}  day = {data.day} date = {data.date}
                             onClick = {() => {changeStateHandler(data)}}/>)
                         }

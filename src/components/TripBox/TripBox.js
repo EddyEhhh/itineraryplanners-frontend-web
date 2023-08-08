@@ -44,7 +44,7 @@ const TripBox = (props) => {
     }
 
     return (
-      <div className={`h-fit ${props.width} flex-col items-center justify-center`} key={props.key}>
+      <div className={`h-fit ${props.width} flex-col items-center justify-center`} key={props.key} onClick={props.onClick}>
           <div className="w-full h-3/4 rounded-md">
               {/*<div style={{position: 'relative', top: 35, float: "right", right: 10}}>*/}
               {/*    <More/>*/}

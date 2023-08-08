@@ -20,8 +20,8 @@ const AddDateForm = (props) => {
             id: props.currentDates.length,
             activityBlock: []
         }
-
         saveDateHandler(date);
+
     }
 
     const saveDateHandler = (enteredDateData) => {

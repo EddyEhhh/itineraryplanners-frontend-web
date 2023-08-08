@@ -9,6 +9,7 @@ import {useTranslation} from "react-i18next";
 import {getLatestTrip} from "../../services/TripService";
 import {register} from "../../services/AuthenticationService";
 import {useAuth} from "../../contexts/AuthContext";
+import {useNavigate} from "react-router-dom";
 
 export function MyTrips() {
   const [showNewTripModal, setNewTripModal] = useState(false);
@@ -24,6 +25,8 @@ export function MyTrips() {
   const [t, i18n] = useTranslation("tripsPage");
 
   const [isSubmit, setIsSubmit] = useState(false);
+
+  const navigate = useNavigate();
 
   const { account } = useAuth();
   // const getTrip = () => {
@@ -52,7 +55,9 @@ export function MyTrips() {
 
   }, [])
 
-
+  const onTripClick = (id) =>{
+    navigate("/itinerary?id=" + id);
+  }
 
 
   return (
@@ -64,7 +69,7 @@ export function MyTrips() {
           <div id="my-trips-container">
 
             {allTrip && allTrip.map(trip =>
-                  <TripBox key={trip.id} data={trip}></TripBox>
+                  <TripBox key={trip.id} data={trip} onClick={() => onTripClick(trip.id)}></TripBox>
             )}
             <div className="h-fit flex-col items-center justify-center">
               <div className="w-full h-3/4 rounded-md relative">

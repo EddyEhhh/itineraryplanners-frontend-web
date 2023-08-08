@@ -8,11 +8,16 @@ import {useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 // import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 import {CalendarIcon} from "@heroicons/react/24/solid";
-import {MapPinIcon} from "@heroicons/react/24/solid";
+import {MapPinIcon, HashtagIcon} from "@heroicons/react/24/solid";
+import {createBasicTrip} from "../../services/TripService";
+import {useAuth} from "../../contexts/AuthContext";
 
 
 function NewTripModal(props) {
     const navigate = useNavigate();
+
+    const [title, setTitle] = useState('');
+
     const [location, setLocation] = useState('');
 
     //sets the value for start and end date
@@ -26,18 +31,31 @@ function NewTripModal(props) {
     const [show, setShow ]= useState(false);
     const [showEndDate, setShowEndDate ]= useState(false);
 
+    const { account } = useAuth();
 
     const locationChangeHandler = (event) => {
         setLocation(event.target.value);
     }
+
+    const titleChangeHandler = (event) => {
+        setTitle(event.target.value);
+    }
+
     const clickHandler = () => {
-        const Trip = {
-            id: '0',
-            title: location,
+        const trip = {
+            title: title,
+            location: location,
             startDate: startDate,
             endDate: endDate
         }
-       navigate('/itinerary', {state:Trip});
+
+        createBasicTrip(account?.username, trip).then(res =>{
+                const id = res.data.id;
+                navigate("/itinerary?id=" + id);
+        }).catch(e => {
+            console.log("ERROR: " + e)
+        })
+
     }
 
     const todayDate = new Date();
@@ -108,11 +126,20 @@ function NewTripModal(props) {
     }
 
     const handleChangeStartDate = (selectedDate) => {
-        setStartDate(selectedDate);
+        let dateMonth = selectedDate.getMonth() + 1;
+        if(dateMonth < 10) {
+            console.log("YES LESS")
+            dateMonth = "0" + dateMonth.toString();
+        }
+        setStartDate(`${selectedDate.getFullYear()}-${dateMonth}-${selectedDate.getDate()}`);
         setStartDateDisplay(`${selectedDate.getDate()}/${selectedDate.getMonth() + 1}/${selectedDate.getFullYear()}`);
     }
     const handleChangeEndDate = (selectedDate) => {
-        setEndDate(selectedDate);
+        let dateMonth = selectedDate.getMonth() + 1;
+        if(dateMonth < 10) {
+            dateMonth = "0" + dateMonth.toString();
+        }
+        setEndDate(`${selectedDate.getFullYear()}-${dateMonth}-${selectedDate.getDate()}`);
         setEndDateDisplay(`${selectedDate.getDate()}/${selectedDate.getMonth() + 1}/${selectedDate.getFullYear()}`);
     }
 
@@ -135,6 +162,24 @@ function NewTripModal(props) {
             <div id="new-trip-modal-container" className={"flex md:flex-col"}>
               <div className="space-y-3">
                 <h1>New Trip</h1>
+                  <div>
+                      <label htmlFor="date" className="block text-sm font-semibold text-gray-900 dark:text-gray-300">
+                          Title
+                      </label>
+
+                      <div className="flex justify-center ">
+                          <InputBoxWithIcon
+                              value={title}
+                              onChange={titleChangeHandler}
+                              icon={ <HashtagIcon className="w-6 text-slate-500"/>
+                              }
+                              width="w-[512px]"
+                              placeholder="Title"
+                              className="md:w-[100px]"
+                          ></InputBoxWithIcon>
+                      </div>
+                  </div>
+
                   <div>
                       <label htmlFor="date" className="block text-sm font-semibold text-gray-900 dark:text-gray-300">
                           Location
@@ -172,7 +217,7 @@ function NewTripModal(props) {
                     </div>
 
                     <div>
-                        <DatePicker  className ="w-[512px] md:w-[100px] " options = {options2} onChange={handleChangeEndDate} show={showEndDate} setShow = {handleEndDateClose}>
+                        <DatePicker datepicker-format="yyyy-mm-dd" className ="w-[512px] md:w-[100px] " options = {options2} onChange={handleChangeEndDate} show={showEndDate} setShow = {handleEndDateClose}>
                             <label htmlFor="date" className="mb-2 block text-sm font-semibold text-gray-900 dark:text-gray-300">
                                 End Date
                             </label>

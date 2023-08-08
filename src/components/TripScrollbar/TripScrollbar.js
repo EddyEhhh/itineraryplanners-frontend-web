@@ -4,6 +4,7 @@ import TripBox from "../TripBox/TripBox";
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
 import {useAuth} from "../../contexts/AuthContext";
 import {getLatestTrip} from "../../services/TripService";
+import {useNavigate} from "react-router-dom";
 
 const TripScrollbar = () =>   {
 
@@ -60,6 +61,8 @@ const TripScrollbar = () =>   {
 
   }, [])
 
+  const navigate = useNavigate();
+
   const scrollLeft = () => {
     const scrollWrapper = scrollWrapperRef.current;
 
@@ -78,6 +81,10 @@ const TripScrollbar = () =>   {
       behavior: "smooth",
     });
   };
+
+  const onTripClick = (id) =>{
+    navigate("/itinerary?id=" + id);
+  }
 
 
   return (
@@ -102,7 +109,7 @@ const TripScrollbar = () =>   {
         <div className="flex flex-col lg:flex-row sm:flex-col lg:gap-[1.9rem]">
           {/*<TripBox title = "Title" duration = "Duration" width = "w-[406.5px]"></TripBox>*/}
           {allTrip && allTrip.map(trip =>
-              <TripBox key={trip.id} data={trip}></TripBox>
+              <TripBox key={trip.id} data={trip} onClick={() => onTripClick(trip.id)}></TripBox>
           )}
           {/*<TripBox data = {null} duration = "Duration" width = "w-[406.5px]"></TripBox>*/}
           {/*<TripBox title = "Title" duration = "Duration" width = "w-[406.5px]"></TripBox>*/}
