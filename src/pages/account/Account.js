@@ -19,24 +19,6 @@ export default function Account() {
   const navigate = useNavigate();
   const { logout, account } = useAuth();
 
-  console.log("TEST: " + account);
-
-
-  // useEffect(() => {
-  //   fetchAccount();
-  // }, [])
-  //
-  // const fetchAccount = () => {
-  //   setLoading(true);
-  //   getAccount().then(res => {
-  //     setAccount(res.data);
-  //   }).catch(err => {
-  //     setError(err.data)
-  //   }).finally(() => {
-  //     setLoading(false);
-  //   })
-  // }
-
 
 
   const handleLogout = async (e) => {

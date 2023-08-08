@@ -120,7 +120,6 @@ const ItineraryPlan = (props) => {
             addActivityToDate(x);
             return x;
         })
-
     }
 
 
@@ -187,7 +186,7 @@ const ItineraryPlan = (props) => {
     return (
         <Suspense>
         <div className= "pb-10">
-            <TitleBox titleChangeHandler ={titleChangeHandler} title ={title}></TitleBox>
+            <TitleBox titleChangeHandler={titleChangeHandler} title ={title}></TitleBox>
             <ItinerarySelection itineraryFilter = {itineraryFilterHandler}></ItinerarySelection>
 
             <div className="flex flex-row w-full shadow-[0px_4px_10px_3px_rgba(0,0,0,0.1)] rounded-xl">

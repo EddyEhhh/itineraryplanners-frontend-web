@@ -33,6 +33,8 @@ const AuthProvider = ({ children }) => {
                 // console.log("Auth", res.headers);
 
                 const jwtToken = res.headers['authorization']
+                const body = res.data;
+                console.log(body);
                 // console.log("Test: ",  jwtToken);
                 localStorage.setItem("token", jwtToken);
                 const decodedToken = jwtDecode(jwtToken);
@@ -40,7 +42,9 @@ const AuthProvider = ({ children }) => {
                 //TEMP
                 setAccount({
                     username: decodedToken.sub,
-                    roles: decodedToken.scopes
+                    roles: decodedToken.scopes,
+                    displayName: body.displayName,
+                    email: body.email
                 })
                 resolve(res);
             }).catch(err => {

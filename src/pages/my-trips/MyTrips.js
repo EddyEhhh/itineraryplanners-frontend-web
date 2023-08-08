@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import TripBox from "../../components/TripBox/TripBox";
 import styles from "./MyTrips.scss";
 import FAFAFA from "../../icons/FAFAFA.jpg";
@@ -6,6 +6,9 @@ import AddButton from "../../components/AddButton/AddButton";
 import { useState, Suspense } from "react";
 import NewTripModal from "../../components/NewTripModal/NewTripModal";
 import {useTranslation} from "react-i18next";
+import {getLatestTrip} from "../../services/TripService";
+import {register} from "../../services/AuthenticationService";
+import {useAuth} from "../../contexts/AuthContext";
 
 export function MyTrips() {
   const [showNewTripModal, setNewTripModal] = useState(false);
@@ -13,7 +16,44 @@ export function MyTrips() {
   const newTripModalHandler = () => {
     setNewTripModal(!showNewTripModal);
   };
+
+  const [username, setUsername] = useState("")
+
+  const [allTrip, setAllTrip] = useState([]);
+
   const [t, i18n] = useTranslation("tripsPage");
+
+  const [isSubmit, setIsSubmit] = useState(false);
+
+  const { account } = useAuth();
+  // const getTrip = () => {
+  //   setIsSubmit(true);
+  //   // console.log("Test: ", registerFormValidationError.usernameErrorMessage);
+  //
+  //   getLatestTrip(account?.username).then(res => {
+  //
+  //     setAllTrip(res.data);
+  //
+  //     }).catch(err =>{
+  //
+  //     }).finally(() => {
+  //       setIsSubmit(false);
+  //     })
+  // }
+
+  useEffect(() => {
+    getLatestTrip(account?.username).then(res => {
+      setAllTrip(res.data);
+    }).catch(err =>{
+    }).finally(() => {
+      setIsSubmit(false);
+    })
+
+
+  }, [])
+
+
+
 
   return (
       <div>
@@ -22,13 +62,10 @@ export function MyTrips() {
           <h1 id="my-trips-title">{t('Title')}</h1>
           </Suspense>
           <div id="my-trips-container">
-            <TripBox title="Title" duration="Duration"></TripBox>
-            <TripBox title="Title" duration="Duration"></TripBox>
-            <TripBox title="Title" duration="Duration"></TripBox>
-            <TripBox title="Title" duration="Duration"></TripBox>
-            <TripBox title="Title2" duration="Duration"></TripBox>
-            <TripBox title="Title2" duration="Duration"></TripBox>
-            <TripBox title="Title2" duration="Duration"></TripBox>
+
+            {allTrip && allTrip.map(trip =>
+                  <TripBox key={trip.id} data={trip}></TripBox>
+            )}
             <div className="h-fit flex-col items-center justify-center">
               <div className="w-full h-3/4 rounded-md relative">
                 <img
